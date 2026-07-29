@@ -82,3 +82,41 @@ h1, h2, h3, h4, h5, h6 {
 .scroll-mt-header {
   scroll-margin-top: 88px;
 }
+
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    #1a1a2e 0%,
+    #2d1b69 35%,
+    #4a2d8b 65%,
+    #1a3a4a 100%
+  );
+  background-size: 400% 400%;
+  animation: hero-gradient-shift 15s ease infinite alternate;
+}
+
+@keyframes hero-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 50% 45%, rgba(74, 45, 139, 0.1) 0%, transparent 60%);
+  background-size: 60px 60px, 60px 60px, 100% 100%;
+}
+
+.header-logo {
+  transition: filter 0.3s ease, mix-blend-mode 0.3s ease;
+}
+
+.header-logo--on-dark {
+  mix-blend-mode: screen;
+  filter: brightness(1.8);
+}

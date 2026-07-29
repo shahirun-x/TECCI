@@ -58,8 +58,8 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        solid ? "bg-cream/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+        solid ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="container-wide flex items-center justify-between py-4">
@@ -69,7 +69,7 @@ export default function Header() {
             alt="TECCI Park"
             width={140}
             height={28}
-            className="h-7 w-auto object-contain"
+            className={`header-logo h-7 w-auto object-contain ${solid ? "" : "header-logo--on-dark"}`}
             style={{ width: "auto" }}
             priority
           />

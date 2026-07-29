@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import HeroStats from "@/components/HeroStats";
 import KeyStatistics from "@/components/KeyStatistics";
 import LocationPreview from "@/components/LocationPreview";
 import PlansSection from "@/components/PlansSection";
@@ -39,6 +40,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
+      <HeroStats />
       <KeyStatistics />
       <LocationPreview />
       <PlansSection />

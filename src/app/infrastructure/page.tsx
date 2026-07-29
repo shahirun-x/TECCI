@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { HiOutlineDocumentArrowDown } from "react-icons/hi2";
 import InfraTab from "@/components/InfraTab";
-import { PROJECT_SUMMARY } from "@/lib/constants";
+import { MASTER_PLAN, PROJECT_SUMMARY } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Infrastructure & Specifications — TECCI Park",
@@ -26,18 +27,28 @@ export default function InfrastructurePage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="section-pad bg-white">
         <div className="container-wide">
           <InfraTab />
         </div>
       </section>
 
-      <section className="bg-cream py-20">
+      <section className="section-pad bg-cream">
         <div className="container-wide">
-          <h2 className="text-2xl font-semibold text-navy sm:text-3xl">
-            Project Summary
-          </h2>
-          <div className="mt-8 overflow-x-auto rounded-sm border border-navy/10 bg-white">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <h2 className="text-2xl font-semibold text-navy sm:text-3xl">
+              Project Summary
+            </h2>
+            <a
+              href={MASTER_PLAN.pdf}
+              download
+              className="inline-flex items-center gap-2 rounded-sm bg-purple px-6 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-purple-dark"
+            >
+              <HiOutlineDocumentArrowDown className="text-lg" />
+              Download Spec Sheet
+            </a>
+          </div>
+          <div className="mt-8 overflow-x-auto rounded-lg border border-border bg-white">
             <table className="w-full text-left text-sm">
               <tbody>
                 {PROJECT_SUMMARY.map((row, i) => (
@@ -45,10 +56,10 @@ export default function InfrastructurePage() {
                     key={row.spec}
                     className={i % 2 === 0 ? "bg-white" : "bg-cream/60"}
                   >
-                    <td className="w-1/2 border-b border-navy/5 px-6 py-4 font-medium text-navy">
+                    <td className="w-1/2 border-b border-border px-6 py-4 font-medium text-navy">
                       {row.spec}
                     </td>
-                    <td className="border-b border-navy/5 px-6 py-4 text-gray">
+                    <td className="border-b border-border px-6 py-4 text-gray">
                       {row.value}
                     </td>
                   </tr>

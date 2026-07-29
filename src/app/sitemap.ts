@@ -4,7 +4,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.teccipark.com";
   const lastModified = new Date();
 
-  const routes = ["", "/about", "/infrastructure", "/gallery", "/contact"];
+  const routes = [
+    "",
+    "/location",
+    "/infrastructure",
+    "/about",
+    "/gallery",
+    "/contact",
+    "/privacy",
+    "/disclaimer",
+  ];
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,

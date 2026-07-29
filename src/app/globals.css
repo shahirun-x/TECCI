@@ -3,23 +3,33 @@
 :root {
   --color-purple: #4a2d8b;
   --color-purple-dark: #3a2270;
+  --color-purple-light: #6b4ead;
   --color-teal: #1a7a6d;
+  --color-teal-light: #2a9d8f;
   --color-navy: #1a1a2e;
   --color-cream: #f8f7f4;
   --color-white: #ffffff;
   --color-gray: #6b7280;
+  --color-border: #e5e7eb;
 }
 
 @theme inline {
   --color-purple: var(--color-purple);
   --color-purple-dark: var(--color-purple-dark);
+  --color-purple-light: var(--color-purple-light);
   --color-teal: var(--color-teal);
+  --color-teal-light: var(--color-teal-light);
   --color-navy: var(--color-navy);
   --color-cream: var(--color-cream);
   --color-gray: var(--color-gray);
+  --color-border: var(--color-border);
 
-  --font-display: var(--font-outfit);
+  --font-display: var(--font-space-grotesk);
   --font-body: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -38,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container-wide {
-  max-width: 1440px;
+  max-width: 1200px;
   margin-inline: auto;
   padding-inline: 1.5rem;
 }
@@ -47,4 +57,28 @@ h1, h2, h3, h4, h5, h6 {
   .container-wide {
     padding-inline: 3rem;
   }
+}
+
+.section-pad {
+  padding-block: 60px;
+}
+
+@media (min-width: 768px) {
+  .section-pad {
+    padding-block: 100px;
+  }
+}
+
+.section-pad-sm {
+  padding-block: 48px;
+}
+
+@media (min-width: 768px) {
+  .section-pad-sm {
+    padding-block: 72px;
+  }
+}
+
+.scroll-mt-header {
+  scroll-margin-top: 88px;
 }

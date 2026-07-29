@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function AboutPreview() {
   return (
-    <section className="bg-cream py-24">
+    <section id="promoters" className="section-pad-sm bg-cream scroll-mt-header">
       <div className="container-wide grid gap-12 md:grid-cols-2 md:items-center">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -14,24 +14,25 @@ export default function AboutPreview() {
           transition={{ duration: 0.6 }}
         >
           <p className="text-sm font-medium uppercase tracking-widest text-teal">
-            About TECCI Park
+            Promoters
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-navy sm:text-4xl">
-            Technology @ ECCI
+            Developed by ECCI
           </h2>
           <p className="mt-6 text-base leading-relaxed text-gray">
-            TECCI Park stands at the intersection of engineering excellence and
-            environmental responsibility — a Grade A IT park built for the
-            enterprises shaping Chennai&rsquo;s technology corridor. Designed by
-            Architects TEAM 3 of Singapore and developed by the multi-billion
-            dollar Buhari Group through East Coast Constructions and Industries
-            Limited (ECCI).
+            East Coast Constructions and Industries Ltd. — part of the
+            internationally renowned Buhari Group, with interests spanning
+            construction, coal mining, electronics, real estate, and shipping.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-gray">
+            From building India&rsquo;s first flyover to contemporary IT
+            parks — four decades of engineering excellence.
           </p>
           <Link
             href="/about"
             className="mt-8 inline-block border-b-2 border-purple pb-1 text-sm font-medium text-purple transition-colors hover:border-teal hover:text-teal"
           >
-            Discover Our Heritage →
+            View Leadership Team →
           </Link>
         </motion.div>
 

@@ -2,29 +2,31 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Building2, Cpu, Droplets, type LucideIcon } from "lucide-react";
 import { STRUCTURAL_SPECS, TECHNICAL_SPECS, OPERATIONAL_SPECS } from "@/lib/constants";
 
-const TABS = [
-  { key: "structural", label: "Structural", data: STRUCTURAL_SPECS },
-  { key: "technical", label: "Technical", data: TECHNICAL_SPECS },
-  { key: "operational", label: "Operational", data: OPERATIONAL_SPECS },
-] as const;
+const TABS: { key: string; label: string; icon: LucideIcon; data: { title: string; detail: string }[] }[] = [
+  { key: "structural", label: "Structural", icon: Building2, data: STRUCTURAL_SPECS },
+  { key: "technical", label: "Technical", icon: Cpu, data: TECHNICAL_SPECS },
+  { key: "operational", label: "Operational", icon: Droplets, data: OPERATIONAL_SPECS },
+];
 
 export default function InfraTab() {
-  const [active, setActive] = useState<(typeof TABS)[number]["key"]>("structural");
+  const [active, setActive] = useState(TABS[0].key);
   const current = TABS.find((t) => t.key === active)!;
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2 border-b border-navy/10">
+      <div className="flex flex-wrap gap-2 border-b border-border">
         {TABS.map((tab) => (
           <button
             key={tab.key}
             onClick={() => setActive(tab.key)}
-            className={`relative px-6 py-4 text-sm font-medium tracking-wide transition-colors ${
+            className={`relative flex items-center gap-2 px-6 py-4 text-sm font-medium tracking-wide transition-colors ${
               active === tab.key ? "text-purple" : "text-gray hover:text-navy"
             }`}
           >
+            <tab.icon className="h-4 w-4" strokeWidth={1.75} />
             {tab.label}
             {active === tab.key && (
               <motion.div

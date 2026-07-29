@@ -22,7 +22,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="section-pad bg-white">
         <div className="container-wide grid gap-12 lg:grid-cols-5">
           <div className="lg:col-span-3">
             <h2 className="text-2xl font-semibold text-navy">Send an Enquiry</h2>

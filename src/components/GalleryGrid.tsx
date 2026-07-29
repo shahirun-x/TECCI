@@ -6,19 +6,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { HiX, HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { GALLERY_ITEMS } from "@/lib/constants";
 
-export default function GalleryGrid() {
+type GalleryItem = (typeof GALLERY_ITEMS)[number];
+
+export default function GalleryGrid({ items = GALLERY_ITEMS }: { items?: GalleryItem[] }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const close = () => setActiveIndex(null);
   const prev = () =>
-    setActiveIndex((i) => (i === null ? null : (i - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length));
+    setActiveIndex((i) => (i === null ? null : (i - 1 + items.length) % items.length));
   const next = () =>
-    setActiveIndex((i) => (i === null ? null : (i + 1) % GALLERY_ITEMS.length));
+    setActiveIndex((i) => (i === null ? null : (i + 1) % items.length));
 
   return (
     <>
       <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
-        {GALLERY_ITEMS.map((item, i) => (
+        {items.map((item, i) => (
           <motion.button
             key={item.id}
             initial={{ opacity: 0, y: 20 }}
@@ -26,7 +28,7 @@ export default function GalleryGrid() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
             onClick={() => setActiveIndex(i)}
-            className="group relative mb-4 block w-full overflow-hidden rounded-sm bg-navy/5"
+            className="group relative mb-4 block w-full overflow-hidden rounded-lg bg-navy/5"
             style={{ aspectRatio: i % 3 === 1 ? "3/4" : "4/3" }}
           >
             <Image
@@ -87,13 +89,13 @@ export default function GalleryGrid() {
               onClick={(e) => e.stopPropagation()}
             >
               <Image
-                src={GALLERY_ITEMS[activeIndex].src}
-                alt={GALLERY_ITEMS[activeIndex].label}
+                src={items[activeIndex].src}
+                alt={items[activeIndex].label}
                 fill
                 className="object-contain"
               />
               <p className="absolute -bottom-10 left-0 right-0 text-center text-sm text-white/70">
-                {GALLERY_ITEMS[activeIndex].label}
+                {items[activeIndex].label}
               </p>
             </motion.div>
           </motion.div>

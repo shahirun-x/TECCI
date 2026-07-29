@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import GalleryGrid from "@/components/GalleryGrid";
+import GalleryFiltered from "@/components/GalleryFiltered";
 
 export const metadata: Metadata = {
   title: "Gallery — TECCI Park",
@@ -20,9 +20,9 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="section-pad bg-white">
         <div className="container-wide">
-          <GalleryGrid />
+          <GalleryFiltered />
         </div>
       </section>
     </>

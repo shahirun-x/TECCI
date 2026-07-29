@@ -1,9 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { FaLinkedin, FaFacebook } from "react-icons/fa";
-import { CONTACT, NAV_LINKS, SITE } from "@/lib/constants";
+import { CONTACT, HOME_NAV_LINKS, NAV_LINKS, SITE } from "@/lib/constants";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   return (
     <footer className="bg-navy text-white/80">
       <div className="container-wide grid gap-10 py-16 md:grid-cols-4">
@@ -26,13 +32,21 @@ export default function Footer() {
             Quick Links
           </h4>
           <ul className="mt-4 space-y-2">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="text-sm hover:text-teal transition-colors">
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {isHome
+              ? HOME_NAV_LINKS.map((link) => (
+                  <li key={link.id}>
+                    <a href={`#${link.id}`} className="text-sm hover:text-teal transition-colors">
+                      {link.label}
+                    </a>
+                  </li>
+                ))
+              : NAV_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="text-sm hover:text-teal transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
           </ul>
         </div>
 
@@ -50,8 +64,9 @@ export default function Footer() {
 
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
-            Follow Us
+            {SITE.legalEntity}
           </h4>
+          <p className="mt-4 text-sm text-white/60">A Buhari Group Enterprise</p>
           <div className="mt-4 flex gap-4 text-xl">
             <a href="#" aria-label="LinkedIn" className="hover:text-teal transition-colors">
               <FaLinkedin />
@@ -64,9 +79,16 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10 py-6">
-        <div className="container-wide flex flex-col gap-2 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 {SITE.legalEntity}. All Rights Reserved.</p>
-          <p>A Buhari Group Enterprise — Developed by ECCI, East Coast Constructions and Industries Ltd.</p>
+        <div className="container-wide flex flex-col gap-3 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
+          <p>© 2026 {SITE.legalEntity}. All Rights Reserved. | A Buhari Group Enterprise</p>
+          <div className="flex gap-5">
+            <Link href="/privacy" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/disclaimer" className="hover:text-white transition-colors">
+              Disclaimer
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

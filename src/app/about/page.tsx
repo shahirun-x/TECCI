@@ -30,7 +30,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="section-pad bg-white">
         <div className="container-wide max-w-3xl">
           <h2 className="text-2xl font-semibold text-navy sm:text-3xl">
             Our Heritage
@@ -52,7 +52,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-cream py-20">
+      <section className="section-pad bg-cream">
         <div className="container-wide">
           <h2 className="text-2xl font-semibold text-navy sm:text-3xl">
             Leadership Team
@@ -67,7 +67,7 @@ export default function AboutPage() {
               {TEAM_PENDING.map((name) => (
                 <div
                   key={name}
-                  className="flex flex-col justify-center border-t-2 border-navy/10 bg-white/60 p-6 text-center"
+                  className="flex flex-col justify-center border-t-2 border-border bg-white/60 p-6 text-center"
                 >
                   <h3 className="text-base font-semibold text-navy">{name}</h3>
                   <p className="mt-1 text-sm text-gray">Profile coming soon</p>
@@ -78,7 +78,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="section-pad bg-white">
         <div className="container-wide">
           <h2 className="text-2xl font-semibold text-navy sm:text-3xl">
             Vision &amp; Values

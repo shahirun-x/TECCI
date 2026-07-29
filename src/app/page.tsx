@@ -1,10 +1,16 @@
 import Hero from "@/components/Hero";
-import StatsStrip from "@/components/StatsStrip";
-import AboutPreview from "@/components/AboutPreview";
-import GreenBuilding from "@/components/GreenBuilding";
-import TenantStrip from "@/components/TenantStrip";
+import KeyStatistics from "@/components/KeyStatistics";
 import LocationPreview from "@/components/LocationPreview";
-import CTABanner from "@/components/CTABanner";
+import PlansSection from "@/components/PlansSection";
+import OfficeAvailability from "@/components/OfficeAvailability";
+import TenantStrip from "@/components/TenantStrip";
+import DesignSection from "@/components/DesignSection";
+import SpecsSection from "@/components/SpecsSection";
+import GreenBuilding from "@/components/GreenBuilding";
+import AmenitiesGrid from "@/components/AmenitiesGrid";
+import GalleryPreview from "@/components/GalleryPreview";
+import AboutPreview from "@/components/AboutPreview";
+import ContactSection from "@/components/ContactSection";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -33,12 +39,18 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
-      <StatsStrip />
-      <AboutPreview />
-      <GreenBuilding />
-      <TenantStrip />
+      <KeyStatistics />
       <LocationPreview />
-      <CTABanner />
+      <PlansSection />
+      <OfficeAvailability />
+      <TenantStrip />
+      <DesignSection />
+      <SpecsSection />
+      <GreenBuilding />
+      <AmenitiesGrid />
+      <GalleryPreview />
+      <AboutPreview />
+      <ContactSection />
     </>
   );
 }

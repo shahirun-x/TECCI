@@ -113,10 +113,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-logo {
-  transition: filter 0.3s ease, mix-blend-mode 0.3s ease;
+  transition: filter 0.3s ease;
 }
 
-.header-logo--on-dark {
-  mix-blend-mode: screen;
-  filter: brightness(1.8);
+.nav-link-active-light {
+  position: relative;
+}
+
+.nav-link-active-light::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--color-white);
 }

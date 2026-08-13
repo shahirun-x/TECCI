@@ -8,6 +8,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
 import { HOME_NAV_LINKS, NAV_LINKS } from "@/lib/constants";
 
+const MOBILE_HEADER_HEIGHT = 52; // px — header height while solid (py-3 + logo)
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -51,31 +53,42 @@ export default function Header() {
 
   const solid = scrolled || !isHome || open;
 
-  const linkClass = (isActive: boolean) =>
-    `text-sm font-medium tracking-wide transition-colors ${
-      isActive ? "text-purple" : solid ? "text-navy hover:text-purple" : "text-white hover:text-white/80"
+  const linkClass = (isActive: boolean) => {
+    if (solid) {
+      return `text-sm font-medium tracking-wide transition-colors ${
+        isActive ? "text-purple" : "text-navy hover:text-purple"
+      }`;
+    }
+    return `relative text-sm font-medium tracking-wide transition-colors ${
+      isActive ? "text-white nav-link-active-light" : "text-white/70 hover:text-white"
     }`;
+  };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-50 will-change-transform transition-all duration-300 ease-in-out ${
         solid ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="container-wide flex items-center justify-between py-4">
+      <div
+        className={`container-wide flex items-center justify-between transition-all duration-300 ease-in-out ${
+          solid ? "py-3" : "py-4"
+        }`}
+      >
         <Link href="/" className="flex items-center gap-3 shrink-0">
+          {/* TODO: Replace with proper white logo variant from Figma */}
           <Image
             src="/images/tecci-logo.jpg"
             alt="TECCI Park"
             width={140}
             height={28}
-            className={`header-logo h-7 w-auto object-contain ${solid ? "" : "header-logo--on-dark"}`}
+            className={`header-logo h-7 w-auto object-contain ${solid ? "" : "brightness-0 invert"}`}
             style={{ width: "auto" }}
             priority
           />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
           {isHome
             ? HOME_NAV_LINKS.map((link) => (
                 <a key={link.id} href={`#${link.id}`} className={linkClass(activeSection === link.id)}>
@@ -89,7 +102,11 @@ export default function Header() {
               ))}
           <Link
             href={isHome ? "#contact" : "/contact"}
-            className="rounded-sm bg-purple px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-purple-dark"
+            className={`rounded-sm px-5 py-2.5 text-sm font-medium tracking-wide transition-all duration-200 ${
+              solid
+                ? "bg-purple text-white hover:bg-purple-dark hover:shadow-md"
+                : "border border-white bg-transparent text-white hover:bg-white hover:text-purple"
+            }`}
           >
             Enquire Now
           </Link>
@@ -97,7 +114,7 @@ export default function Header() {
 
         <button
           aria-label="Toggle menu"
-          className={`lg:hidden text-2xl ${solid ? "text-navy" : "text-white"}`}
+          className={`lg:hidden text-2xl transition-colors ${solid ? "text-navy" : "text-white"}`}
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <HiX /> : <HiMenu />}
@@ -106,48 +123,83 @@ export default function Header() {
 
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 top-[64px] lg:hidden flex flex-col bg-cream"
-          >
-            <nav className="container-wide flex flex-1 flex-col gap-1 overflow-y-auto py-8">
-              {(isHome ? HOME_NAV_LINKS : NAV_LINKS).map((link, i) => {
-                const isAnchor = "id" in link;
-                const href = isAnchor ? `#${(link as { id: string }).id}` : (link as { href: string }).href;
-                const isActive = isAnchor
-                  ? activeSection === (link as { id: string }).id
-                  : pathname === (link as { href: string }).href;
-                return (
-                  <motion.div
-                    key={href}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: i * 0.04 }}
-                  >
-                    <a
-                      href={href}
-                      onClick={() => setOpen(false)}
-                      className={`block border-b border-navy/10 py-4 text-2xl font-display font-medium ${
-                        isActive ? "text-purple" : "text-navy"
-                      }`}
+          <>
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="fixed inset-x-0 bottom-0 z-40 bg-navy/40 backdrop-blur-sm lg:hidden"
+              style={{ top: MOBILE_HEADER_HEIGHT }}
+              onClick={() => setOpen(false)}
+            />
+            <motion.div
+              key="panel"
+              initial={{ opacity: 0, y: -16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="fixed inset-x-0 z-50 flex flex-col bg-white lg:hidden"
+              style={{ top: MOBILE_HEADER_HEIGHT, height: `calc(100dvh - ${MOBILE_HEADER_HEIGHT}px)` }}
+            >
+              <div className="flex items-center justify-between border-b border-navy/10 px-6 py-4">
+                <Image
+                  src="/images/tecci-logo.jpg"
+                  alt="TECCI Park"
+                  width={120}
+                  height={24}
+                  className="h-6 w-auto object-contain"
+                  style={{ width: "auto" }}
+                />
+                <button
+                  aria-label="Close menu"
+                  className="text-2xl text-navy"
+                  onClick={() => setOpen(false)}
+                >
+                  <HiX />
+                </button>
+              </div>
+
+              <nav className="container-wide flex flex-1 flex-col overflow-y-auto py-6">
+                {(isHome ? HOME_NAV_LINKS : NAV_LINKS).map((link, i) => {
+                  const isAnchor = "id" in link;
+                  const href = isAnchor ? `#${(link as { id: string }).id}` : (link as { href: string }).href;
+                  const isActive = isAnchor
+                    ? activeSection === (link as { id: string }).id
+                    : pathname === (link as { href: string }).href;
+                  return (
+                    <motion.div
+                      key={href}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: i * 0.04 }}
                     >
-                      {link.label}
-                    </a>
-                  </motion.div>
-                );
-              })}
-              <Link
-                href={isHome ? "#contact" : "/contact"}
-                onClick={() => setOpen(false)}
-                className="mt-6 rounded-sm bg-purple px-5 py-4 text-center text-base font-medium text-white"
-              >
-                Enquire Now
-              </Link>
-            </nav>
-          </motion.div>
+                      <a
+                        href={href}
+                        onClick={() => setOpen(false)}
+                        className={`block border-b border-navy/10 py-3 text-xl font-display font-medium ${
+                          isActive ? "text-purple" : "text-navy"
+                        }`}
+                      >
+                        {link.label}
+                      </a>
+                    </motion.div>
+                  );
+                })}
+              </nav>
+
+              <div className="border-t border-navy/10 p-6">
+                <Link
+                  href={isHome ? "#contact" : "/contact"}
+                  onClick={() => setOpen(false)}
+                  className="block w-full rounded-lg bg-purple py-4 text-center text-base font-medium text-white transition-colors hover:bg-purple-dark"
+                >
+                  Enquire Now
+                </Link>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

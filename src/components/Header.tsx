@@ -58,35 +58,30 @@ export default function Header() {
 
   const linkClass = (isActive: boolean) => {
     if (solid) {
-      return `text-sm font-medium tracking-wide transition-colors ${
-        isActive ? "text-purple" : "text-navy hover:text-purple"
-      }`;
+      return `text-sm font-medium tracking-wide transition-colors ${isActive ? "text-purple" : "text-navy hover:text-purple"
+        }`;
     }
-    return `relative text-sm font-medium tracking-wide transition-colors ${
-      isActive ? "text-white nav-link-active-light" : "text-white/70 hover:text-white"
-    }`;
+    return `relative text-sm font-medium tracking-wide transition-colors ${isActive ? "text-white nav-link-active-light" : "text-white/70 hover:text-white"
+      }`;
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 will-change-transform transition-all duration-300 ease-in-out ${
-        solid ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 will-change-transform transition-all duration-300 ease-in-out ${solid ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
+        }`}
     >
       <div
-        className={`container-wide flex items-center justify-between transition-all duration-300 ease-in-out ${
-          solid ? "py-3" : "py-4"
-        }`}
+        className={`container-wide flex items-center justify-between transition-all duration-300 ease-in-out ${solid ? "py-3" : "py-4"
+          }`}
       >
         <Link href="/" className="relative h-7 w-[140px] shrink-0">
           <Image
-            src="/images/tecci-logo.jpg"
+            src="/images/tecci logo.svg"
             alt="TECCI Park"
             fill
             sizes="140px"
-            className={`object-contain object-left transition-opacity duration-300 ${
-              solid ? "opacity-100" : "opacity-0"
-            }`}
+            className={`object-contain object-left transition-opacity duration-300 ${solid ? "opacity-100" : "opacity-0"
+              }`}
             priority
           />
           <Image
@@ -94,9 +89,8 @@ export default function Header() {
             alt="TECCI Park"
             fill
             sizes="140px"
-            className={`object-contain object-left transition-opacity duration-300 ${
-              solid ? "opacity-0" : "opacity-100"
-            }`}
+            className={`object-contain object-left transition-opacity duration-300 ${solid ? "opacity-0" : "opacity-100"
+              }`}
             priority
           />
         </Link>
@@ -104,22 +98,21 @@ export default function Header() {
         <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
           {isHome
             ? HOME_NAV_LINKS.map((link) => (
-                <a key={link.id} href={`#${link.id}`} className={linkClass(activeSection === link.id)}>
-                  {link.label}
-                </a>
-              ))
+              <a key={link.id} href={`#${link.id}`} className={linkClass(activeSection === link.id)}>
+                {link.label}
+              </a>
+            ))
             : NAV_LINKS.map((link) => (
-                <Link key={link.href} href={link.href} className={linkClass(pathname === link.href)}>
-                  {link.label}
-                </Link>
-              ))}
+              <Link key={link.href} href={link.href} className={linkClass(pathname === link.href)}>
+                {link.label}
+              </Link>
+            ))}
           <Link
             href={isHome ? "#contact" : "/contact"}
-            className={`whitespace-nowrap rounded-sm px-4 py-2.5 text-sm font-medium tracking-wide transition-all duration-200 xl:px-5 ${
-              solid
-                ? "bg-purple text-white hover:bg-purple-dark hover:shadow-md"
-                : "border border-white bg-transparent text-white hover:bg-white hover:text-purple"
-            }`}
+            className={`rounded-sm px-5 py-2.5 text-sm font-medium tracking-wide transition-all duration-200 ${solid
+              ? "bg-purple text-white hover:bg-purple-dark hover:shadow-md"
+              : "border border-white bg-transparent text-white hover:bg-white hover:text-purple"
+              }`}
           >
             Enquire Now
           </Link>
@@ -191,9 +184,8 @@ export default function Header() {
                       <a
                         href={href}
                         onClick={() => setOpen(false)}
-                        className={`block border-b border-navy/10 py-3 text-xl font-display font-medium ${
-                          isActive ? "text-purple" : "text-navy"
-                        }`}
+                        className={`block border-b border-navy/10 py-3 text-xl font-display font-medium ${isActive ? "text-purple" : "text-navy"
+                          }`}
                       >
                         {link.label}
                       </a>
@@ -206,7 +198,7 @@ export default function Header() {
                 <Link
                   href={isHome ? "#contact" : "/contact"}
                   onClick={() => setOpen(false)}
-                  className="block w-full whitespace-nowrap rounded-lg bg-purple py-4 text-center text-base font-medium text-white transition-colors hover:bg-purple-dark"
+                  className="block w-full rounded-lg bg-purple py-4 text-center text-base font-medium text-white transition-colors hover:bg-purple-dark"
                 >
                   Enquire Now
                 </Link>

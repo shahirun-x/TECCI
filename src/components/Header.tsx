@@ -115,7 +115,7 @@ export default function Header() {
               ))}
           <Link
             href={isHome ? "#contact" : "/contact"}
-            className={`rounded-sm px-5 py-2.5 text-sm font-medium tracking-wide transition-all duration-200 ${
+            className={`whitespace-nowrap rounded-sm px-4 py-2.5 text-sm font-medium tracking-wide transition-all duration-200 xl:px-5 ${
               solid
                 ? "bg-purple text-white hover:bg-purple-dark hover:shadow-md"
                 : "border border-white bg-transparent text-white hover:bg-white hover:text-purple"
@@ -206,7 +206,7 @@ export default function Header() {
                 <Link
                   href={isHome ? "#contact" : "/contact"}
                   onClick={() => setOpen(false)}
-                  className="block w-full rounded-lg bg-purple py-4 text-center text-base font-medium text-white transition-colors hover:bg-purple-dark"
+                  className="block w-full whitespace-nowrap rounded-lg bg-purple py-4 text-center text-base font-medium text-white transition-colors hover:bg-purple-dark"
                 >
                   Enquire Now
                 </Link>

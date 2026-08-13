@@ -5,7 +5,7 @@ import { HERO_STATS } from "@/lib/constants";
 
 export default function HeroStats() {
   return (
-    <section className="border-t border-white/10 bg-navy py-14">
+    <section className="relative z-20 -mt-10 border-t border-white/10 bg-navy/80 py-10 backdrop-blur-md md:-mt-14 md:py-14">
       <div className="container-wide">
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
           {HERO_STATS.map((stat, i) => (

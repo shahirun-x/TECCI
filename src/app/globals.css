@@ -112,10 +112,6 @@ h1, h2, h3, h4, h5, h6 {
   background-size: 60px 60px, 60px 60px, 100% 100%;
 }
 
-.header-logo {
-  transition: filter 0.3s ease;
-}
-
 .nav-link-active-light {
   position: relative;
 }

@@ -25,9 +25,12 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
+  const [prevPathname, setPrevPathname] = useState(pathname);
+
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setOpen(false);
-  }, [pathname]);
+  }
 
   useEffect(() => {
     if (!isHome) return;
@@ -75,15 +78,25 @@ export default function Header() {
           solid ? "py-3" : "py-4"
         }`}
       >
-        <Link href="/" className="flex items-center gap-3 shrink-0">
-          {/* TODO: Replace with proper white logo variant from Figma */}
+        <Link href="/" className="relative h-7 w-[140px] shrink-0">
           <Image
             src="/images/tecci-logo.jpg"
             alt="TECCI Park"
-            width={140}
-            height={28}
-            className={`header-logo h-7 w-auto object-contain ${solid ? "" : "brightness-0 invert"}`}
-            style={{ width: "auto" }}
+            fill
+            sizes="140px"
+            className={`object-contain object-left transition-opacity duration-300 ${
+              solid ? "opacity-100" : "opacity-0"
+            }`}
+            priority
+          />
+          <Image
+            src="/images/tecci logo white.svg"
+            alt="TECCI Park"
+            fill
+            sizes="140px"
+            className={`object-contain object-left transition-opacity duration-300 ${
+              solid ? "opacity-0" : "opacity-100"
+            }`}
             priority
           />
         </Link>

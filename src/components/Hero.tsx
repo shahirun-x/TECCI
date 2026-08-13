@@ -129,6 +129,8 @@ export default function Hero() {
 
       <div className="hero-overlay-gradient pointer-events-none absolute inset-0 z-[2]" />
 
+      <div className="pointer-events-none absolute inset-x-0 top-1/4 bottom-1/4 z-[3] bg-gradient-to-b from-transparent via-navy/20 to-transparent backdrop-blur-[1px]" />
+
       <div className="container-wide relative z-10 flex h-full -translate-y-[5%] flex-col items-center justify-center text-center text-white">
         <motion.p
           initial={{ opacity: 0, y: 10 }}

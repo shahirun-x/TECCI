@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { CONTACT, DIRECTIONS, NEARBY_LANDMARKS, PROXIMITY } from "@/lib/constants";
+import { MapPin } from "lucide-react";
+import { CONTACT, DIRECTIONS, NEARBY_LANDMARKS, PROXIMITY, PUBLIC_TRANSPORT } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Location — TECCI Park",
@@ -24,7 +24,7 @@ export default function LocationPage() {
 
       <section className="section-pad bg-white">
         <div className="container-wide">
-          <div className="aspect-[16/7] w-full overflow-hidden rounded-lg shadow-sm">
+          <div className="aspect-video w-full overflow-hidden rounded-2xl shadow-lg">
             <iframe
               title="TECCI Park Location Map"
               src={`https://www.google.com/maps?q=${CONTACT.coordinates.lat},${CONTACT.coordinates.lng}&z=16&output=embed`}
@@ -47,16 +47,29 @@ export default function LocationPage() {
                 parallel to OMR.
               </p>
               <p className="mt-4 flex items-start gap-3 text-sm text-navy">
-                <FaMapMarkerAlt className="mt-1 shrink-0 text-purple" />
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-purple" strokeWidth={1.75} />
                 {CONTACT.siteAddress.line1}, {CONTACT.siteAddress.line2},{" "}
                 {CONTACT.siteAddress.city}
               </p>
 
               <h3 className="mt-10 text-lg font-semibold text-navy">Nearby Landmarks</h3>
-              <ul className="mt-4 space-y-2">
+              <div className="mt-4 flex flex-wrap gap-2">
                 {NEARBY_LANDMARKS.map((landmark) => (
-                  <li key={landmark} className="border-l-2 border-teal pl-3 text-sm text-gray">
+                  <span
+                    key={landmark}
+                    className="rounded-full bg-navy/5 px-4 py-2 text-sm text-navy"
+                  >
                     {landmark}
+                  </span>
+                ))}
+              </div>
+
+              <h3 className="mt-10 text-lg font-semibold text-navy">Public Transport</h3>
+              <ul className="mt-4 space-y-3">
+                {PUBLIC_TRANSPORT.map((item) => (
+                  <li key={item.label} className="border-l-2 border-teal pl-3">
+                    <p className="text-sm font-medium text-navy">{item.label}</p>
+                    <p className="text-xs text-gray">{item.detail}</p>
                   </li>
                 ))}
               </ul>
@@ -71,6 +84,11 @@ export default function LocationPage() {
                       <tr key={item.label} className={i % 2 === 0 ? "bg-white" : "bg-cream/60"}>
                         <td className="border-b border-border px-6 py-4 font-medium text-navy">
                           {item.label}
+                          {"tag" in item && item.tag && (
+                            <span className="ml-2 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">
+                              {item.tag}
+                            </span>
+                          )}
                         </td>
                         <td className="border-b border-border px-6 py-4 text-gray">
                           {item.distance}

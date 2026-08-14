@@ -2,60 +2,28 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { CONTACT, PROXIMITY } from "@/lib/constants";
+import { MapPin, Phone, Mail, Plane, Train, Bus } from "lucide-react";
+import { CONTACT, PROXIMITY, NEARBY_LANDMARKS, PUBLIC_TRANSPORT } from "@/lib/constants";
 
 export default function LocationPreview() {
   return (
     <section id="location" className="section-pad bg-cream scroll-mt-header">
-      <div className="container-wide grid gap-12 lg:grid-cols-2 lg:items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+      <div className="container-wide">
+        <div className="text-center">
           <p className="text-sm font-medium uppercase tracking-widest text-teal">
             Location
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-navy sm:text-4xl">
             At the Heart of the OMR Corridor
           </h2>
-          <p className="mt-6 text-base leading-relaxed text-gray">
-            The Rajiv Gandhi Salai (OMR) is the preferred destination for
-            discerning IT/ITES majors. TECCI Park is situated within Chennai
-            corporation limits at the Sholinganallur junction, a major conduit
-            connecting ECR and the Velachery-Tambaram road parallel to OMR.
-          </p>
-          <p className="mt-4 flex items-start gap-3 text-sm text-navy">
-            <FaMapMarkerAlt className="mt-1 shrink-0 text-purple" />
-            {CONTACT.siteAddress.line1}, {CONTACT.siteAddress.line2},{" "}
-            {CONTACT.siteAddress.city}
-          </p>
-
-          <div className="mt-8 grid grid-cols-2 gap-4">
-            {PROXIMITY.map((item) => (
-              <div key={item.label} className="border-l-2 border-teal pl-3">
-                <p className="text-sm font-semibold text-navy">{item.distance}</p>
-                <p className="text-xs text-gray">{item.label}</p>
-              </div>
-            ))}
-          </div>
-
-          <Link
-            href="/location"
-            className="mt-8 inline-block border-b-2 border-purple pb-1 text-sm font-medium text-purple transition-colors hover:border-teal hover:text-teal"
-          >
-            View Full Location Details →
-          </Link>
-        </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="aspect-[4/3] w-full overflow-hidden rounded-lg shadow-sm"
+          transition={{ duration: 0.6 }}
+          className="mt-12 aspect-video w-full overflow-hidden rounded-2xl shadow-lg"
         >
           <iframe
             title="TECCI Park Location"
@@ -67,6 +35,117 @@ export default function LocationPreview() {
             referrerPolicy="no-referrer-when-downgrade"
           />
         </motion.div>
+
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="rounded-xl bg-white p-6 shadow-sm md:p-8"
+          >
+            <h3 className="text-lg font-semibold text-navy">Address & Contact</h3>
+            <div className="mt-5 space-y-4">
+              <div className="flex gap-3">
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-purple" strokeWidth={1.75} />
+                <p className="text-sm text-gray">
+                  {CONTACT.siteAddress.line1}, {CONTACT.siteAddress.line2},{" "}
+                  {CONTACT.siteAddress.city}
+                </p>
+              </div>
+              <div className="flex gap-3">
+                <Phone className="mt-0.5 h-5 w-5 shrink-0 text-purple" strokeWidth={1.75} />
+                <a href={`tel:${CONTACT.phone}`} className="text-sm text-gray hover:text-navy">
+                  {CONTACT.phone}
+                </a>
+              </div>
+              <div className="flex gap-3">
+                <Mail className="mt-0.5 h-5 w-5 shrink-0 text-purple" strokeWidth={1.75} />
+                <a href={`mailto:${CONTACT.email}`} className="text-sm text-gray hover:text-navy">
+                  {CONTACT.email}
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="rounded-xl bg-white p-6 shadow-sm md:p-8"
+          >
+            <h3 className="text-lg font-semibold text-navy">Getting Here</h3>
+            <div className="mt-5 space-y-3">
+              {PROXIMITY.map((item) => (
+                <div key={item.label} className="flex items-start justify-between gap-4">
+                  <p className="text-sm font-medium text-navy">{item.label}</p>
+                  <div className="flex shrink-0 items-center gap-2">
+                    <span className="text-sm text-gray">{item.distance}</span>
+                    {"tag" in item && item.tag && (
+                      <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">
+                        {item.tag}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-10"
+        >
+          <h3 className="text-lg font-semibold text-navy">Nearby Landmarks</h3>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {NEARBY_LANDMARKS.map((landmark) => (
+              <span
+                key={landmark}
+                className="rounded-full bg-navy/5 px-4 py-2 text-sm text-navy"
+              >
+                {landmark}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-10"
+        >
+          <h3 className="text-lg font-semibold text-navy">Public Transport</h3>
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            {PUBLIC_TRANSPORT.map((item, i) => {
+              const Icon = i === 0 ? Plane : i === 1 ? Bus : Train;
+              return (
+                <div key={item.label} className="flex items-start gap-3">
+                  <Icon className="mt-0.5 h-5 w-5 shrink-0 text-teal" strokeWidth={1.75} />
+                  <div>
+                    <p className="text-sm font-medium text-navy">{item.label}</p>
+                    <p className="text-xs text-gray">{item.detail}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
+
+        <div className="mt-10 text-center">
+          <Link
+            href="/location"
+            className="inline-block border-b-2 border-purple pb-1 text-sm font-medium text-purple transition-colors hover:border-teal hover:text-teal"
+          >
+            View Full Location Details →
+          </Link>
+        </div>
       </div>
     </section>
   );

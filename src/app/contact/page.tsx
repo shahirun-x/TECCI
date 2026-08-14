@@ -37,18 +37,7 @@ export default function ContactPage() {
               <div className="flex gap-4">
                 <FaMapMarkerAlt className="mt-1 shrink-0 text-purple" />
                 <div>
-                  <p className="text-sm font-semibold text-navy">Registered Office</p>
-                  <p className="mt-1 text-sm text-gray">
-                    {CONTACT.registeredOffice.line1}, {CONTACT.registeredOffice.line2}
-                    <br />
-                    {CONTACT.registeredOffice.city}
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <FaMapMarkerAlt className="mt-1 shrink-0 text-purple" />
-                <div>
-                  <p className="text-sm font-semibold text-navy">Site Address</p>
+                  <p className="text-sm font-semibold text-navy">Address</p>
                   <p className="mt-1 text-sm text-gray">
                     {CONTACT.siteAddress.line1}, {CONTACT.siteAddress.line2}
                     <br />

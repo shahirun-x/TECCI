@@ -16,19 +16,14 @@ export const COLORS = {
 };
 
 export const CONTACT = {
-  registeredOffice: {
-    line1: "Third Floor, Buhari Buildings",
-    line2: "4-Moores Road",
-    city: "Chennai — 600 006",
-  },
   siteAddress: {
-    line1: "285 Rajiv Gandhi Salai",
+    line1: "New No. 173, Old No. 285, Rajiv Gandhi Salai",
     line2: "Sholinganallur",
     city: "Chennai — 600 119",
   },
   phone: "+91 44 4226 1112",
   email: "info@teccipark.com",
-  coordinates: { lat: 12.9003, lng: 80.2279 },
+  coordinates: { lat: 12.91018, lng: 80.228475 },
 };
 
 // Sub-page routing nav (used on non-homepage routes)
@@ -83,13 +78,15 @@ export const KEY_STATISTICS = [
 ];
 
 export const PROXIMITY = [
-  { label: "Chennai Airport", distance: "17.5 km" },
-  { label: "Sholinganallur Junction", distance: "Adjacent" },
-  { label: "ECR Access", distance: "2 km" },
-  { label: "Tambaram Railway", distance: "8 km" },
+  { label: "Chennai International Airport", distance: "17.5 km (~35–45 min)" },
+  { label: "Sholinganallur Junction", distance: "Adjacent (on-site frontage)" },
+  { label: "ECR (East Coast Road)", distance: "2 km" },
+  { label: "Tambaram Railway Station", distance: "20 km" },
+  { label: "Upcoming Metro Station", distance: "Directly in front", tag: "COMING SOON" },
   { label: "OMR IT Corridor", distance: "On the corridor" },
 ];
 
+// TODO: Client to verify driving directions reflect current road network
 export const DIRECTIONS = [
   {
     from: "From Chennai Airport",
@@ -109,10 +106,20 @@ export const DIRECTIONS = [
 ];
 
 export const NEARBY_LANDMARKS = [
-  "Crescent Engineering College",
+  "Chettinad Health City (adjacent)",
+  "ELCOT SEZ (directly behind TECCI Park)",
+  "Vivanta by Taj",
+  "Nortel Hotels",
+  "BSR Mall",
+  "World Trade Center Chennai",
   "SIPCOT IT Park",
   "Sholinganallur Lake",
-  "Multiple Grade A IT/ITES campuses along the OMR corridor",
+];
+
+export const PUBLIC_TRANSPORT = [
+  { label: "MAA2 Airport Shuttle Bus Route", detail: "Direct route from Chennai Airport" },
+  { label: "MTC Bus Routes", detail: "Multiple routes along OMR" },
+  { label: "Upcoming Metro Station", detail: "Directly in front of TECCI Park (name TBC)" },
 ];
 
 export const ANCHOR_TENANTS = [
@@ -222,18 +229,29 @@ export const MASTER_PLAN = {
 
 
 export const AMENITIES = [
-  { label: "24/7 CCTV Surveillance", icon: "Camera" },
-  { label: "100% Power Backup", icon: "Zap" },
-  { label: "Mitsubishi Electric Elevators", icon: "ArrowUpDown" },
-  { label: "Multi-Level Car Parks", icon: "CarFront" },
-  { label: "Central Air Conditioning", icon: "Snowflake" },
-  { label: "Energy Management System", icon: "Cpu" },
-  { label: "Fire Safety Systems", icon: "FlameKindling" },
-  { label: "Water Treatment Plant", icon: "Droplets" },
-  { label: "Visitor Parking", icon: "SquareParking" },
-  { label: "Food Court", icon: "UtensilsCrossed" },
-  { label: "Boom Barriers & Access Control", icon: "ShieldCheck" },
-  { label: "Handicap Accessible Toilets", icon: "Accessibility" },
+  { name: "24/7 CCTV Surveillance", icon: "Shield", category: "Security" },
+  { name: "Boom Barriers & Access Control", icon: "ScanLine", category: "Security" },
+  { name: "Visitor Management", icon: "UserCheck", category: "Security" },
+  { name: "100% Power Backup", icon: "Zap", category: "Infrastructure" },
+  { name: "Central Air Conditioning", icon: "Wind", category: "Infrastructure" },
+  { name: "Energy Management System", icon: "Gauge", category: "Infrastructure" },
+  { name: "Fire Safety Systems", icon: "Flame", category: "Infrastructure" },
+  { name: "Water Treatment Plant", icon: "Droplets", category: "Infrastructure" },
+  { name: "Mitsubishi Electric Elevators", icon: "ArrowUpDown", category: "Convenience" },
+  { name: "Multi-Level Car Parks", icon: "Car", category: "Convenience" },
+  { name: "Visitor Parking", icon: "ParkingCircle", category: "Convenience" },
+  { name: "Food Court (Block A)", icon: "UtensilsCrossed", category: "Convenience" },
+  { name: "Play Area", icon: "TreePine", category: "Wellness", status: "coming-soon" as const },
+  { name: "Prayer Hall", icon: "Building", category: "Wellness", status: "coming-soon" as const },
+];
+
+export const SUSTAINABILITY_AMENITIES = [
+  { name: "LEED Silver Certified", icon: "Award", note: "USGBC Core & Shell" },
+  { name: "Rainwater Harvesting", icon: "CloudRain", note: "9,00,000L storage sump" },
+  { name: "Rooftop Solar", icon: "Sun", note: "300 KW installation in progress" },
+  { name: "Wind Energy Procurement", icon: "Wind", note: "Under evaluation for reduced grid dependency" },
+  { name: "Sewage Treatment Plant", icon: "Recycle", note: "Green-building compliant" },
+  { name: "Flood-Resilient Design", icon: "Shield", note: "Ground raised 1.5m+ — no basement flooding in Chennai's historic floods" },
 ];
 
 export const LEADERSHIP = [

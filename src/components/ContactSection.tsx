@@ -29,22 +29,11 @@ export default function ContactSection() {
             <div className="flex gap-4">
               <FaMapMarkerAlt className="mt-1 shrink-0 text-teal" />
               <div>
-                <p className="text-sm font-semibold">Site Address</p>
+                <p className="text-sm font-semibold">Address</p>
                 <p className="mt-1 text-sm text-white/60">
                   {CONTACT.siteAddress.line1}, {CONTACT.siteAddress.line2}
                   <br />
                   {CONTACT.siteAddress.city}
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <FaMapMarkerAlt className="mt-1 shrink-0 text-teal" />
-              <div>
-                <p className="text-sm font-semibold">Corporate Office</p>
-                <p className="mt-1 text-sm text-white/60">
-                  {CONTACT.registeredOffice.line1}, {CONTACT.registeredOffice.line2}
-                  <br />
-                  {CONTACT.registeredOffice.city}
                 </p>
               </div>
             </div>

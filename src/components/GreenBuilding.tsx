@@ -18,8 +18,8 @@ export default function GreenBuilding() {
           <p className="mt-4 text-base font-light text-gray">
             Certified by the U.S. Green Building Council (USGBC). The Buhari
             Group is a founding member of the Indian Green Building Council
-            (IGBC) — the only Silver certified green building on OMR / Rajiv
-            Gandhi Salai available for lease.
+            (IGBC). TECCI Park is the only Silver certified green building
+            available for lease on OMR / Rajiv Gandhi Salai.
           </p>
         </div>
 

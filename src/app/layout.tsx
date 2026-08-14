@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.teccipark.com"),
   title: "TECCI Park — Chennai's Premier LEED Silver Certified IT Park | OMR",
   description:
-    "Grade A IT park on Rajiv Gandhi Salai (OMR), Chennai. LEED Silver certified green building with 6,50,000 sq.ft. of premium office space. Developed by Buhari Group.",
+    "Grade A IT park on Rajiv Gandhi Salai (OMR), Chennai. 10,00,000 sq.ft LEED Silver certified green building with 6,50,000 sq.ft of leasable office space. Developed by Buhari Group.",
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TECCI Park — Chennai's Premier LEED Silver Certified IT Park | OMR",
     description:
-      "Grade A IT park on Rajiv Gandhi Salai (OMR), Chennai. LEED Silver certified green building with 6,50,000 sq.ft. of premium office space. Developed by Buhari Group.",
+      "Grade A IT park on Rajiv Gandhi Salai (OMR), Chennai. 10,00,000 sq.ft LEED Silver certified green building with 6,50,000 sq.ft of leasable office space. Developed by Buhari Group.",
     url: "https://www.teccipark.com",
     siteName: "TECCI Park",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TECCI Park — Chennai's Premier LEED Silver Certified IT Park | OMR",
     description:
-      "Grade A IT park on Rajiv Gandhi Salai (OMR), Chennai. LEED Silver certified green building with 6,50,000 sq.ft. of premium office space. Developed by Buhari Group.",
+      "Grade A IT park on Rajiv Gandhi Salai (OMR), Chennai. 10,00,000 sq.ft LEED Silver certified green building with 6,50,000 sq.ft of leasable office space. Developed by Buhari Group.",
     images: ["/og-image.jpg"],
   },
 };

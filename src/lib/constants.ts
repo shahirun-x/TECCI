@@ -55,30 +55,30 @@ export const HOME_NAV_LINKS = [
 ];
 
 export const KEY_STATS = [
-  { value: 650000, suffix: " sq.ft.", label: "Total Built-up Area", prefix: "" },
-  { value: 2, suffix: "", label: "Blocks — A & B", prefix: "" },
-  { value: 9, suffix: "", label: "Floors per Block", prefix: "" },
+  { value: 1000000, suffix: " sq.ft.", label: "Total Built-up Area", prefix: "" },
+  { value: 2, suffix: "", label: "Blocks — Eastern & Western", prefix: "" },
+  { value: 11, suffix: "", label: "Levels per Block", prefix: "" },
   { value: 35000, suffix: " sq.ft.", label: "Per Floor Plate", prefix: "" },
   { value: 100, suffix: "%", label: "Power Backup", prefix: "" },
 ];
 
 // Hero overlay stat blocks
 export const HERO_STATS = [
-  { number: "6,50,000", unit: "sq.ft.", label: "Total Built-up Area" },
-  { number: "2", unit: "Blocks", label: "A & B" },
-  { number: "9", unit: "Floors", label: "Per Block (2B+G+8)" },
+  { number: "10,00,000", unit: "sq.ft", label: "Total Built-up Area" },
+  { number: "2", unit: "Blocks", label: "Eastern & Western" },
+  { number: "11", unit: "Levels", label: "2B + G + 8 Per Block" },
   { number: "LEED", unit: "Silver", label: "USGBC Certified" },
 ];
 
 // Key Statistics grid (section 2)
 export const KEY_STATISTICS = [
   { number: "2006–2009", unit: "", label: "Year of Commencement" },
-  { number: "2.5", unit: "acres", label: "Site Area" },
-  { number: "6,50,000", unit: "sq.ft", label: "Total Built-up" },
-  { number: "3,15,000", unit: "sq.ft", label: "Block A" },
-  { number: "3,24,000", unit: "sq.ft", label: "Block B" },
+  { number: "5", unit: "acres", label: "Site Area" },
+  { number: "10,00,000", unit: "sq.ft", label: "Total Built-up" },
+  { number: "6,50,000", unit: "sq.ft", label: "Leasable Area" },
+  { number: "3,25,000", unit: "sq.ft", label: "Block A" },
+  { number: "3,25,000", unit: "sq.ft", label: "Block B" },
   { number: "35,000", unit: "sq.ft", label: "Floor Plate" },
-  { number: "90%+", unit: "", label: "Occupancy" },
   { number: "6+", unit: "MNCs", label: "Major Tenants" },
 ];
 
@@ -128,12 +128,12 @@ export const TENANTS = [
 ];
 
 export const DESIGN_HIGHLIGHTS = [
-  { label: "Architect", detail: "TEAM 3, Singapore" },
-  { label: "Structure", detail: "RCC Framed, Raft Foundation with Flat Slabs" },
+  { label: "Architect", detail: "TEAM 3 (Singapore) in association with Eskay Designs (India)" },
+  { label: "Structure", detail: "RCC Framed with Raft Foundation and Flat Slabs — engineered for Chennai's coastal soils" },
   {
     label: "Façade",
     detail:
-      "Double Glazed Walls + Aluminium Cladding — reflects sun, insulates, reduces carbon footprint. High strength-to-weight ratio (2–3 kg/m³).",
+      "Double Glazed Curtain Walls with Aluminium Cladding — reflects sun, insulates, reduces carbon footprint.",
   },
   {
     label: "Finishes",
@@ -141,11 +141,11 @@ export const DESIGN_HIGHLIGHTS = [
   },
   {
     label: "Lifts",
-    detail: "Mitsubishi Electric — 5 per block (20-person, 1.75 m/sec) + 1 service lift per block",
+    detail: "Mitsubishi Electric — 13 lifts total: 5 passenger lifts per block (20-person, 1.75 m/sec) + 1 service lift per block (1 metric ton)",
   },
   {
     label: "Car Parks",
-    detail: "1 per 750 sq.ft across 2 basements, ground & stilt. Compliant with green building norms.",
+    detail: "750 car parks across 2 basements, ground & stilt levels. Adequate ratio for premium Grade A occupancy.",
   },
   { label: "Ceiling Height", detail: "3,750mm clear" },
   { label: "Grid Size", detail: "10.5m minimum" },
@@ -154,64 +154,62 @@ export const DESIGN_HIGHLIGHTS = [
 export const SPEC_CATEGORIES = [
   {
     title: "Electrical",
-    items: ["3,000 KVA per block (HT from TNEB)", "Transformers: 1,600 KVA × 2 per block", "300–350 KVA per floor capacity"],
+    items: ["3.2 MVA HT connection per block from TNEB", "Transformers: 1,600 KVA × 2 per block", "300–350 KVA per floor capacity"],
   },
   {
     title: "Power Backup",
-    items: ["Generators: 1,250 KVA × 3 per block (Powerica)", "8 hours fuel backup", "100% power backup"],
+    items: ["Generators: 1,250 KVA × 3 per block (Kirloskar-Cummins)", "72 hours fuel backup capacity", "100% power backup"],
   },
   {
     title: "HVAC",
-    items: ["Carrier air-cooled screw chillers", "330 TR × 3 + 1 standby per block", "Central air conditioning system"],
+    items: ["Carrier air-cooled screw chillers", "330 TR × 3 + 1 standby per block", "Central air conditioning throughout"],
   },
   {
     title: "Connectivity",
-    items: ["Exclusive space for bandwidth operators", "Multiple ISP access"],
+    items: ["Dedicated space for multiple bandwidth operators", "Multi-ISP access for redundant connectivity"],
   },
   {
-    title: "BMS",
-    items: ["Centralized Building Management System", "Controls: HVAC, lighting, security, fire systems"],
+    title: "EMS",
+    items: ["Energy Management System with dedicated per-tenant metering", "Centralized control: HVAC, lighting, security, fire systems"],
   },
   {
     title: "Water & Sewage",
     items: [
-      "9,00,000 litre storage sump",
-      "25,000 litre OHT",
-      "Water Treatment Plant",
-      "Sewage Treatment Plant (green building standard)",
+      "9,00,000 litre underground storage sump",
+      "25,000 litre overhead tank",
+      "On-site Water Treatment Plant",
+      "On-site Sewage Treatment Plant (green-building compliant)",
     ],
   },
   {
     title: "Fire Safety",
-    items: ["Ring main hydrants", "Smoke detectors + sprinklers", "Fire alarms on every floor", "Dedicated fire exits"],
-  },
-  {
-    title: "Emergency",
-    items: ["Grundfos & Kirloskar pumps in basement"],
+    items: ["Ring main hydrant system", "Smoke detectors + automatic sprinklers on all floors", "Fire alarms on every floor", "Dedicated fire exits", "Grundfos & Kirloskar emergency pumps in basement"],
   },
 ];
 
 export const GREEN_INITIATIVES = [
-  { title: "Energy Efficiency", detail: "Double-glazed façade, optimized orientation" },
-  { title: "Water Conservation", detail: "Treatment plants, recycling" },
-  { title: "Waste Management", detail: "Sewage treatment, green disposal" },
-  { title: "Healthier Spaces", detail: "Improved air quality, daylighting" },
+  { title: "Energy Efficiency", detail: "Double-glazed curtain wall façade, optimized orientation" },
+  { title: "Water Conservation", detail: "On-site treatment plants, recycling systems" },
+  { title: "Waste Management", detail: "Sewage treatment plant, green disposal protocols" },
+  { title: "Healthier Spaces", detail: "Improved air quality, natural daylighting" },
   { title: "Resource Optimization", detail: "Low-impact materials and systems" },
+  { title: "Rooftop Solar", detail: "300 KW solar installation in progress" },
+  { title: "Flood Resilience", detail: "Outer ground level raised 1.5+ metres — no basement water ingress during Chennai's historic flood events" },
 ];
 
 export const MASTER_PLAN = {
   blocks: [
-    { name: "Block A", area: "3,15,000 sq.ft", floors: "8 floors" },
-    { name: "Block B", area: "3,24,000 sq.ft", floors: "8 floors" },
+    { name: "Eastern Block (Front)", area: "3,25,000 sq.ft", floors: "11 levels" },
+    { name: "Western Block (Rear)", area: "3,25,000 sq.ft", floors: "11 levels" },
   ],
-  levels: "2 Basements + Ground + Stilt",
+  levels: "2 Basements + Ground + Stilt + 8 Upper Floors",
   pdf: "/documents/tecci-park-floor-plan.pdf",
 };
 
 export const OFFICE_AVAILABILITY = [
   { premises: "Block A", area: "35,000 sq.ft", status: "Warm Shell", floor: "6th Floor", availability: "Immediate" },
   { premises: "Block A", area: "35,000 sq.ft", status: "Furnished", floor: "4th Floor", availability: "Q1 2027" },
-  { premises: "Block B", area: "36,000 sq.ft", status: "Warm Shell", floor: "3rd Floor", availability: "Immediate" },
+  { premises: "Block B", area: "35,000 sq.ft", status: "Warm Shell", floor: "3rd Floor", availability: "Immediate" },
   { premises: "Block B", area: "17,500 sq.ft", status: "Bare Shell", floor: "7th Floor", availability: "Q3 2026" },
 ];
 
@@ -221,7 +219,7 @@ export const AMENITIES = [
   { label: "Mitsubishi Electric Elevators", icon: "ArrowUpDown" },
   { label: "Multi-Level Car Parks", icon: "CarFront" },
   { label: "Central Air Conditioning", icon: "Snowflake" },
-  { label: "Building Management System", icon: "Cpu" },
+  { label: "Energy Management System", icon: "Cpu" },
   { label: "Fire Safety Systems", icon: "FlameKindling" },
   { label: "Water Treatment Plant", icon: "Droplets" },
   { label: "Visitor Parking", icon: "SquareParking" },
@@ -269,16 +267,16 @@ export const STRUCTURAL_SPECS = [
   {
     title: "Structure",
     detail:
-      "RCC Framed Shutters with Raft Foundations & Flat Slabs — engineered to distribute load evenly and perform reliably on Chennai's expansive coastal soils, reducing long-term structural stress.",
+      "RCC Framed with Raft Foundations & Flat Slabs — engineered to distribute load evenly and perform reliably on Chennai's expansive coastal soils, reducing long-term structural stress.",
   },
   {
     title: "Façade",
     detail:
-      "Double-glazed walls reflect solar heat, insulate interiors, and lower the building's carbon footprint. Aluminium cladding (2–3 kg/m³) delivers a high strength-to-weight ratio, is hand-mountable, and reduces overall structural load.",
+      "Double Glazed Curtain Walls with Aluminium Cladding — reflects solar heat, insulates interiors, and lowers the building's carbon footprint.",
   },
   {
     title: "Finishes",
-    detail: "External walls finished in durable, weather-resistant textured paints.",
+    detail: "Textured paint exteriors, Granite / Vitrified tile lobbies, Kota stone emergency stairs.",
   },
   {
     title: "Flooring",
@@ -287,19 +285,19 @@ export const STRUCTURAL_SPECS = [
   {
     title: "Lifts",
     detail:
-      "Mitsubishi Electric elevators — 20-passenger capacity, 1.75 m/sec speed, 5 per block — plus a 1-metric-ton service lift per block.",
+      "Mitsubishi Electric — 13 lifts total: 5 passenger lifts per block (20-person capacity, 1.75 m/sec) plus 1 dedicated service lift per block (1 metric ton).",
   },
   {
     title: "Car Parks",
     detail:
-      "1 car park per 750 sq.ft, spread across 2 basements, ground and stilt floors — generous provisioning compliant with green building norms.",
+      "750 car parks across 2 basements, ground and stilt levels — adequate parking ratio for premium Grade A occupancy.",
   },
 ];
 
 export const TECHNICAL_SPECS = [
   {
     title: "Electricity",
-    detail: "3,000 KVA HT connection per block, drawn directly from the TNEB grid.",
+    detail: "3.2 MVA HT connection per block, drawn directly from the TNEB grid.",
   },
   {
     title: "Power",
@@ -307,15 +305,15 @@ export const TECHNICAL_SPECS = [
   },
   {
     title: "Generators",
-    detail: "3 × 1,250 KVA Powerica generators per block with 8-hour fuel backup — 100% power backup.",
+    detail: "3 × 1,250 KVA Kirloskar-Cummins generators per block with 72-hour fuel backup capacity — 100% power backup.",
   },
   {
     title: "Air Conditioning",
-    detail: "3 × 330TR + 1 standby Carrier air-cooled screw chillers on a central system.",
+    detail: "3 × 330 TR + 1 standby Carrier air-cooled screw chillers on a central system.",
   },
   {
     title: "Connectivity",
-    detail: "Dedicated space provisioned for multiple bandwidth operators.",
+    detail: "Dedicated space for multiple bandwidth operators with multi-ISP access for redundant connectivity.",
   },
 ];
 
@@ -323,19 +321,15 @@ export const OPERATIONAL_SPECS = [
   {
     title: "Water",
     detail:
-      "9,00,000-litre underground sump plus a 25,000-litre overhead tank, supported by an in-house Water Treatment Plant and Sewage Treatment Plant to green-building standard.",
+      "9,00,000-litre underground sump plus a 25,000-litre overhead tank, supported by an on-site Water Treatment Plant and Sewage Treatment Plant (green-building compliant).",
   },
   {
     title: "Fire Safety",
-    detail: "Ring-main hydrants, alarms, smoke detectors, sprinklers, and clearly marked fire exits throughout.",
+    detail: "Ring main hydrant system, smoke detectors, automatic sprinklers on all floors, fire alarms on every floor with dedicated fire exits. Grundfos & Kirloskar emergency pumps in basement.",
   },
   {
-    title: "Emergency Systems",
-    detail: "Grundfos and Kirloskar pumps installed in the basement for emergency response.",
-  },
-  {
-    title: "Building Management System",
-    detail: "A central, computer-controlled BMS governs heating, air conditioning, lighting, and security.",
+    title: "Energy Management System",
+    detail: "EMS with dedicated energy metering per tenant/occupant. Centralized control for HVAC, lighting, security, and fire systems.",
   },
   {
     title: "Toilets",
@@ -345,16 +339,19 @@ export const OPERATIONAL_SPECS = [
 ];
 
 export const PROJECT_SUMMARY = [
-  { spec: "Total Project", value: "5,81,000 sq.ft" },
-  { spec: "Floors", value: "2B + G + 8" },
+  { spec: "Site Area", value: "5 acres" },
+  { spec: "Total Built-up", value: "10,00,000 sq.ft (incl. car park)" },
+  { spec: "Leasable Area", value: "6,50,000 sq.ft (3,25,000 per block)" },
+  { spec: "Car Park Area", value: "2,60,000 sq.ft — 750 car parks" },
+  { spec: "Levels", value: "2B + G + Stilt + 8 Upper (11 per block)" },
   { spec: "Floor Plates", value: "35,000 sq.ft each" },
   { spec: "Ceiling Height", value: "3,750mm clear" },
-  { spec: "Air Conditioning", value: "Central" },
-  { spec: "Power Backup", value: "100%" },
-  { spec: "Car Parks", value: "1 per 750 sq.ft" },
   { spec: "Grid Size", value: "Min 10.5 meters" },
-  { spec: "Lifts / Block", value: "5 nos × 20 passengers" },
-  { spec: "Service Lifts", value: "1 per block" },
+  { spec: "Air Conditioning", value: "Central (Carrier)" },
+  { spec: "Power Backup", value: "100% — 72-hour fuel capacity" },
+  { spec: "Lifts", value: "13 Mitsubishi Electric (5 passenger + 1 service per block)" },
+  { spec: "Electrical", value: "3.2 MVA HT per block (TNEB)" },
+  { spec: "Sustainability", value: "LEED Silver Certified (USGBC)" },
 ];
 
 export const GALLERY_CATEGORIES = ["All", "Exterior", "Interior", "Amenities", "Events"] as const;

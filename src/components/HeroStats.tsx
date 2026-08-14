@@ -3,11 +3,8 @@
 import { motion } from "framer-motion";
 import { HERO_STATS } from "@/lib/constants";
 
-// Vertical divider on every cell except the last; horizontal divider between
-// the top and bottom row on the mobile 2x2 layout only (removed at sm+ where
-// all 4 cells sit in a single row).
 function cellClass(i: number, total: number) {
-  const classes = ["px-4", "py-4", "text-center", "border-white/20"];
+  const classes = ["px-4", "py-5", "text-center", "border-white/20", "min-h-[110px]", "flex", "flex-col", "items-center", "justify-center"];
   if (i < total - 1) classes.push("border-r");
   if (i < total / 2) classes.push("border-b", "sm:border-b-0");
   return classes.join(" ");
@@ -17,7 +14,7 @@ export default function HeroStats() {
   return (
     <section className="relative z-10 -mt-12 md:-mt-16">
       <div className="container-wide">
-        <div className="mx-auto max-w-4xl overflow-hidden rounded-xl bg-navy/80 backdrop-blur-md">
+        <div className="mx-auto max-w-3xl overflow-hidden rounded-xl bg-navy/80 backdrop-blur-md">
           <div className="grid grid-cols-2 sm:grid-cols-4">
             {HERO_STATS.map((stat, i) => (
               <motion.div
@@ -28,13 +25,15 @@ export default function HeroStats() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className={cellClass(i, HERO_STATS.length)}
               >
-                <div className="whitespace-nowrap font-display text-3xl font-bold leading-none text-white md:text-4xl">
-                  {stat.value}
-                  <span className="ml-2 text-base font-medium text-emerald-400">
-                    {stat.unit}
-                  </span>
+                <div className="font-display text-3xl font-bold leading-none text-white md:text-4xl">
+                  {stat.number}
                 </div>
-                <p className="mt-3 text-xs uppercase tracking-widest text-white/60">
+                {stat.unit && (
+                  <div className="mt-1 text-sm text-emerald-400">
+                    {stat.unit}
+                  </div>
+                )}
+                <p className="mt-2 text-xs uppercase tracking-widest text-white/60">
                   {stat.label}
                 </p>
               </motion.div>

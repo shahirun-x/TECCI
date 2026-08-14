@@ -4,22 +4,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { KEY_STATISTICS } from "@/lib/constants";
 
-// KEY_STATISTICS values are single display strings (e.g. "6,50,000 sq.ft",
-// "2.5 acres", "90%+") rather than a separate number/unit pair. Split on the
-// first space where one exists so the leading figure can get the bold
-// number treatment and the trailing word(s) the smaller unit treatment;
-// values with no space (e.g. "90%+", "2006–2009") render as a single block.
-function splitStatValue(value: string): { number: string; unit: string } {
-  const spaceIndex = value.indexOf(" ");
-  if (spaceIndex === -1) return { number: value, unit: "" };
-  return { number: value.slice(0, spaceIndex), unit: value.slice(spaceIndex + 1) };
-}
-
 export default function KeyStatistics() {
   return (
     <section className="section-pad bg-cream">
       <div className="container-wide">
-        <div className="grid gap-8 md:grid-cols-[55%_45%] md:items-stretch md:gap-12">
+        <div className="grid gap-8 md:grid-cols-2 md:items-stretch md:gap-12">
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -43,30 +32,29 @@ export default function KeyStatistics() {
               The Numbers Behind TECCI Park
             </h2>
 
-            <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-              {KEY_STATISTICS.map((stat, i) => {
-                const { number, unit } = splitStatValue(stat.value);
-                return (
-                  <motion.div
-                    key={stat.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.45, delay: i * 0.06 }}
-                    className="rounded-lg bg-white p-3 shadow-sm md:p-5"
-                  >
-                    <div className="font-display text-2xl font-bold text-navy md:text-3xl">
-                      {number}
-                      {unit && (
-                        <span className="ml-1 text-sm text-emerald-600">{unit}</span>
-                      )}
+            <div className="mt-10 grid grid-cols-2 gap-4">
+              {KEY_STATISTICS.map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: i * 0.06 }}
+                  className="rounded-lg bg-white p-6 shadow-sm"
+                >
+                  <div className="overflow-hidden text-ellipsis whitespace-nowrap font-display text-2xl font-bold leading-tight text-navy">
+                    {stat.number}
+                  </div>
+                  {stat.unit && (
+                    <div className="mt-1 text-sm text-emerald-600">
+                      {stat.unit}
                     </div>
-                    <p className="mt-1 text-xs uppercase tracking-wider text-navy/50">
-                      {stat.label}
-                    </p>
-                  </motion.div>
-                );
-              })}
+                  )}
+                  <p className="mt-2 text-xs uppercase tracking-wider text-navy/50">
+                    {stat.label}
+                  </p>
+                </motion.div>
+              ))}
             </div>
 
             <p className="mt-8 text-base leading-relaxed text-navy/70">

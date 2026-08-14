@@ -64,22 +64,22 @@ export const KEY_STATS = [
 
 // Hero overlay stat blocks
 export const HERO_STATS = [
-  { value: "6,50,000", unit: "sq.ft.", label: "Total Built-up Area" },
-  { value: "2", unit: "Blocks", label: "A & B" },
-  { value: "9", unit: "Floors", label: "Per Block (2B+G+8)" },
-  { value: "LEED", unit: "Silver", label: "USGBC Certified" },
+  { number: "6,50,000", unit: "sq.ft.", label: "Total Built-up Area" },
+  { number: "2", unit: "Blocks", label: "A & B" },
+  { number: "9", unit: "Floors", label: "Per Block (2B+G+8)" },
+  { number: "LEED", unit: "Silver", label: "USGBC Certified" },
 ];
 
 // Key Statistics grid (section 2)
 export const KEY_STATISTICS = [
-  { label: "Year of Commencement", value: "2006–2009" },
-  { label: "Site Area", value: "2.5 acres" },
-  { label: "Total Built-up", value: "6,50,000 sq.ft" },
-  { label: "Block A", value: "3,15,000 sq.ft" },
-  { label: "Block B", value: "3,24,000 sq.ft" },
-  { label: "Floor Plate", value: "35,000 sq.ft" },
-  { label: "Occupancy", value: "90%+" },
-  { label: "Major Tenants", value: "6+ MNCs" },
+  { number: "2006–2009", unit: "", label: "Year of Commencement" },
+  { number: "2.5", unit: "acres", label: "Site Area" },
+  { number: "6,50,000", unit: "sq.ft", label: "Total Built-up" },
+  { number: "3,15,000", unit: "sq.ft", label: "Block A" },
+  { number: "3,24,000", unit: "sq.ft", label: "Block B" },
+  { number: "35,000", unit: "sq.ft", label: "Floor Plate" },
+  { number: "90%+", unit: "", label: "Occupancy" },
+  { number: "6+", unit: "MNCs", label: "Major Tenants" },
 ];
 
 export const PROXIMITY = [

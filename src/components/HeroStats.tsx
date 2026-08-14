@@ -3,24 +3,21 @@
 import { motion } from "framer-motion";
 import { HERO_STATS } from "@/lib/constants";
 
-// HERO_STATS always has exactly 4 items rendered as a 2x2 grid on mobile
-// and a single 4-column row on desktop — dividers are computed by index
-// since CSS `divide-*` utilities don't account for wrapping grids.
-function dividerClass(i: number) {
-  const classes = ["border-white/20"];
-  if (i % 2 === 1) classes.push("border-l");
-  if (i >= 2) classes.push("border-t");
-  if (i > 0) classes.push("sm:border-l");
-  if (i === 0) classes.push("sm:border-l-0");
-  classes.push("sm:border-t-0");
+// Vertical divider on every cell except the last; horizontal divider between
+// the top and bottom row on the mobile 2x2 layout only (removed at sm+ where
+// all 4 cells sit in a single row).
+function cellClass(i: number, total: number) {
+  const classes = ["px-4", "py-4", "text-center", "border-white/20"];
+  if (i < total - 1) classes.push("border-r");
+  if (i < total / 2) classes.push("border-b", "sm:border-b-0");
   return classes.join(" ");
 }
 
 export default function HeroStats() {
   return (
-    <section className="relative z-20 -mt-12 md:-mt-16">
+    <section className="relative z-10 -mt-12 md:-mt-16">
       <div className="container-wide">
-        <div className="border border-white/10 bg-navy/80 px-6 py-6 backdrop-blur-md sm:px-8 md:rounded-lg">
+        <div className="mx-auto max-w-4xl overflow-hidden rounded-xl bg-navy/80 backdrop-blur-md">
           <div className="grid grid-cols-2 sm:grid-cols-4">
             {HERO_STATS.map((stat, i) => (
               <motion.div
@@ -29,11 +26,11 @@ export default function HeroStats() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`px-4 py-3 ${dividerClass(i)}`}
+                className={cellClass(i, HERO_STATS.length)}
               >
-                <div className="font-display text-4xl font-bold leading-none text-white">
+                <div className="whitespace-nowrap font-display text-3xl font-bold leading-none text-white md:text-4xl">
                   {stat.value}
-                  <span className="ml-1.5 text-lg font-medium text-emerald-400">
+                  <span className="ml-2 text-base font-medium text-emerald-400">
                     {stat.unit}
                   </span>
                 </div>

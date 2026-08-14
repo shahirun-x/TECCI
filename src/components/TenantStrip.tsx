@@ -14,7 +14,7 @@ export default function TenantStrip() {
           Trusted by Global Leaders
         </h2>
 
-        <div className="mt-14 grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 md:grid-cols-3">
+        <div className="mt-14 grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3">
           {TENANTS.map((tenant, i) => (
             <motion.div
               key={tenant.name}

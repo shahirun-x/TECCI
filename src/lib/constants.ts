@@ -72,7 +72,7 @@ export const HERO_STATS = [
 
 // Key Statistics grid (section 2)
 export const KEY_STATISTICS = [
-  { label: "Year of Commencement", value: "2009" },
+  { label: "Year of Commencement", value: "2006–2009" },
   { label: "Site Area", value: "2.5 acres" },
   { label: "Total Built-up", value: "6,50,000 sq.ft" },
   { label: "Block A", value: "3,15,000 sq.ft" },
@@ -238,8 +238,8 @@ export const LEADERSHIP = [
   },
   {
     name: "KTM Ahmed Mustafa",
-    title: "Managing Director, ECCIL",
-    bio: "Handles the day-to-day operations of ECCI Info Park Limited.",
+    title: "Managing Director, TECCI Park",
+    bio: "Handles the day-to-day operations of TECCI Park.",
   },
   {
     name: "Sadaq Ismail Fuaad",
@@ -253,8 +253,8 @@ export const LEADERSHIP = [
   },
   {
     name: "Ravi Chandran",
-    title: "CFO, ECCI",
-    bio: "Oversees the financial operations of ECCI Info Park Limited.",
+    title: "CFO, TECCI Park",
+    bio: "Oversees the financial operations of TECCI Park.",
   },
   {
     name: "Col. Jas Diaz",

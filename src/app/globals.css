@@ -60,22 +60,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-pad {
-  padding-block: 60px;
+  padding-block: 64px;
 }
 
 @media (min-width: 768px) {
   .section-pad {
-    padding-block: 100px;
-  }
-}
-
-.section-pad-sm {
-  padding-block: 48px;
-}
-
-@media (min-width: 768px) {
-  .section-pad-sm {
-    padding-block: 72px;
+    padding-block: 96px;
   }
 }
 

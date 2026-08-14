@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function AboutPreview() {
   return (
-    <section id="promoters" className="section-pad-sm bg-cream scroll-mt-header">
+    <section id="promoters" className="section-pad bg-cream scroll-mt-header">
       <div className="container-wide grid gap-12 md:grid-cols-2 md:items-center">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -17,16 +17,16 @@ export default function AboutPreview() {
             Promoters
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-navy sm:text-4xl">
-            Developed by ECCI
+            Developed by Buhari Group
           </h2>
           <p className="mt-6 text-base leading-relaxed text-gray">
-            East Coast Constructions and Industries Ltd. — part of the
-            internationally renowned Buhari Group, with interests spanning
+            An internationally renowned conglomerate with interests spanning
             construction, coal mining, electronics, real estate, and shipping.
           </p>
           <p className="mt-4 text-base leading-relaxed text-gray">
-            From building India&rsquo;s first flyover to contemporary IT
-            parks — four decades of engineering excellence.
+            A legacy enterprise with landmark developments across Chennai
+            including BSA Crescent University, Chennai Citi Centre, and other
+            iconic structures — four decades of engineering excellence.
           </p>
           <Link
             href="/about"

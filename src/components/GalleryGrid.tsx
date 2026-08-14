@@ -28,7 +28,7 @@ export default function GalleryGrid({ items = GALLERY_ITEMS }: { items?: Gallery
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
             onClick={() => setActiveIndex(i)}
-            className="group relative mb-4 block w-full overflow-hidden rounded-lg bg-navy/5"
+            className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-lg bg-navy/5"
             style={{ aspectRatio: i % 3 === 1 ? "3/4" : "4/3" }}
           >
             <Image
@@ -85,16 +85,18 @@ export default function GalleryGrid({ items = GALLERY_ITEMS }: { items?: Gallery
               key={activeIndex}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="relative h-[70vh] w-full max-w-4xl"
+              className="flex max-h-full w-full max-w-4xl flex-col items-center"
               onClick={(e) => e.stopPropagation()}
             >
-              <Image
-                src={items[activeIndex].src}
-                alt={items[activeIndex].label}
-                fill
-                className="object-contain"
-              />
-              <p className="absolute -bottom-10 left-0 right-0 text-center text-sm text-white/70">
+              <div className="relative h-[65vh] w-full">
+                <Image
+                  src={items[activeIndex].src}
+                  alt={items[activeIndex].label}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <p className="mt-4 text-center text-sm text-white/70">
                 {items[activeIndex].label}
               </p>
             </motion.div>

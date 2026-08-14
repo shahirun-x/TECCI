@@ -6,7 +6,7 @@ import { FaLeaf, FaGem, FaHandshake, FaBuilding } from "react-icons/fa";
 export const metadata: Metadata = {
   title: "About Us — TECCI Park",
   description:
-    "TECCI Park is developed by ECCI Info Park Limited, part of the multi-billion dollar Buhari Group — four decades of construction excellence in Chennai.",
+    "TECCI Park is developed by Buhari Group, a multi-billion dollar conglomerate — four decades of construction excellence in Chennai.",
 };
 
 const VALUES = [
@@ -36,15 +36,16 @@ export default function AboutPage() {
             Our Heritage
           </h2>
           <p className="mt-6 text-base leading-relaxed text-gray">
-            TECCI Park is developed by ECCI Info Park Limited, part of the
-            internationally renowned Buhari Group — a conglomerate with
-            interests spanning coal mining, electrical, electronics, real
-            estate, and shipping. The Group&rsquo;s legacy in construction
-            includes building India&rsquo;s first flyover, a testament to
-            decades of engineering leadership.
+            TECCI Park is developed by Buhari Group — an internationally
+            renowned conglomerate with interests spanning coal mining,
+            electrical, electronics, real estate, and shipping. The
+            Group&rsquo;s legacy includes landmark developments across
+            Chennai including BSA Crescent University, Chennai Citi Centre,
+            and other iconic structures — a testament to decades of
+            engineering leadership.
           </p>
           <p className="mt-4 text-base leading-relaxed text-gray">
-            The Buhari Group was founded by the late BSA Rahman (B.S. Abdur
+            Buhari Group was founded by the late BSA Rahman (B.S. Abdur
             Rahman), whose vision continues to guide the organization&rsquo;s
             commitment to quality, sustainability, and long-term value
             creation.

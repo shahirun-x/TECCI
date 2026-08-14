@@ -64,9 +64,9 @@ export default function Footer() {
 
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
-            {SITE.legalEntity}
+            Buhari Group
           </h4>
-          <p className="mt-4 text-sm text-white/60">A Buhari Group Enterprise</p>
+          <p className="mt-4 text-sm text-white/60">Developer &amp; Promoter of TECCI Park</p>
           <div className="mt-4 flex gap-4 text-xl">
             <a href="#" aria-label="LinkedIn" className="hover:text-teal transition-colors">
               <FaLinkedin />
@@ -80,7 +80,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10 py-6">
         <div className="container-wide flex flex-col gap-3 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 {SITE.legalEntity}. All Rights Reserved. | A Buhari Group Enterprise</p>
+          <p>© TECCI PARK. All Rights Reserved. | Powered by Geoweb</p>
           <div className="flex gap-5">
             <Link href="/privacy" className="hover:text-white transition-colors">
               Privacy Policy

@@ -16,7 +16,7 @@ export default function ContactSection() {
           transition={{ duration: 0.6 }}
           className="lg:col-span-2"
         >
-          <p className="text-sm font-medium uppercase tracking-widest text-teal">
+          <p className="text-sm font-medium uppercase tracking-widest text-teal-light">
             Contact
           </p>
           <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Let&rsquo;s Talk Space</h2>

@@ -29,7 +29,7 @@ export default function DesignSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="grid grid-cols-[130px_1fr] gap-4 py-4"
+                className="grid grid-cols-[100px_1fr] gap-4 py-4 sm:grid-cols-[130px_1fr]"
               >
                 <dt className="text-sm font-semibold text-navy">{item.label}</dt>
                 <dd className="text-sm leading-relaxed text-gray">{item.detail}</dd>

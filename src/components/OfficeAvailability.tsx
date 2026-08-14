@@ -5,7 +5,7 @@ import { OFFICE_AVAILABILITY } from "@/lib/constants";
 
 export default function OfficeAvailability() {
   return (
-    <section className="section-pad-sm bg-cream">
+    <section className="section-pad bg-cream">
       <div className="container-wide">
         <p className="text-sm font-medium uppercase tracking-widest text-teal">
           Availability

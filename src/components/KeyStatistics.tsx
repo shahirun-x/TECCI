@@ -40,8 +40,8 @@ export default function KeyStatistics() {
             <p className="mt-10 max-w-2xl text-base leading-relaxed text-gray">
               TECCI Park, our flagship IT park, is a Grade A commercial
               development on Chennai&rsquo;s premier OMR IT corridor. Designed
-              by Architects TEAM 3 of Singapore and developed by ECCI, part of
-              the multi-billion dollar Buhari Group.
+              by Architects TEAM 3 of Singapore and developed by the
+              multi-billion dollar Buhari Group.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export default function KeyStatistics() {
             className="relative aspect-[4/5] w-full overflow-hidden rounded-lg"
           >
             <Image
-              src="/images/leaflet.jpg"
+              src="/images/exterior day.png"
               alt="TECCI Park building"
               fill
               className="object-cover"

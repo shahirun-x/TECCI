@@ -9,7 +9,7 @@ export default function SpecsSection() {
     <section id="specs" className="section-pad bg-navy text-white scroll-mt-header">
       <div className="container-wide">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-medium uppercase tracking-widest text-teal">
+          <p className="text-sm font-medium uppercase tracking-widest text-teal-light">
             Specifications
           </p>
           <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
@@ -41,7 +41,7 @@ export default function SpecsSection() {
         <div className="mt-14 text-center">
           <Link
             href="/infrastructure"
-            className="inline-block border-b-2 border-teal pb-1 text-sm font-medium text-teal transition-colors hover:border-white hover:text-white"
+            className="inline-block border-b-2 border-teal-light pb-1 text-sm font-medium text-teal-light transition-colors hover:border-white hover:text-white"
           >
             View Full Specifications →
           </Link>

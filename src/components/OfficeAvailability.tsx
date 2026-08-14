@@ -1,71 +1,84 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { OFFICE_AVAILABILITY } from "@/lib/constants";
+import { Building2, Handshake, Clock } from "lucide-react";
+
+const INFO_CARDS = [
+  {
+    icon: Building2,
+    title: "Flexible Floor Plates",
+    body: "35,000 sq.ft floor plates, subdivisible per requirement",
+  },
+  {
+    icon: Handshake,
+    title: "Direct Owner Coordination",
+    body: "Space owners engage directly with prospective tenants for pricing and lease terms",
+  },
+  {
+    icon: Clock,
+    title: "Minimum 3-Year Lease",
+    body: "Owner-determined lease terms, typically starting at 3 years",
+  },
+];
 
 export default function OfficeAvailability() {
   return (
-    <section className="section-pad bg-cream">
-      <div className="container-wide">
-        <p className="text-sm font-medium uppercase tracking-widest text-teal">
-          Availability
-        </p>
-        <h2 className="mt-3 text-3xl font-semibold text-navy sm:text-4xl">
-          Office Space Availability
-        </h2>
-
+    <section id="leasing" className="scroll-mt-header bg-gradient-to-br from-navy via-purple to-navy py-20 text-white md:py-28">
+      <div className="container-wide text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mt-10 overflow-x-auto rounded-lg border border-border bg-white"
+          transition={{ duration: 0.6 }}
         >
-          <table className="w-full min-w-[560px] text-left text-sm">
-            <thead>
-              <tr className="border-b border-border bg-navy/[0.03]">
-                <th className="px-6 py-4 font-semibold text-navy">Premises</th>
-                <th className="px-6 py-4 font-semibold text-navy">Area</th>
-                <th className="px-6 py-4 font-semibold text-navy">Status</th>
-                <th className="px-6 py-4 font-semibold text-navy">Floor</th>
-                <th className="px-6 py-4 font-semibold text-navy">Availability</th>
-              </tr>
-            </thead>
-            <tbody>
-              {OFFICE_AVAILABILITY.map((row, i) => (
-                <tr
-                  key={`${row.premises}-${row.floor}`}
-                  className={i % 2 === 0 ? "bg-white" : "bg-cream/60"}
-                >
-                  <td className="border-b border-border px-6 py-4 font-medium text-navy">
-                    {row.premises}
-                  </td>
-                  <td className="border-b border-border px-6 py-4 text-gray">{row.area}</td>
-                  <td className="border-b border-border px-6 py-4 text-gray">{row.status}</td>
-                  <td className="border-b border-border px-6 py-4 text-gray">{row.floor}</td>
-                  <td className="border-b border-border px-6 py-4">
-                    <span
-                      className={`inline-block rounded-sm px-2.5 py-1 text-xs font-medium ${
-                        row.availability === "Immediate"
-                          ? "bg-teal/10 text-teal"
-                          : "bg-purple/10 text-purple"
-                      }`}
-                    >
-                      {row.availability}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <p className="text-sm font-medium uppercase tracking-widest text-emerald-400">
+            Office Spaces
+          </p>
+          <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">
+            Grade A Office Spaces Available for Lease
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-base font-light text-white/70">
+            TECCI Park offers premium office spaces ranging from 3,500 to
+            35,000 sq.ft &mdash; furnished, warm shell, and bare shell
+            configurations across Block A and Block B. Each space is
+            owner-managed with direct coordination.
+          </p>
         </motion.div>
 
-        <p className="mt-4 text-sm text-gray">
-          For availability updates, contact our leasing team at{" "}
-          <a href="mailto:info@teccipark.com" className="text-purple hover:text-purple-dark">
-            info@teccipark.com
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {INFO_CARDS.map((card, i) => (
+            <motion.div
+              key={card.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: i * 0.1 }}
+              className="rounded-xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm"
+            >
+              <card.icon className="mx-auto h-8 w-8 text-emerald-400" strokeWidth={1.5} />
+              <h3 className="mt-4 text-lg font-semibold">{card.title}</h3>
+              <p className="mt-2 text-sm font-light text-white/60">{card.body}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-14"
+        >
+          <a
+            href="#contact"
+            className="inline-block rounded-sm bg-white px-10 py-4 text-lg font-semibold tracking-wide text-purple transition-colors hover:bg-white/90"
+          >
+            Enquire About Available Spaces
           </a>
-        </p>
+          <p className="mt-4 text-sm text-white/40">
+            Direct connection with space owners. Response within 24 hours.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

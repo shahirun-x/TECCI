@@ -115,16 +115,30 @@ export const NEARBY_LANDMARKS = [
   "Multiple Grade A IT/ITES campuses along the OMR corridor",
 ];
 
-export const TENANTS = [
-  { name: "Accenture", note: "Full block occupant" },
-  { name: "Vestas", note: "" },
-  { name: "Siemens Gamesa Renewable Energy", note: "" },
-  { name: "Standard Chartered GBS", note: "" },
-  { name: "Regus", note: "Coworking, 8th Floor A-Block" },
-  { name: "Carrier", note: "" },
-  { name: "e4e Healthcare Business Services", note: "" },
-  { name: "4i Apps Solutions", note: "" },
-  { name: "Cactus Corporate Co-working", note: "" },
+export const ANCHOR_TENANTS = [
+  { name: "Cactus Corporate Coworking", note: "Anchor Tenant — occupies Block B (multiple floors) + Block A 4th Floor", logo: "/images/tenants/cactus.png" },
+  { name: "Vestas Technology R&D Chennai", note: "Block A 8th Floor + Block B 8th Floor", logo: "/images/tenants/vestas.png" },
+  { name: "Savista", note: "Block A 2nd Floor + Block B 2nd Floor (formerly e4e Healthcare)", logo: "/images/tenants/savista.png" },
+  { name: "Altruist Technologies", note: "Block A 3rd Floor + Block B 3rd Floor", logo: "/images/tenants/altruist.png" },
+  { name: "Conserve Solutions", note: "Block A 7th Floor + Block B 6th Floor", logo: "/images/tenants/conserve.png" },
+];
+
+export const OTHER_TENANTS = [
+  { name: "Sagaciter", floor: "Block A — Ground Floor", logo: "/images/tenants/sagaciter.png" },
+  { name: "RapidData Technologies", floor: "Block A — 1st Floor", logo: "/images/tenants/rapiddata.png" },
+  { name: "Hirsch Secure", floor: "Block A — 5th Floor", logo: "/images/tenants/hirsch.png" },
+  { name: "Pantheon", floor: "Block A — 6th Floor", logo: "/images/tenants/pantheon.png" },
+  { name: "Infrasoft Technologies", floor: "Block B — 1st Floor", logo: "/images/tenants/infrasoft.png" },
+  { name: "AdminDroid (Adminware Software)", floor: "Block B — 5th Floor", logo: "/images/tenants/admindroid.png" },
+  { name: "Yakkay Technologies", floor: "Block B — 7th Floor", logo: "/images/tenants/yakkay.png" },
+];
+
+export const CACTUS_SUBTENANTS = [
+  { name: "Wipro", logo: "/images/tenants/wipro.png" },
+  { name: "Walmart", logo: "/images/tenants/walmart.png" },
+  { name: "Royal Enfield", logo: "/images/tenants/royalenfield.png" },
+  { name: "PixStone Images", logo: "/images/tenants/pixstone.png" },
+  { name: "SysArc (A CSI Company)", logo: "/images/tenants/sysarc.png" },
 ];
 
 export const DESIGN_HIGHLIGHTS = [
@@ -206,12 +220,6 @@ export const MASTER_PLAN = {
   pdf: "/documents/tecci-park-floor-plan.pdf",
 };
 
-export const OFFICE_AVAILABILITY = [
-  { premises: "Block A", area: "35,000 sq.ft", status: "Warm Shell", floor: "6th Floor", availability: "Immediate" },
-  { premises: "Block A", area: "35,000 sq.ft", status: "Furnished", floor: "4th Floor", availability: "Q1 2027" },
-  { premises: "Block B", area: "35,000 sq.ft", status: "Warm Shell", floor: "3rd Floor", availability: "Immediate" },
-  { premises: "Block B", area: "17,500 sq.ft", status: "Bare Shell", floor: "7th Floor", availability: "Q3 2026" },
-];
 
 export const AMENITIES = [
   { label: "24/7 CCTV Surveillance", icon: "Camera" },

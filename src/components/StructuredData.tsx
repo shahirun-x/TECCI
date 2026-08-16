@@ -1,4 +1,4 @@
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, LEADERSHIP } from "@/lib/constants";
 
 const ADDRESS = {
   "@type": "PostalAddress",
@@ -86,7 +86,21 @@ const webSite = {
   url: "https://www.teccipark.com",
 };
 
-const SCHEMAS = [organization, realEstateAgent, place, webSite];
+const people = LEADERSHIP.filter(
+  (leader) => leader.bio !== "Bio to be added." && !/to be confirmed/i.test(leader.designation)
+).map((leader) => ({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: leader.name,
+  jobTitle: leader.designation,
+  description: leader.bio,
+  worksFor: {
+    "@type": "Organization",
+    name: "TECCI Park",
+  },
+}));
+
+const SCHEMAS = [organization, realEstateAgent, place, webSite, ...people];
 
 export default function StructuredData() {
   return (

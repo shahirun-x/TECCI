@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LEADERSHIP, TEAM_PENDING } from "@/lib/constants";
+import { LEADERSHIP } from "@/lib/constants";
 import TeamCard from "@/components/TeamCard";
 import { FaLeaf, FaGem, FaHandshake, FaBuilding } from "react-icons/fa";
 
@@ -37,13 +37,12 @@ export default function AboutPage() {
             Our Heritage
           </h2>
           <p className="mt-6 text-base leading-relaxed text-gray">
-            TECCI Park is developed by Buhari Group — an internationally
-            renowned conglomerate with interests spanning coal mining,
-            electrical, electronics, real estate, and shipping. The
-            Group&rsquo;s legacy includes landmark developments across
-            Chennai including BSA Crescent University, Chennai Citi Centre,
-            and other iconic structures — a testament to decades of
-            engineering leadership.
+            TECCI Park is developed by the Buhari Group, a legacy enterprise
+            with landmark developments across Chennai. Designed by TEAM 3
+            (Singapore) in association with Eskay Designs (India), TECCI
+            Park has stood as Chennai&rsquo;s premier LEED Silver certified
+            Grade A IT Park on the OMR corridor since its establishment in
+            2006&ndash;2009.
           </p>
           <p className="mt-4 text-base leading-relaxed text-gray">
             Buhari Group was founded by the late BSA Rahman (B.S. Abdur
@@ -61,22 +60,9 @@ export default function AboutPage() {
           </h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {LEADERSHIP.map((leader, i) => (
-              <TeamCard key={leader.name} index={i} {...leader} />
+              <TeamCard key={leader.id} index={i} {...leader} />
             ))}
           </div>
-          {TEAM_PENDING.length > 0 && (
-            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {TEAM_PENDING.map((name) => (
-                <div
-                  key={name}
-                  className="flex flex-col justify-center border-t-2 border-border bg-white/60 p-6 text-center"
-                >
-                  <h3 className="text-base font-semibold text-navy">{name}</h3>
-                  <p className="mt-1 text-sm text-gray">Profile coming soon</p>
-                </div>
-              ))}
-            </div>
-          )}
         </div>
       </section>
 

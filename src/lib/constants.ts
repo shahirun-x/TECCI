@@ -256,38 +256,54 @@ export const SUSTAINABILITY_AMENITIES = [
 
 export const LEADERSHIP = [
   {
-    name: "Abdul Qadir",
-    title: "Pro Chancellor, BS Abdur Rahman University",
+    id: "abdul-qadir",
+    name: "Mr. Abdul Qadir",
+    designation: "Pro Chancellor, BS Abdur Rahman University",
     bio: "Mechanical Engineer from College of Engineering Chennai, MBA from Babson College, Massachusetts, USA. Board member of several companies.",
+    photo: "/images/team/abdul-qadir.jpg",
+    linkedin: "",
   },
   {
-    name: "KTM Ahmed Mustafa",
-    title: "Managing Director, TECCI Park",
-    bio: "Handles the day-to-day operations of TECCI Park.",
+    id: "ktm-ahmed-mustafa",
+    name: "Mr. KTM Ahmed Mustafa",
+    designation: "Managing Director, ECCIL",
+    bio: "Handles the day-to-day operations of ECCI Info Park Limited.",
+    photo: "/images/team/ktm-ahmed-mustafa.jpg",
+    linkedin: "",
   },
   {
-    name: "Sadaq Ismail Fuaad",
-    title: "SVP, Buhari Holding",
-    bio: "Bachelor's from Sydenhams College, Mumbai. Director of ABR Enterprise. Former director at Gem Aquarist India, Greata Enterprises, Greata FZC, and Pondy Hitech Plastics.",
+    id: "fuaad-sadaq-ismail",
+    name: "Mr. Fuaad Sadaq Ismail (FSI)",
+    designation: "Founder, Geohomz",
+    bio: "Builders Coach and Development Consultant. Founder of Kilakarai Trade Fair, Kilakarai Sports Academy, and Geoweb.",
+    photo: "/images/team/fuaad-sadaq-ismail.jpg",
+    linkedin: "",
   },
   {
-    name: "MS Jagan",
-    title: "Principal Advisor (Finance)",
-    bio: "IIM & IISc alumnus. Former CEO of Ascendas. Expertise in strategic, infrastructure, project and operational management. Previously with Sterling Holiday Resorts and Mahindra Realty.",
+    id: "ms-jagan",
+    name: "Mr. MS Jagan",
+    designation: "Principal Advisor (Finance)",
+    bio: "IIM and IISc alumnus. Former CEO of Ascendas, Mahindra Realty, and Sree City.",
+    photo: "/images/team/ms-jagan.jpg",
+    linkedin: "",
   },
   {
-    name: "Ravi Chandran",
-    title: "CFO, TECCI Park",
-    bio: "Oversees the financial operations of TECCI Park.",
+    id: "rafi-hajiar",
+    name: "Mr. Rafi Hajiar",
+    designation: "President, TECCI Park Owners Welfare Association (TPOA)",
+    bio: "Bio to be added.",
+    photo: "/images/team/rafi-hajiar.jpg",
+    linkedin: "",
   },
   {
-    name: "Col. Jas Diaz",
-    title: "Front Administration",
-    bio: "Leads front-office administration for TECCI Park.",
+    id: "shameem-anantha-raman",
+    name: "Mr. Shameem Anantha Raman",
+    designation: "Designation to be confirmed",
+    bio: "Bio to be added.",
+    photo: "/images/team/shameem-anantha-raman.jpg",
+    linkedin: "",
   },
 ];
-
-export const TEAM_PENDING = ["Anantharaman", "Shri Latha", "Nandhini"];
 
 export const STRUCTURAL_SPECS = [
   {

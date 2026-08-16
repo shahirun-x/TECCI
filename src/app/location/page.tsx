@@ -3,9 +3,10 @@ import { MapPin } from "lucide-react";
 import { CONTACT, DIRECTIONS, NEARBY_LANDMARKS, PROXIMITY, PUBLIC_TRANSPORT } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Location — TECCI Park",
+  title: "Location & Connectivity — Sholinganallur, OMR",
   description:
-    "TECCI Park sits on Rajiv Gandhi Salai (OMR) at Sholinganallur junction, Chennai's premier IT corridor — full location details, proximity, and directions.",
+    "TECCI Park is located at New No. 173, Rajiv Gandhi Salai, Sholinganallur, Chennai 600 119. 17.5 km from Chennai Airport, adjacent to Sholinganallur Junction, upcoming metro station in front.",
+  alternates: { canonical: "https://www.teccipark.com/location" },
 };
 
 export default function LocationPage() {

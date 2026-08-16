@@ -4,20 +4,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.teccipark.com";
   const lastModified = new Date();
 
-  const routes = [
-    "",
-    "/location",
-    "/infrastructure",
-    "/about",
-    "/gallery",
-    "/contact",
-    "/privacy",
-    "/disclaimer",
+  return [
+    { url: baseUrl, lastModified, changeFrequency: "weekly", priority: 1.0 },
+    { url: `${baseUrl}/location`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/infrastructure`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/about`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/gallery`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/contact`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/privacy`, lastModified, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/disclaimer`, lastModified, changeFrequency: "yearly", priority: 0.3 },
   ];
-
-  return routes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified,
-    changeFrequency: "monthly",
-  }));
 }

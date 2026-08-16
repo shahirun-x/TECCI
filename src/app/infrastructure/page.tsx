@@ -4,9 +4,10 @@ import InfraTab from "@/components/InfraTab";
 import { MASTER_PLAN, PROJECT_SUMMARY } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Infrastructure & Specifications — TECCI Park",
+  title: "Infrastructure & Specifications",
   description:
-    "Structural, technical, and operational specifications of TECCI Park — a Grade A IT park on Chennai's OMR corridor.",
+    "TECCI Park infrastructure: 3.2 MVA power per block, 72-hour Kirloskar-Cummins backup, Carrier HVAC, Mitsubishi Electric elevators, 750 car parks, LEED Silver certified green building.",
+  alternates: { canonical: "https://www.teccipark.com/infrastructure" },
 };
 
 export default function InfrastructurePage() {

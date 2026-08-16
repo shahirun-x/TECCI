@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import GalleryFiltered from "@/components/GalleryFiltered";
 
 export const metadata: Metadata = {
-  title: "Gallery — TECCI Park",
-  description: "Explore TECCI Park — building exteriors, lobbies, floor plates, and amenities.",
+  title: "Gallery — TECCI Park Photographs",
+  description:
+    "View TECCI Park's Grade A office spaces, premium lobbies, landscaped grounds, and modern architecture on Chennai's OMR corridor.",
+  alternates: { canonical: "https://www.teccipark.com/gallery" },
 };
 
 export default function GalleryPage() {

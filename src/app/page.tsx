@@ -11,25 +11,15 @@ import GreenBuilding from "@/components/GreenBuilding";
 import AmenitiesGrid from "@/components/AmenitiesGrid";
 import GalleryPreview from "@/components/GalleryPreview";
 import AboutPreview from "@/components/AboutPreview";
+import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 
-const jsonLd = {
+const breadcrumb = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "TECCI Park",
-  description: "LEED Silver certified Grade A IT Park on OMR, Chennai",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "285 Rajiv Gandhi Salai, Sholinganallur",
-    addressLocality: "Chennai",
-    addressRegion: "Tamil Nadu",
-    postalCode: "600119",
-    addressCountry: "IN",
-  },
-  telephone: "+914442261112",
-  email: "info@teccipark.com",
-  url: "https://www.teccipark.com",
-  image: "https://www.teccipark.com/og-image.jpg",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.teccipark.com" },
+  ],
 };
 
 export default function Home() {
@@ -37,7 +27,7 @@ export default function Home() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
       <Hero />
       <HeroStats />
@@ -52,6 +42,7 @@ export default function Home() {
       <AmenitiesGrid />
       <GalleryPreview />
       <AboutPreview />
+      <FAQSection />
       <ContactSection />
     </>
   );

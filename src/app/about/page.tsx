@@ -4,9 +4,10 @@ import TeamCard from "@/components/TeamCard";
 import { FaLeaf, FaGem, FaHandshake, FaBuilding } from "react-icons/fa";
 
 export const metadata: Metadata = {
-  title: "About Us — TECCI Park",
+  title: "About TECCI Park & Buhari Group",
   description:
-    "TECCI Park is developed by Buhari Group — a legacy enterprise with four decades of construction excellence in Chennai.",
+    "TECCI Park is developed by the Buhari Group, a legacy Chennai enterprise. Designed by TEAM 3 Singapore and Eskay Designs India. Founded 2006-2009 as Chennai's premier LEED Silver IT park.",
+  alternates: { canonical: "https://www.teccipark.com/about" },
 };
 
 const VALUES = [

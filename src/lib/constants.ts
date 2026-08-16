@@ -393,3 +393,46 @@ export const GALLERY_ITEMS = [
   { id: "amenities", label: "Amenities", src: "/images/gallery/amenities.jpg", category: "Amenities" },
   { id: "events", label: "Events & Team", src: "/images/gallery/events.jpg", category: "Events" },
 ];
+
+export const FAQ_ITEMS = [
+  {
+    question: "What is TECCI Park?",
+    answer: "TECCI Park is Chennai's premier LEED Silver certified Grade A IT Park spanning 10 lakh sq.ft on OMR (Rajiv Gandhi Salai), Sholinganallur. Developed by the Buhari Group with 6.5 lakh sq.ft of premium leasable office space across two flagship blocks.",
+  },
+  {
+    question: "Where is TECCI Park located?",
+    answer: "TECCI Park is located at New No. 173, Old No. 285, Rajiv Gandhi Salai, Sholinganallur, Chennai — 600 119. It is 17.5 km from Chennai International Airport, adjacent to Sholinganallur Junction, with an upcoming metro station directly in front.",
+  },
+  {
+    question: "Who developed TECCI Park?",
+    answer: "TECCI Park is developed by the Buhari Group, a legacy Chennai enterprise with four decades of construction excellence. It was designed by TEAM 3 Singapore in association with Eskay Designs India.",
+  },
+  {
+    question: "Is TECCI Park LEED certified?",
+    answer: "Yes, TECCI Park is LEED Silver certified for Core & Shell by the U.S. Green Building Council (USGBC). It is the only Silver certified green building available for lease on OMR / Rajiv Gandhi Salai.",
+  },
+  {
+    question: "What office spaces are available at TECCI Park?",
+    answer: "TECCI Park offers Grade A office spaces from 3,500 to 35,000 sq.ft across Block A (Eastern) and Block B (Western). Configurations include furnished, warm shell, and bare shell options with direct owner coordination.",
+  },
+  {
+    question: "What is the floor plate size at TECCI Park?",
+    answer: "Each floor at TECCI Park has a 35,000 sq.ft floor plate with 3,750mm clear ceiling height and 10.5m minimum grid size.",
+  },
+  {
+    question: "How much parking is available at TECCI Park?",
+    answer: "TECCI Park provides 750 car parks distributed across 2 basements, ground level, and stilt across both blocks.",
+  },
+  {
+    question: "What power backup does TECCI Park have?",
+    answer: "TECCI Park has 100% power backup with 3 × 1,250 KVA Kirloskar-Cummins generators per block and 72 hours of fuel backup capacity. Electrical supply is 3.2 MVA HT per block from TNEB.",
+  },
+  {
+    question: "Who are the major tenants at TECCI Park?",
+    answer: "Major tenants include Vestas Technology R&D, Savista, Cactus Corporate Coworking (with sub-tenants including Wipro, Walmart, and Royal Enfield), Altruist Technologies, Conserve Solutions, and other leading enterprises.",
+  },
+  {
+    question: "How do I lease office space at TECCI Park?",
+    answer: "For leasing enquiries, contact TECCI Park at info@teccipark.com or call +91 44 4226 1112. Spaces are owner-coordinated with direct engagement between prospective tenants and space owners. Minimum lease terms typically start at 3 years.",
+  },
+];

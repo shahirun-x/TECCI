@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Disclaimer — TECCI Park",
-  description: "Disclaimer for the TECCI Park website.",
+  title: "Disclaimer",
+  description: "Disclaimer for the TECCI Park website — terms of use and limitations of information provided.",
+  alternates: { canonical: "https://www.teccipark.com/disclaimer" },
 };
 
 export default function DisclaimerPage() {

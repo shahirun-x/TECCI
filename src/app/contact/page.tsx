@@ -4,8 +4,10 @@ import ContactForm from "@/components/ContactForm";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Contact Us — TECCI Park",
-  description: "Get in touch with TECCI Park, Chennai — call, email, or visit us on Rajiv Gandhi Salai, Sholinganallur.",
+  title: "Contact Us — Leasing Enquiries",
+  description:
+    "Contact TECCI Park for leasing enquiries. Located at New No. 173, Rajiv Gandhi Salai, Sholinganallur, Chennai 600 119. Direct owner coordination for available spaces.",
+  alternates: { canonical: "https://www.teccipark.com/contact" },
 };
 
 export default function ContactPage() {

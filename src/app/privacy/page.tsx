@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { CONTACT, SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — TECCI Park",
-  description: "Privacy policy for the TECCI Park website.",
+  title: "Privacy Policy",
+  description: "Privacy policy for the TECCI Park website — how we collect and use your information.",
+  alternates: { canonical: "https://www.teccipark.com/privacy" },
 };
 
 export default function PrivacyPage() {

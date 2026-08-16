@@ -1,12 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ANCHOR_TENANTS, OTHER_TENANTS, CACTUS_SUBTENANTS } from "@/lib/constants";
 
 // Logo images to be added to public/images/tenants/. Currently showing initial-letter fallback badges.
 function TenantLogo({ name, logo, size = "h-16" }: { name: string; logo: string; size?: string }) {
   const [failed, setFailed] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    // The browser may resolve <img src> before React hydrates and attaches
+    // onError, so the initial failure can be missed — check on mount too.
+    if (imgRef.current?.complete && imgRef.current.naturalWidth === 0) {
+      setFailed(true);
+    }
+  }, []);
 
   if (failed) {
     return (
@@ -19,6 +28,7 @@ function TenantLogo({ name, logo, size = "h-16" }: { name: string; logo: string;
   return (
     /* eslint-disable-next-line @next/next/no-img-element */
     <img
+      ref={imgRef}
       src={logo}
       alt={`${name} logo`}
       className={`${size} w-auto object-contain`}

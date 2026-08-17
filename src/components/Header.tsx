@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
 import { HOME_NAV_LINKS, NAV_LINKS } from "@/lib/constants";
 
@@ -120,35 +120,30 @@ export default function Header() {
 
         <button
           aria-label="Toggle menu"
-          className={`lg:hidden text-2xl transition-colors ${solid ? "text-navy" : "text-white"}`}
+          className={`-mr-2.5 p-2.5 lg:hidden text-2xl transition-colors ${solid ? "text-navy" : "text-white"}`}
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <HiX /> : <HiMenu />}
         </button>
       </div>
 
-      <AnimatePresence>
-        {open && (
-          <>
-            <motion.div
-              key="backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="fixed inset-x-0 bottom-0 z-40 bg-navy/40 backdrop-blur-sm lg:hidden"
-              style={{ top: MOBILE_HEADER_HEIGHT }}
-              onClick={() => setOpen(false)}
-            />
-            <motion.div
-              key="panel"
-              initial={{ opacity: 0, y: -16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="fixed inset-x-0 z-50 flex flex-col bg-white lg:hidden"
-              style={{ top: MOBILE_HEADER_HEIGHT, height: `calc(100dvh - ${MOBILE_HEADER_HEIGHT}px)` }}
-            >
+      {open && (
+        <>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-x-0 bottom-0 z-40 bg-navy/40 backdrop-blur-sm lg:hidden"
+            style={{ top: MOBILE_HEADER_HEIGHT }}
+            onClick={() => setOpen(false)}
+          />
+          <motion.div
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed inset-x-0 z-50 flex flex-col bg-white lg:hidden"
+            style={{ top: MOBILE_HEADER_HEIGHT, height: `calc(100dvh - ${MOBILE_HEADER_HEIGHT}px)` }}
+          >
               <div className="flex items-center justify-between border-b border-navy/10 px-6 py-4">
                 <Image
                   src="/images/tecci-logo.jpg"
@@ -160,7 +155,7 @@ export default function Header() {
                 />
                 <button
                   aria-label="Close menu"
-                  className="text-2xl text-navy"
+                  className="-mr-2.5 p-2.5 text-2xl text-navy"
                   onClick={() => setOpen(false)}
                 >
                   <HiX />
@@ -203,10 +198,9 @@ export default function Header() {
                   Enquire Now
                 </Link>
               </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+          </motion.div>
+        </>
+      )}
     </header>
   );
 }

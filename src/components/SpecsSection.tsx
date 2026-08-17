@@ -26,7 +26,7 @@ export default function SpecsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: i * 0.06 }}
             >
-              <h3 className="text-base font-semibold text-teal">{cat.title}</h3>
+              <h3 className="text-base font-semibold text-teal-light">{cat.title}</h3>
               <ul className="mt-3 space-y-2">
                 {cat.items.map((item) => (
                   <li key={item} className="text-sm font-light leading-relaxed text-white/70">

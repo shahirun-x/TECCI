@@ -27,7 +27,7 @@ export default function ContactSection() {
 
           <div className="mt-10 space-y-6">
             <div className="flex gap-4">
-              <FaMapMarkerAlt className="mt-1 shrink-0 text-teal" />
+              <FaMapMarkerAlt className="mt-1 shrink-0 text-teal-light" />
               <div>
                 <p className="text-sm font-semibold">Address</p>
                 <p className="mt-1 text-sm text-white/60">
@@ -38,13 +38,13 @@ export default function ContactSection() {
               </div>
             </div>
             <div className="flex gap-4">
-              <FaPhone className="mt-1 shrink-0 text-teal" />
+              <FaPhone className="mt-1 shrink-0 text-teal-light" />
               <a href={`tel:${CONTACT.phone}`} className="text-sm text-white/60 hover:text-white">
                 {CONTACT.phone}
               </a>
             </div>
             <div className="flex gap-4">
-              <FaEnvelope className="mt-1 shrink-0 text-teal" />
+              <FaEnvelope className="mt-1 shrink-0 text-teal-light" />
               <a href={`mailto:${CONTACT.email}`} className="text-sm text-white/60 hover:text-white">
                 {CONTACT.email}
               </a>

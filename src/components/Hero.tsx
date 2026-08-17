@@ -180,7 +180,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-32 z-10 flex justify-center gap-3 md:bottom-28">
+      <div className="absolute inset-x-0 bottom-32 z-10 flex justify-center gap-4 md:bottom-28">
         {SLIDES.map((slide, i) => {
           const isActive = i === activeIndex;
           return (
@@ -190,12 +190,16 @@ export default function Hero() {
               aria-label={`Go to slide ${i + 1}: ${slide.alt}`}
               aria-current={isActive}
               onClick={() => setActiveIndex(i)}
-              className={`rounded-full border transition-all duration-300 ${
-                isActive
-                  ? "h-[10px] w-[10px] scale-110 border-white bg-white"
-                  : "h-2 w-2 border-white/50 bg-transparent hover:border-white/80"
-              }`}
-            />
+              className="relative flex items-center justify-center before:absolute before:-inset-2 before:content-['']"
+            >
+              <span
+                className={`block rounded-full border transition-all duration-300 ${
+                  isActive
+                    ? "h-[10px] w-[10px] scale-110 border-white bg-white"
+                    : "h-2 w-2 border-white/50 bg-transparent hover:border-white/80"
+                }`}
+              />
+            </button>
           );
         })}
       </div>

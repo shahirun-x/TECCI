@@ -35,14 +35,14 @@ export default function Footer() {
             {isHome
               ? HOME_NAV_LINKS.map((link) => (
                   <li key={link.id}>
-                    <a href={`#${link.id}`} className="text-sm hover:text-teal transition-colors">
+                    <a href={`#${link.id}`} className="text-sm hover:text-teal-light transition-colors">
                       {link.label}
                     </a>
                   </li>
                 ))
               : NAV_LINKS.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-sm hover:text-teal transition-colors">
+                    <Link href={link.href} className="text-sm hover:text-teal-light transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -68,10 +68,10 @@ export default function Footer() {
           </h4>
           <p className="mt-4 text-sm text-white/60">Developer &amp; Promoter of TECCI Park</p>
           <div className="mt-4 flex gap-4 text-xl">
-            <a href="#" aria-label="LinkedIn" className="hover:text-teal transition-colors">
+            <a href="#" aria-label="LinkedIn" className="hover:text-teal-light transition-colors">
               <FaLinkedin />
             </a>
-            <a href="#" aria-label="Facebook" className="hover:text-teal transition-colors">
+            <a href="#" aria-label="Facebook" className="hover:text-teal-light transition-colors">
               <FaFacebook />
             </a>
           </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Building2, Cpu, Droplets, type LucideIcon } from "lucide-react";
 import { STRUCTURAL_SPECS, TECHNICAL_SPECS, OPERATIONAL_SPECS } from "@/lib/constants";
 
@@ -38,23 +38,20 @@ export default function InfraTab() {
         ))}
       </div>
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={active}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.3 }}
-          className="grid gap-8 py-10 sm:grid-cols-2"
-        >
-          {current.data.map((item) => (
-            <div key={item.title} className="border-l-2 border-teal pl-5">
-              <h3 className="text-base font-semibold text-navy">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-gray">{item.detail}</p>
-            </div>
-          ))}
-        </motion.div>
-      </AnimatePresence>
+      <motion.div
+        key={active}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="grid gap-8 py-10 sm:grid-cols-2"
+      >
+        {current.data.map((item) => (
+          <div key={item.title} className="border-l-2 border-teal pl-5">
+            <h3 className="text-base font-semibold text-navy">{item.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-gray">{item.detail}</p>
+          </div>
+        ))}
+      </motion.div>
     </div>
   );
 }

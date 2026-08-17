@@ -1,4 +1,4 @@
-import { CONTACT, LEADERSHIP } from "@/lib/constants";
+import { CONTACT, LEADERSHIP, SOCIAL_LINKS } from "@/lib/constants";
 
 const ADDRESS = {
   "@type": "PostalAddress",
@@ -38,6 +38,7 @@ const organization = {
     areaServed: "IN",
     availableLanguage: ["English", "Tamil"],
   },
+  sameAs: SOCIAL_LINKS.map((social) => social.url),
 };
 
 const realEstateAgent = {

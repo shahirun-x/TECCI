@@ -3,8 +3,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { FaLinkedin, FaFacebook } from "react-icons/fa";
-import { CONTACT, HOME_NAV_LINKS, NAV_LINKS, SITE } from "@/lib/constants";
+import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
+import type { IconType } from "react-icons";
+import { CONTACT, HOME_NAV_LINKS, NAV_LINKS, SITE, SOCIAL_LINKS } from "@/lib/constants";
+
+const SOCIAL_ICONS: Record<string, IconType> = {
+  FaLinkedin,
+  FaFacebook,
+  FaInstagram,
+};
 
 export default function Footer() {
   const pathname = usePathname();
@@ -67,13 +74,22 @@ export default function Footer() {
             Buhari Group
           </h4>
           <p className="mt-4 text-sm text-white/60">Developer &amp; Promoter of TECCI Park</p>
-          <div className="mt-4 flex gap-4 text-xl">
-            <a href="#" aria-label="LinkedIn" className="hover:text-teal-light transition-colors">
-              <FaLinkedin />
-            </a>
-            <a href="#" aria-label="Facebook" className="hover:text-teal-light transition-colors">
-              <FaFacebook />
-            </a>
+          <div className="mt-4 flex gap-4">
+            {SOCIAL_LINKS.map((social) => {
+              const Icon = SOCIAL_ICONS[social.icon];
+              return (
+                <a
+                  key={social.platform}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="hover:text-teal-light transition-colors"
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>

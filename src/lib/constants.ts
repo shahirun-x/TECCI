@@ -15,6 +15,29 @@ export const COLORS = {
   gray: "#6B7280",
 };
 
+// lucide-react does not ship brand/social logos, so these map to react-icons/fa
+// (FaLinkedin, FaFacebook, FaInstagram) to match the icons already used in Footer.tsx.
+export const SOCIAL_LINKS = [
+  {
+    platform: "LinkedIn",
+    url: "https://www.linkedin.com/company/ecci-info-park-limited/",
+    icon: "FaLinkedin",
+    label: "TECCI Park on LinkedIn",
+  },
+  {
+    platform: "Facebook",
+    url: "https://www.facebook.com/TECCIPark/",
+    icon: "FaFacebook",
+    label: "TECCI Park on Facebook",
+  },
+  {
+    platform: "Instagram",
+    url: "https://www.instagram.com/teccipark",
+    icon: "FaInstagram",
+    label: "TECCI Park on Instagram",
+  },
+];
+
 export const CONTACT = {
   siteAddress: {
     line1: "New No. 173, Old No. 285, Rajiv Gandhi Salai",

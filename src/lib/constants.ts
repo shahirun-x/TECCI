@@ -411,18 +411,27 @@ export const PROJECT_SUMMARY = [
   { spec: "Sustainability", value: "LEED Silver Certified (USGBC)" },
 ];
 
-export const GALLERY_CATEGORIES = ["All", "Exterior", "Interior", "Amenities", "Events"] as const;
+export const GALLERY_CATEGORIES = [
+  { id: "all", label: "All" },
+  { id: "exterior", label: "Exterior" },
+  { id: "interior", label: "Interior" },
+  { id: "amenities", label: "Amenities" },
+  { id: "aerial", label: "Aerial" },
+];
 
-export const GALLERY_ITEMS = [
-  { id: "exterior-day", label: "Building Exterior — Day", src: "/images/gallery/exterior-day.jpg", category: "Exterior" },
-  { id: "exterior-night", label: "Building Exterior — Night", src: "/images/gallery/exterior-night.jpg", category: "Exterior" },
-  { id: "facade-detail", label: "Building Facade Detail", src: "/images/gallery/facade-detail.jpg", category: "Exterior" },
-  { id: "lobby", label: "Lobby & Reception", src: "/images/gallery/lobby.jpg", category: "Interior" },
-  { id: "floor-plate", label: "Typical Floor Plate", src: "/images/gallery/floor-plate.jpg", category: "Interior" },
-  { id: "parking", label: "Basement Parking", src: "/images/gallery/parking.jpg", category: "Interior" },
-  { id: "landscape", label: "Landscaping & Green Spaces", src: "/images/gallery/landscape.jpg", category: "Amenities" },
-  { id: "amenities", label: "Amenities", src: "/images/gallery/amenities.jpg", category: "Amenities" },
-  { id: "events", label: "Events & Team", src: "/images/gallery/events.jpg", category: "Events" },
+export const GALLERY = [
+  { id: "hero-building", src: "/images/gallery/hero-building.png", alt: "TECCI Park exterior at twilight with warm interior lighting", category: "exterior", caption: "Twilight Exterior" },
+  { id: "exterior-day", src: "/images/gallery/exterior-day.png", alt: "TECCI Park front facade in daytime showing the twin-block architecture", category: "exterior", caption: "Daytime Facade" },
+  { id: "entrance", src: "/images/gallery/entrance.png", alt: "TECCI Park entrance drop-off area at dusk", category: "exterior", caption: "Entrance & Drop-off" },
+  { id: "facade-detail", src: "/images/gallery/facade-detail.png", alt: "Close-up of the double-glazed curtain wall facade with aluminium mullions", category: "exterior", caption: "Curtain Wall Detail" },
+  { id: "twin-blocks", src: "/images/gallery/twin-blocks.png", alt: "The connected twin blocks of TECCI Park", category: "exterior", caption: "Twin Blocks" },
+  { id: "lobby", src: "/images/gallery/lobby.png", alt: "TECCI Park main lobby with marble finishes and premium interiors", category: "interior", caption: "Main Lobby" },
+  { id: "interior", src: "/images/gallery/interior.png", alt: "Empty 35,000 sq.ft floor plate ready for tenant fit-out", category: "interior", caption: "Floor Plate Interior" },
+  { id: "terrace", src: "/images/gallery/terrace.png", alt: "Rooftop terrace and breakout area with Chennai skyline views", category: "amenities", caption: "Rooftop Terrace" },
+  { id: "parking", src: "/images/gallery/parking.png", alt: "Multi-level basement parking with 750 car park capacity", category: "amenities", caption: "Basement Parking" },
+  { id: "landscape", src: "/images/gallery/landscape.png", alt: "Landscaped grounds with palm-lined driveways and gardens", category: "amenities", caption: "Landscaped Campus" },
+  { id: "amenities", src: "/images/gallery/amenities.png", alt: "Food court and amenity space at TECCI Park", category: "amenities", caption: "Food Court" },
+  { id: "campus-shot", src: "/images/gallery/campus-shot.png", alt: "Aerial view of TECCI Park campus in golden hour showing the full property", category: "aerial", caption: "Aerial View" },
 ];
 
 export const FAQ_ITEMS = [

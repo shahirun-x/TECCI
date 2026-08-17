@@ -3,6 +3,10 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import GalleryGrid from "@/components/GalleryGrid";
+import { GALLERY } from "@/lib/constants";
+
+const PREVIEW_IDS = ["hero-building", "exterior-day", "lobby", "interior", "terrace", "parking"];
+const PREVIEW_ITEMS = PREVIEW_IDS.map((id) => GALLERY.find((item) => item.id === id)!);
 
 export default function GalleryPreview() {
   return (
@@ -18,7 +22,7 @@ export default function GalleryPreview() {
         </div>
 
         <div className="mt-12">
-          <GalleryGrid />
+          <GalleryGrid items={PREVIEW_ITEMS} />
         </div>
 
         <motion.div

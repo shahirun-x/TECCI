@@ -148,28 +148,43 @@ export const CACTUS_SUBTENANTS = [
   { name: "SysArc (A CSI Company)", logo: "/images/tenants/sysarc.png" },
 ];
 
-export const DESIGN_HIGHLIGHTS = [
-  { label: "Architect", detail: "TEAM 3 (Singapore) in association with Eskay Designs (India)" },
-  { label: "Structure", detail: "RCC Framed with Raft Foundation and Flat Slabs — engineered for Chennai's coastal soils" },
+export const DESIGN_FEATURES = [
   {
-    label: "Façade",
-    detail:
-      "Double Glazed Curtain Walls with Aluminium Cladding — reflects sun, insulates, reduces carbon footprint.",
+    image: "/images/design/facade-detail.png",
+    icon: "Layers",
+    title: "Double-Glazed Curtain Walls",
+    description: "Structural glazing with aluminium cladding reduces solar heat gain and elevates the building's visual identity along OMR.",
   },
   {
-    label: "Finishes",
-    detail: "Textured paint exteriors, Granite / Vitrified tile lobbies, Kota stone emergency stairs",
+    image: "/images/design/interior.png",
+    icon: "Ruler",
+    title: "35,000 sq.ft Floor Plates",
+    description: "Column-free spans with 10.5m minimum grid — flexible enough to accommodate any modern office layout, from open-plan tech firms to compartmentalized enterprise setups.",
   },
   {
-    label: "Lifts",
-    detail: "Mitsubishi Electric — 13 lifts total: 5 passenger lifts per block (20-person, 1.75 m/sec) + 1 service lift per block (1 metric ton)",
+    image: "/images/design/twin-blocks.png",
+    icon: "Building2",
+    title: "Twin-Block Configuration",
+    description: "Two connected blocks (Eastern & Western) maximize natural light exposure and give tenants flexible expansion options as they grow.",
   },
   {
-    label: "Car Parks",
-    detail: "750 car parks across 2 basements, ground & stilt levels. Adequate ratio for premium Grade A occupancy.",
+    image: "/images/lobby.png",
+    icon: "Sparkles",
+    title: "Premium Common Areas",
+    description: "Marble and granite lobbies, Kota stone staircases, and high-ceiling drop-off zones set the tone from the moment tenants arrive.",
   },
-  { label: "Ceiling Height", detail: "3,750mm clear" },
-  { label: "Grid Size", detail: "10.5m minimum" },
+  {
+    image: "/images/hero building.png",
+    icon: "Sun",
+    title: "3,750mm Clear Ceilings",
+    description: "Generous floor-to-ceiling heights create airy, well-lit workspaces — an increasingly rare feature in Chennai's Grade A market.",
+  },
+  {
+    image: "/images/campus shot.png",
+    icon: "Trees",
+    title: "Landscaped Campus",
+    description: "5 acres of thoughtfully planned grounds with palm-lined driveways, ornamental gardens, and generous setbacks from OMR — an urban campus, not just a building.",
+  },
 ];
 
 export const SPEC_CATEGORIES = [

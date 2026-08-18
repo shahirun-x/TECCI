@@ -204,20 +204,24 @@ export default function Hero() {
         })}
       </div>
 
-      <motion.div
+      <motion.button
+        type="button"
+        onClick={() =>
+          document.getElementById("location")?.scrollIntoView({ behavior: "smooth" })
+        }
+        aria-label="Scroll to explore"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-16 left-1/2 z-10 -translate-x-1/2"
+        className="absolute bottom-36 left-1/2 z-10 hidden -translate-x-1/2 cursor-pointer flex-col items-center gap-3 md:flex [@media(max-height:700px)]:!hidden"
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          className="flex h-9 w-5 items-start justify-center rounded-full border border-white/40 p-1.5"
-        >
-          <div className="h-1.5 w-1.5 rounded-full bg-white/80" />
-        </motion.div>
-      </motion.div>
+        <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-white/60">
+          Scroll
+        </span>
+        <span className="relative h-12 w-px overflow-hidden bg-white/30">
+          <span className="scroll-indicator-dot absolute inset-x-0 h-4 bg-gradient-to-b from-transparent via-white to-transparent" />
+        </span>
+      </motion.button>
     </section>
   );
 }

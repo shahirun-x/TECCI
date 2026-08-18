@@ -210,3 +210,24 @@ h1, h2, h3, h4, h5, h6 {
   height: 2px;
   background: var(--color-white);
 }
+
+@keyframes scroll-line-pulse {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.scroll-indicator-dot {
+  animation: scroll-line-pulse 2s ease-in-out infinite;
+}

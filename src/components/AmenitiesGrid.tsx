@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Shield,
@@ -22,7 +23,7 @@ import {
   Recycle,
   type LucideIcon,
 } from "lucide-react";
-import { AMENITIES, SUSTAINABILITY_AMENITIES } from "@/lib/constants";
+import { AMENITIES, AMENITY_CATEGORIES, SUSTAINABILITY_AMENITIES } from "@/lib/constants";
 
 const ICONS: Record<string, LucideIcon> = {
   Shield, ScanLine, UserCheck, Zap, Wind, Gauge, Flame, Droplets,
@@ -30,66 +31,142 @@ const ICONS: Record<string, LucideIcon> = {
   Award, CloudRain, Sun, Recycle,
 };
 
-const CATEGORIES = ["Security", "Infrastructure", "Convenience", "Wellness"] as const;
-const CATEGORY_LABELS: Record<string, string> = {
-  Security: "Security & Access",
-  Infrastructure: "Infrastructure",
-  Convenience: "Convenience",
-  Wellness: "Wellness & Community",
-};
+function CategoryTabs({
+  activeId,
+  onSelect,
+}: {
+  activeId: string;
+  onSelect: (id: string) => void;
+}) {
+  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  function handleKeyDown(e: React.KeyboardEvent, index: number) {
+    const forward = e.key === "ArrowDown" || e.key === "ArrowRight";
+    const backward = e.key === "ArrowUp" || e.key === "ArrowLeft";
+    if (!forward && !backward) return;
+    e.preventDefault();
+    const nextIndex = forward
+      ? (index + 1) % AMENITY_CATEGORIES.length
+      : (index - 1 + AMENITY_CATEGORIES.length) % AMENITY_CATEGORIES.length;
+    onSelect(AMENITY_CATEGORIES[nextIndex].id);
+    buttonRefs.current[nextIndex]?.focus();
+  }
+
+  return (
+    <div
+      role="tablist"
+      aria-label="Amenity categories"
+      className="flex gap-2 overflow-x-auto pb-2 md:flex-col md:gap-0 md:overflow-visible md:pb-0"
+    >
+      {AMENITY_CATEGORIES.map((cat, i) => {
+        const items = AMENITIES.filter((a) => a.category === cat.id);
+        const isActive = cat.id === activeId;
+        return (
+          <button
+            key={cat.id}
+            ref={(el) => {
+              buttonRefs.current[i] = el;
+            }}
+            role="tab"
+            aria-selected={isActive}
+            tabIndex={isActive ? 0 : -1}
+            onClick={() => onSelect(cat.id)}
+            onKeyDown={(e) => handleKeyDown(e, i)}
+            className={`relative shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors md:block md:w-full md:shrink md:whitespace-normal md:rounded-none md:px-6 md:py-4 md:text-2xl md:font-display lg:text-3xl ${
+              isActive
+                ? "bg-purple text-white md:bg-transparent md:text-navy"
+                : "bg-navy/5 text-navy/60 md:bg-transparent md:text-navy/30 md:hover:text-navy/50"
+            }`}
+          >
+            {isActive && (
+              <span className="absolute left-0 top-0 hidden h-full w-1 bg-purple md:block" />
+            )}
+            {cat.label}
+            <span className="ml-2 hidden text-sm font-body font-medium text-emerald-600 md:inline">
+              {items.length} {items.length === 1 ? "item" : "items"}
+            </span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
 
 export default function AmenitiesGrid() {
+  const [activeCategory, setActiveCategory] = useState(AMENITY_CATEGORIES[0].id);
+  const category = AMENITY_CATEGORIES.find((c) => c.id === activeCategory)!;
+  const items = AMENITIES.filter((a) => a.category === activeCategory);
+
   return (
     <>
-      <section id="amenities" className="section-pad bg-white scroll-mt-header">
+      <section id="amenities" className="scroll-mt-header bg-white py-24 md:py-32">
         <div className="container-wide">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-medium uppercase tracking-widest text-teal">
               What&rsquo;s Included
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-navy sm:text-4xl">
-              Premium Amenities & Building Features
+            <h2 className="mt-3 font-display text-4xl font-bold text-navy md:text-5xl">
+              Everything you&rsquo;d expect. Nothing you wouldn&rsquo;t.
             </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-navy/60">
+              TECCI Park is built for enterprise reality — security, uptime,
+              and the daily details that separate a Grade A building from
+              everything else.
+            </p>
           </div>
 
-          {CATEGORIES.map((cat) => {
-            const items = AMENITIES.filter((a) => a.category === cat);
-            if (items.length === 0) return null;
-            return (
-              <div key={cat} className="mt-12 first:mt-14">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-navy/40">
-                  {CATEGORY_LABELS[cat]}
+          <div className="mt-16 grid gap-10 md:grid-cols-[30%_70%] md:gap-12">
+            <div className="md:sticky md:top-32 md:self-start">
+              <CategoryTabs activeId={activeCategory} onSelect={setActiveCategory} />
+              <p className="mt-4 hidden text-xs text-navy/40 md:block">
+                Click a category to explore
+              </p>
+            </div>
+
+            <div className="dot-grid-pattern relative overflow-hidden rounded-2xl">
+              <motion.div
+                key={activeCategory}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4 }}
+                className="relative p-6 md:p-10"
+              >
+                <h3 className="mb-2 font-display text-3xl font-bold text-navy">
+                  {category.label}
                 </h3>
-                <div className="mt-5 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+                <p className="max-w-lg text-navy/60">{category.description}</p>
+
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
                   {items.map((item, i) => {
                     const Icon = ICONS[item.icon];
                     return (
                       <motion.div
                         key={item.name}
                         initial={{ opacity: 0, y: 15 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: i * 0.04 }}
-                        className="relative rounded-lg bg-white p-4 shadow-sm ring-1 ring-border"
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.35, delay: i * 0.06 }}
+                        className="relative rounded-2xl bg-navy/5 p-6 transition-colors hover:bg-navy/10"
                       >
                         {"status" in item && item.status === "coming-soon" && (
-                          <span className="absolute right-2 top-2 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">
+                          <span className="absolute right-4 top-4 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">
                             Coming Soon
                           </span>
                         )}
                         {Icon && (
-                          <Icon className="h-8 w-8 text-purple" strokeWidth={1.5} />
+                          <div className="inline-flex rounded-xl bg-purple/10 p-2">
+                            <Icon className="h-10 w-10 text-purple" strokeWidth={1.5} />
+                          </div>
                         )}
-                        <p className="mt-3 text-sm font-medium text-navy">
+                        <p className="mt-4 text-lg font-semibold text-navy">
                           {item.name}
                         </p>
                       </motion.div>
                     );
                   })}
                 </div>
-              </div>
-            );
-          })}
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 

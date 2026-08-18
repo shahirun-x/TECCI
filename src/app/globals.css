@@ -278,6 +278,80 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Tenants section: infinite marquee tracks, paused on hover. */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 40s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-track-slow {
+  animation: marquee-scroll 60s linear infinite;
+}
+
+.marquee-track-slow:hover {
+  animation-play-state: paused;
+}
+
+/* Tenants section: orbital rotation for Cactus sub-tenants — the group
+   rotates while each logo counter-rotates to stay upright. */
+@keyframes orbit-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-counter-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.orbit-rotate {
+  animation: orbit-rotate 60s linear infinite;
+}
+
+.orbit-counter-rotate {
+  animation: orbit-counter-rotate 60s linear infinite;
+}
+
+.orbit-pulse {
+  animation: orbit-center-pulse 3s ease-in-out infinite;
+}
+
+@keyframes orbit-center-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Amenities section: faint dot-grid backdrop for the right-hand showcase. */
+.dot-grid-pattern {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

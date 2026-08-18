@@ -262,6 +262,29 @@ export const AMENITIES = [
   { name: "Prayer Hall", icon: "Building", category: "Wellness", status: "coming-soon" as const },
 ];
 
+export const AMENITY_CATEGORIES = [
+  {
+    id: "Security",
+    label: "Security",
+    description: "Round-the-clock protection with multi-layered access control, so your team focuses on work, not worry.",
+  },
+  {
+    id: "Infrastructure",
+    label: "Infrastructure",
+    description: "The invisible engineering that keeps your operations running when everything else stops.",
+  },
+  {
+    id: "Convenience",
+    label: "Convenience",
+    description: "The daily details — parking, elevators, food — designed for how modern teams actually move.",
+  },
+  {
+    id: "Wellness",
+    label: "Wellness",
+    description: "Spaces that support the human side of work.",
+  },
+];
+
 export const SUSTAINABILITY_AMENITIES = [
   { name: "LEED Silver Certified", icon: "Award", note: "USGBC Core & Shell" },
   { name: "Rainwater Harvesting", icon: "CloudRain", note: "9,00,000L storage sump" },

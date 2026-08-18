@@ -49,7 +49,7 @@ function TenantMarquee({
   cardSize: string;
   logoSize: string;
   gap: string;
-  trackClass: "marquee-track" | "marquee-track-slow";
+  trackClass: "marquee-track" | "marquee-track-medium" | "marquee-track-slow";
 }) {
   const doubled = [...tenants, ...tenants];
 
@@ -72,86 +72,31 @@ function TenantMarquee({
 }
 
 const CACTUS = ANCHOR_TENANTS[0];
+const CACTUS_MARQUEE_ITEMS = [
+  { ...CACTUS, isParent: true },
+  ...CACTUS_SUBTENANTS.map((t) => ({ ...t, isParent: false })),
+];
 
-// Rounded to a fixed precision so the trig output is identical between the
-// server's and the browser's JS engine — raw Math.cos/sin can differ in the
-// last float bit across engines, which otherwise causes a hydration mismatch.
-const ORBIT_POSITIONS = CACTUS_SUBTENANTS.map((_, i) => {
-  const angleStep = 360 / CACTUS_SUBTENANTS.length;
-  const rad = ((angleStep * i) * Math.PI) / 180;
-  return {
-    x: Number((50 + 40 * Math.cos(rad)).toFixed(4)),
-    y: Number((50 + 40 * Math.sin(rad)).toFixed(4)),
-  };
-});
+function CactusMarquee() {
+  const doubled = [...CACTUS_MARQUEE_ITEMS, ...CACTUS_MARQUEE_ITEMS];
 
-function CactusOrbital() {
   return (
-    <div className="mx-auto mt-8 w-full max-w-2xl">
-      {/* Desktop: orbital */}
-      <div className="relative hidden aspect-square w-full md:block">
-        <div className="orbit-rotate absolute inset-0">
-          <svg
-            className="absolute inset-0 h-full w-full overflow-visible"
-            viewBox="0 0 100 100"
-            aria-hidden="true"
+    <div className="relative overflow-hidden py-8">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-cream to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-cream to-transparent" />
+      <div className="marquee-track-medium flex w-max gap-8">
+        {doubled.map((tenant, i) => (
+          <div
+            key={`${tenant.name}-${i}`}
+            className={`flex h-28 w-40 shrink-0 items-center justify-center rounded-2xl p-6 shadow-md ${
+              tenant.isParent
+                ? "border border-emerald-200 bg-emerald-50"
+                : "bg-white"
+            }`}
           >
-            {CACTUS_SUBTENANTS.map((tenant, i) => {
-              const { x, y } = ORBIT_POSITIONS[i];
-              return (
-                <line
-                  key={tenant.name}
-                  x1="50"
-                  y1="50"
-                  x2={x}
-                  y2={y}
-                  className="stroke-navy/10"
-                  strokeWidth="0.3"
-                />
-              );
-            })}
-          </svg>
-
-          {CACTUS_SUBTENANTS.map((tenant, i) => {
-            const { x, y } = ORBIT_POSITIONS[i];
-            return (
-              <div
-                key={tenant.name}
-                className="absolute"
-                style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)" }}
-              >
-                <div className="orbit-counter-rotate flex flex-col items-center">
-                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white p-4 shadow-lg">
-                    <TenantLogo name={tenant.name} logo={tenant.logo} size="h-10" />
-                  </div>
-                  <p className="mt-2 text-center text-xs text-navy/70">{tenant.name}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="orbit-pulse absolute left-1/2 top-1/2 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white p-6 shadow-2xl">
-          <TenantLogo name={CACTUS.name} logo={CACTUS.logo} size="h-14" />
-        </div>
-      </div>
-
-      {/* Mobile: simple grid fallback */}
-      <div className="md:hidden">
-        <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-white p-4 shadow-lg">
-          <TenantLogo name={CACTUS.name} logo={CACTUS.logo} size="h-10" />
-        </div>
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
-          {CACTUS_SUBTENANTS.map((tenant) => (
-            <div
-              key={tenant.name}
-              className="flex flex-col items-center rounded-lg bg-white p-4 shadow-sm"
-            >
-              <TenantLogo name={tenant.name} logo={tenant.logo} size="h-10" />
-              <p className="mt-2 text-center text-xs text-navy/70">{tenant.name}</p>
-            </div>
-          ))}
-        </div>
+            <TenantLogo name={tenant.name} logo={tenant.logo} size="h-9" />
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -188,10 +133,13 @@ export default function TenantStrip() {
         </div>
 
         <div className="mt-24">
-          <p className="mx-auto max-w-xl text-center text-sm text-navy/60">
+          <p className="mb-2 text-center text-sm uppercase tracking-widest text-emerald-600">
+            Powered by Cactus Corporate Coworking
+          </p>
+          <p className="mx-auto mb-8 max-w-xl text-center text-navy/60">
             Global brands operating from Cactus coworking within TECCI Park
           </p>
-          <CactusOrbital />
+          <CactusMarquee />
         </div>
 
         <div className="mt-24">

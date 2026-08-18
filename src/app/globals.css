@@ -296,54 +296,20 @@ h1, h2, h3, h4, h5, h6 {
   animation-play-state: paused;
 }
 
+.marquee-track-medium {
+  animation: marquee-scroll 50s linear infinite;
+}
+
+.marquee-track-medium:hover {
+  animation-play-state: paused;
+}
+
 .marquee-track-slow {
   animation: marquee-scroll 60s linear infinite;
 }
 
 .marquee-track-slow:hover {
   animation-play-state: paused;
-}
-
-/* Tenants section: orbital rotation for Cactus sub-tenants — the group
-   rotates while each logo counter-rotates to stay upright. */
-@keyframes orbit-rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes orbit-counter-rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
-}
-
-.orbit-rotate {
-  animation: orbit-rotate 60s linear infinite;
-}
-
-.orbit-counter-rotate {
-  animation: orbit-counter-rotate 60s linear infinite;
-}
-
-.orbit-pulse {
-  animation: orbit-center-pulse 3s ease-in-out infinite;
-}
-
-@keyframes orbit-center-pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.02);
-  }
 }
 
 /* Amenities section: faint dot-grid backdrop for the right-hand showcase. */
@@ -360,5 +326,15 @@ h1, h2, h3, h4, h5, h6 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  /* Marquees are functional, not decorative — they're the only way to see
+     every tenant logo. Slow them down instead of freezing them so a
+     reduced-motion visitor still sees the full set cycle through. */
+  .marquee-track,
+  .marquee-track-medium,
+  .marquee-track-slow {
+    animation-duration: 90s !important;
+    animation-iteration-count: infinite !important;
   }
 }

@@ -17,18 +17,13 @@ import {
   UtensilsCrossed,
   TreePine,
   Building,
-  Award,
-  CloudRain,
-  Sun,
-  Recycle,
   type LucideIcon,
 } from "lucide-react";
-import { AMENITIES, AMENITY_CATEGORIES, SUSTAINABILITY_AMENITIES } from "@/lib/constants";
+import { AMENITIES, AMENITY_CATEGORIES } from "@/lib/constants";
 
 const ICONS: Record<string, LucideIcon> = {
   Shield, ScanLine, UserCheck, Zap, Wind, Gauge, Flame, Droplets,
   ArrowUpDown, Car, ParkingCircle, UtensilsCrossed, TreePine, Building,
-  Award, CloudRain, Sun, Recycle,
 };
 
 function CategoryTabs({
@@ -98,8 +93,7 @@ export default function AmenitiesGrid() {
   const items = AMENITIES.filter((a) => a.category === activeCategory);
 
   return (
-    <>
-      <section id="amenities" className="scroll-mt-header bg-white py-24 md:py-32">
+    <section id="amenities" className="scroll-mt-header bg-white py-24 md:py-32">
         <div className="container-wide">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-medium uppercase tracking-widest text-teal">
@@ -167,49 +161,7 @@ export default function AmenitiesGrid() {
               </motion.div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="section-pad bg-emerald-50">
-        <div className="container-wide">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-medium uppercase tracking-widest text-emerald-600">
-              Sustainability & Resilience
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold text-navy sm:text-4xl">
-              Green Building Excellence
-            </h2>
-            <p className="mt-4 text-base font-light text-gray">
-              TECCI Park is the only LEED Silver certified green building
-              available for lease on OMR — Rajiv Gandhi Salai.
-            </p>
-          </div>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {SUSTAINABILITY_AMENITIES.map((item, i) => {
-              const Icon = ICONS[item.icon];
-              return (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: i * 0.06 }}
-                  className="rounded-xl bg-white p-6 shadow-sm"
-                >
-                  {Icon && (
-                    <Icon className="h-10 w-10 text-emerald-600" strokeWidth={1.5} />
-                  )}
-                  <h3 className="mt-4 text-lg font-semibold text-navy">
-                    {item.name}
-                  </h3>
-                  <p className="mt-2 text-sm text-navy/60">{item.note}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

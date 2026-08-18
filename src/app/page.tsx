@@ -2,7 +2,6 @@ import Hero from "@/components/Hero";
 import HeroStats from "@/components/HeroStats";
 import KeyStatistics from "@/components/KeyStatistics";
 import LocationPreview from "@/components/LocationPreview";
-import PlansSection from "@/components/PlansSection";
 import OfficeAvailability from "@/components/OfficeAvailability";
 import TenantStrip from "@/components/TenantStrip";
 import DesignSection from "@/components/DesignSection";
@@ -33,7 +32,6 @@ export default function Home() {
       <HeroStats />
       <KeyStatistics />
       <LocationPreview />
-      <PlansSection />
       <OfficeAvailability />
       <TenantStrip />
       <DesignSection />

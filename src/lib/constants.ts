@@ -63,7 +63,6 @@ export const NAV_LINKS = [
 export const HOME_NAV_LINKS = [
   { label: "Overview", id: "overview" },
   { label: "Location", id: "location" },
-  { label: "Plans", id: "plans" },
   { label: "Tenants", id: "tenants" },
   { label: "Design", id: "design" },
   { label: "Specs", id: "specs" },
@@ -245,26 +244,6 @@ export const SPEC_CATEGORIES = [
     items: ["Ring main hydrant system", "Smoke detectors + automatic sprinklers on all floors", "Fire alarms on every floor", "Dedicated fire exits", "Grundfos & Kirloskar emergency pumps in basement"],
   },
 ];
-
-export const GREEN_INITIATIVES = [
-  { title: "Energy Efficiency", detail: "Double-glazed curtain wall façade, optimized orientation" },
-  { title: "Water Conservation", detail: "On-site treatment plants, recycling systems" },
-  { title: "Waste Management", detail: "Sewage treatment plant, green disposal protocols" },
-  { title: "Healthier Spaces", detail: "Improved air quality, natural daylighting" },
-  { title: "Resource Optimization", detail: "Low-impact materials and systems" },
-  { title: "Rooftop Solar", detail: "300 KW solar installation in progress" },
-  { title: "Flood Resilience", detail: "Outer ground level raised 1.5+ metres — no basement water ingress during Chennai's historic flood events" },
-];
-
-export const MASTER_PLAN = {
-  blocks: [
-    { name: "Eastern Block (Front)", area: "3,25,000 sq.ft", floors: "11 levels" },
-    { name: "Western Block (Rear)", area: "3,25,000 sq.ft", floors: "11 levels" },
-  ],
-  levels: "2 Basements + Ground + Stilt + 8 Upper Floors",
-  pdf: "/documents/tecci-park-floor-plan.pdf",
-};
-
 
 export const AMENITIES = [
   { name: "24/7 CCTV Surveillance", icon: "Shield", category: "Security" },

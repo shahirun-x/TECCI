@@ -231,3 +231,60 @@ h1, h2, h3, h4, h5, h6 {
 .scroll-indicator-dot {
   animation: scroll-line-pulse 2s ease-in-out infinite;
 }
+
+/* Approvals section: slow-drifting radial-gradient mesh, layered as an
+   overlay so it doesn't clobber the section's own Tailwind bg-gradient. */
+.approvals-mesh::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(74, 45, 139, 0.18) 0%, transparent 45%);
+  background-size: 150% 150%;
+  animation: approvals-mesh-shift 30s ease-in-out infinite alternate;
+}
+
+@keyframes approvals-mesh-shift {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Contact section: gradient orb breathing pulse (transform + opacity only). */
+.contact-orb-pulse {
+  background: radial-gradient(
+    circle,
+    rgba(74, 45, 139, 0.5) 0%,
+    rgba(16, 185, 129, 0.3) 50%,
+    transparent 75%
+  );
+  animation: contact-orb-breathe 8s ease-in-out infinite;
+}
+
+@keyframes contact-orb-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

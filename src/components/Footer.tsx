@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ChevronUp } from "lucide-react";
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import type { IconType } from "react-icons";
 import { CONTACT, HOME_NAV_LINKS, NAV_LINKS, SITE, SOCIAL_LINKS } from "@/lib/constants";
@@ -20,15 +19,6 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-navy text-white/80">
-      <button
-        type="button"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        aria-label="Back to top"
-        className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
-      >
-        <ChevronUp className="h-5 w-5 text-white" />
-      </button>
-
       <div className="container-wide pt-16">
         <p className="font-display text-4xl font-bold text-white md:text-6xl">
           TECCI Park.

@@ -137,7 +137,7 @@ export default function DesignSection() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
           {DESIGN_FEATURES.map((feature, i) => {
             const Icon = ICONS[feature.icon];
             return (

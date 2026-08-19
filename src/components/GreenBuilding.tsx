@@ -13,6 +13,13 @@ const ICONS: Record<string, LucideIcon> = {
   Shield,
 };
 
+const TIMELINE = [
+  { year: "2006", label: "Groundbreaking" },
+  { year: "2009", label: "Commissioning" },
+  { year: "LEED", label: "Silver Certified" },
+  { year: "Today", label: "Chennai's premier Grade A IT park" },
+];
+
 export default function GreenBuilding() {
   return (
     <section
@@ -51,6 +58,23 @@ export default function GreenBuilding() {
                 </span>
               </div>
             </ScrollReveal>
+
+            <div className="relative mt-12">
+              <div className="absolute bottom-1 left-0 top-1 w-px bg-emerald-400/30" />
+              <div className="space-y-8 pl-8">
+                {TIMELINE.map((item, i) => (
+                  <ScrollReveal key={item.year} delay={i * 0.1}>
+                    <div className="relative">
+                      <span className="absolute -left-8 top-1.5 h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                      <p className="text-sm font-semibold uppercase tracking-widest text-emerald-400">
+                        {item.year}
+                      </p>
+                      <p className="mt-1 text-sm text-white/70">{item.label}</p>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-1 lg:gap-10">

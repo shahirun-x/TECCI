@@ -120,7 +120,7 @@ export default function Header() {
 
         <button
           aria-label="Toggle menu"
-          className={`-mr-2.5 p-2.5 lg:hidden text-2xl transition-colors ${solid ? "text-navy" : "text-white"}`}
+          className={`-mr-2.5 p-3 lg:hidden text-2xl transition-colors ${solid ? "text-navy" : "text-white"}`}
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <HiX /> : <HiMenu />}

@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 import { Award, CloudRain, Sun, Wind, Recycle, Shield, type LucideIcon } from "lucide-react";
 import { SUSTAINABILITY_AMENITIES } from "@/lib/constants";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -14,43 +12,6 @@ const ICONS: Record<string, LucideIcon> = {
   Recycle,
   Shield,
 };
-
-// Falls back to a stylized placeholder if the certificate image is missing.
-function CertificateImage() {
-  const [failed, setFailed] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    if (imgRef.current?.complete && imgRef.current.naturalWidth === 0) {
-      setFailed(true);
-    }
-  }, []);
-
-  if (failed) {
-    return (
-      <div className="flex aspect-[4/3] w-full flex-col items-center justify-center gap-3 bg-white p-8 text-center">
-        <Award className="h-10 w-10 text-emerald-600" strokeWidth={1.5} />
-        <p className="font-display text-lg font-bold tracking-wide text-navy">
-          LEED CERTIFICATE
-        </p>
-        <p className="text-xs uppercase tracking-widest text-navy/40">
-          USGBC Core &amp; Shell
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    /* eslint-disable-next-line @next/next/no-img-element */
-    <img
-      ref={imgRef}
-      src="/images/leed-certificate.jpg"
-      alt="TECCI Park LEED Silver Certification for Core and Shell"
-      className="aspect-[4/3] w-full bg-white object-contain p-6"
-      onError={() => setFailed(true)}
-    />
-  );
-}
 
 export default function GreenBuilding() {
   return (
@@ -92,12 +53,12 @@ export default function GreenBuilding() {
             </ScrollReveal>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-1 lg:gap-10">
             {SUSTAINABILITY_AMENITIES.map((item, i) => {
               const Icon = ICONS[item.icon];
               return (
                 <ScrollReveal key={item.name} delay={i * 0.1}>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-lg">
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-lg lg:p-8">
                     {Icon && <Icon className="h-8 w-8 text-emerald-400" strokeWidth={1.5} />}
                     <h3 className="mt-4 text-lg font-semibold text-white">{item.name}</h3>
                     <p className="mt-2 text-sm text-white/60">{item.note}</p>
@@ -107,16 +68,6 @@ export default function GreenBuilding() {
             })}
           </div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mx-auto mt-24 max-w-md -rotate-3 overflow-hidden rounded-xl shadow-2xl shadow-black/40"
-        >
-          <CertificateImage />
-        </motion.div>
       </div>
     </section>
   );

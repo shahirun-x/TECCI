@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { ChevronUp } from "lucide-react";
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import type { IconType } from "react-icons";
 import { CONTACT, HOME_NAV_LINKS, NAV_LINKS, SITE, SOCIAL_LINKS } from "@/lib/constants";
@@ -18,20 +19,58 @@ export default function Footer() {
   const isHome = pathname === "/";
 
   return (
-    <footer className="bg-navy text-white/80">
-      <div className="container-wide grid gap-10 py-16 md:grid-cols-4">
-        <div className="md:col-span-1">
+    <footer className="relative bg-navy text-white/80">
+      <button
+        type="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Back to top"
+        className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
+      >
+        <ChevronUp className="h-5 w-5 text-white" />
+      </button>
+
+      <div className="container-wide pt-16">
+        <p className="font-display text-4xl font-bold text-white md:text-6xl">
+          TECCI Park.
+        </p>
+        <p className="mt-2 text-lg text-white/60">
+          Grade A office space, engineered for what&rsquo;s next.
+        </p>
+        <div className="my-12 h-px w-full bg-white/10" />
+      </div>
+
+      <div className="container-wide grid gap-10 pb-16 md:grid-cols-3">
+        <div>
           <Image
-            src="/images/tecci-logo.jpg"
+            src="/images/tecci logo white.svg"
             alt="TECCI Park"
-            width={140}
-            height={28}
-            className="h-7 w-auto object-contain brightness-0 invert"
-            style={{ width: "auto" }}
+            width={128}
+            height={26}
+            className="h-auto w-32 object-contain"
           />
           <p className="mt-4 text-sm font-light tracking-widest text-white/50">
             {SITE.tagline}
           </p>
+          <p className="mt-4 text-sm text-white/60">
+            Developer &amp; Promoter of TECCI Park
+          </p>
+          <div className="mt-4 flex gap-4">
+            {SOCIAL_LINKS.map((social) => {
+              const Icon = SOCIAL_ICONS[social.icon];
+              return (
+                <a
+                  key={social.platform}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="hover:text-teal-light transition-colors"
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              );
+            })}
+          </div>
         </div>
 
         <div>
@@ -68,31 +107,9 @@ export default function Footer() {
             <li>{CONTACT.email}</li>
           </ul>
         </div>
-
-        <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
-            Buhari Group
-          </h4>
-          <p className="mt-4 text-sm text-white/60">Developer &amp; Promoter of TECCI Park</p>
-          <div className="mt-4 flex gap-4">
-            {SOCIAL_LINKS.map((social) => {
-              const Icon = SOCIAL_ICONS[social.icon];
-              return (
-                <a
-                  key={social.platform}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="hover:text-teal-light transition-colors"
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              );
-            })}
-          </div>
-        </div>
       </div>
+
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-purple/50 to-transparent" />
 
       <div className="border-t border-white/10 py-6">
         <div className="container-wide flex flex-col gap-3 text-xs text-white/50 md:flex-row md:items-center md:justify-between">

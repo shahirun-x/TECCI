@@ -67,7 +67,7 @@ function CategoryTabs({
             tabIndex={isActive ? 0 : -1}
             onClick={() => onSelect(cat.id)}
             onKeyDown={(e) => handleKeyDown(e, i)}
-            className={`relative shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors md:block md:w-full md:shrink md:whitespace-normal md:rounded-none md:px-6 md:py-4 md:text-2xl md:font-display lg:text-3xl ${
+            className={`relative shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors md:flex md:w-full md:shrink md:items-baseline md:gap-3 md:whitespace-normal md:rounded-none md:px-6 md:py-4 ${
               isActive
                 ? "bg-purple text-white md:bg-transparent md:text-navy"
                 : "bg-navy/5 text-navy/60 md:bg-transparent md:text-navy/30 md:hover:text-navy/50"
@@ -76,8 +76,8 @@ function CategoryTabs({
             {isActive && (
               <span className="absolute left-0 top-0 hidden h-full w-1 bg-purple md:block" />
             )}
-            {cat.label}
-            <span className="ml-2 hidden text-sm font-body font-medium text-emerald-600 md:inline">
+            <span className="md:font-display md:text-xl lg:text-2xl">{cat.label}</span>
+            <span className="ml-2 hidden whitespace-nowrap text-sm font-body font-medium text-emerald-600 md:ml-0 md:inline">
               {items.length} {items.length === 1 ? "item" : "items"}
             </span>
           </button>
@@ -110,7 +110,7 @@ export default function AmenitiesGrid() {
           </div>
 
           <div className="mt-16 grid gap-10 md:grid-cols-[30%_70%] md:gap-12">
-            <div className="md:sticky md:top-32 md:self-start">
+            <div className="md:sticky md:top-32 md:min-w-[280px] md:self-start">
               <CategoryTabs activeId={activeCategory} onSelect={setActiveCategory} />
               <p className="mt-4 hidden text-xs text-navy/40 md:block">
                 Click a category to explore

@@ -102,15 +102,19 @@ export default function LocationPreview() {
           className="mt-10"
         >
           <h3 className="text-lg font-semibold text-navy">Nearby Landmarks</h3>
-          <div className="mt-4 flex flex-wrap gap-3">
-            {NEARBY_LANDMARKS.map((landmark) => (
-              <span
-                key={landmark}
-                className="rounded-full bg-navy/5 px-4 py-2 text-sm text-navy"
-              >
-                {landmark}
-              </span>
-            ))}
+          <div className="relative mt-4 overflow-hidden">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-cream to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-cream to-transparent" />
+            <div className="marquee-track-medium flex w-max gap-4 py-1">
+              {[...NEARBY_LANDMARKS, ...NEARBY_LANDMARKS].map((landmark, i) => (
+                <span
+                  key={`${landmark}-${i}`}
+                  className="shrink-0 rounded-full bg-navy/5 px-6 py-3 text-sm font-medium text-navy"
+                >
+                  {landmark}
+                </span>
+              ))}
+            </div>
           </div>
         </motion.div>
 

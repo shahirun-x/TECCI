@@ -61,10 +61,11 @@ export default function GalleryGrid({ items }: { items: GalleryItem[] }) {
           className="group relative aspect-[16/10] cursor-pointer overflow-hidden rounded-xl"
         >
           <GalleryImage src={item.src} alt={item.alt} category={item.category} />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-          <div className="absolute inset-x-4 bottom-4 translate-y-4 text-white transition-transform duration-300 group-hover:translate-y-0">
-            <p className="text-lg font-semibold">{item.caption}</p>
-            <p className="text-xs uppercase tracking-widest text-emerald-400">{item.category}</p>
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/20 to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="absolute inset-x-4 bottom-4 z-10 text-white">
+            <p className="gallery-text-shadow text-lg font-semibold">{item.caption}</p>
+            <p className="gallery-text-shadow mt-1 text-xs uppercase tracking-widest text-emerald-400">{item.category}</p>
           </div>
         </motion.div>
       ))}

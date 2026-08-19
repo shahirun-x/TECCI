@@ -154,18 +154,18 @@ export const ANCHOR_TENANTS = [
 
 export const OTHER_TENANTS = [
   { name: "Sagaciter", floor: "Block A — Ground Floor", logo: "/images/tenants/sagaciter.png" },
-  { name: "RapidData Technologies", floor: "Block A — 1st Floor", logo: "/images/tenants/rapiddata.png" },
+  { name: "RapidData Technologies", floor: "Block A — 1st Floor", logo: "/images/tenants/rapid data.png" },
   { name: "Hirsch Secure", floor: "Block A — 5th Floor", logo: "/images/tenants/hirsch.png" },
   { name: "Pantheon", floor: "Block A — 6th Floor", logo: "/images/tenants/pantheon.png" },
   { name: "Infrasoft Technologies", floor: "Block B — 1st Floor", logo: "/images/tenants/infrasoft.png" },
-  { name: "AdminDroid (Adminware Software)", floor: "Block B — 5th Floor", logo: "/images/tenants/admindroid.png" },
+  { name: "AdminDroid (Adminware Software)", floor: "Block B — 5th Floor", logo: "/images/tenants/admin droid.png" },
   { name: "Yakkay Technologies", floor: "Block B — 7th Floor", logo: "/images/tenants/yakkay.png" },
 ];
 
 export const CACTUS_SUBTENANTS = [
   { name: "Wipro", logo: "/images/tenants/wipro.png" },
   { name: "Walmart", logo: "/images/tenants/walmart.png" },
-  { name: "Royal Enfield", logo: "/images/tenants/royalenfield.png" },
+  { name: "Royal Enfield", logo: "/images/tenants/royal enfield.png" },
   { name: "PixStone Images", logo: "/images/tenants/pixstone.png" },
   { name: "SysArc (A CSI Company)", logo: "/images/tenants/sysarc.png" },
 ];

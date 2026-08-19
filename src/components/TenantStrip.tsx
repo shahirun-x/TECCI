@@ -94,7 +94,7 @@ function CactusMarquee() {
                 : "bg-white"
             }`}
           >
-            <TenantLogo name={tenant.name} logo={tenant.logo} size="h-9" />
+            <TenantLogo name={tenant.name} logo={tenant.logo} size="h-12" />
           </div>
         ))}
       </div>
@@ -123,7 +123,7 @@ export default function TenantStrip() {
           <TenantMarquee
             tenants={ANCHOR_TENANTS}
             cardSize="w-52 h-32"
-            logoSize="h-10"
+            logoSize="h-16"
             gap="gap-16"
             trackClass="marquee-track"
           />
@@ -150,7 +150,7 @@ export default function TenantStrip() {
             <TenantMarquee
               tenants={OTHER_TENANTS}
               cardSize="w-40 h-24"
-              logoSize="h-8"
+              logoSize="h-10"
               gap="gap-8"
               trackClass="marquee-track-slow"
             />

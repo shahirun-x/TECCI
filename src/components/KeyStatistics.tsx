@@ -40,9 +40,9 @@ export default function KeyStatistics() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: i * 0.06 }}
-                  className="rounded-lg bg-white p-6 shadow-sm"
+                  className="rounded-lg bg-white p-4 shadow-sm md:p-6"
                 >
-                  <div className="overflow-hidden text-ellipsis whitespace-nowrap font-display text-2xl font-bold leading-tight text-navy">
+                  <div className="whitespace-nowrap font-display text-xl font-bold leading-tight text-navy md:text-2xl">
                     {stat.number}
                   </div>
                   {stat.unit && (

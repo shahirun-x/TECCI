@@ -144,24 +144,6 @@ export default function Header() {
             className="fixed inset-x-0 z-50 flex flex-col bg-white lg:hidden"
             style={{ top: MOBILE_HEADER_HEIGHT, height: `calc(100dvh - ${MOBILE_HEADER_HEIGHT}px)` }}
           >
-              <div className="flex items-center justify-between border-b border-navy/10 px-6 py-4">
-                <Image
-                  src="/images/tecci-logo.jpg"
-                  alt="TECCI Park"
-                  width={120}
-                  height={24}
-                  className="h-6 w-auto object-contain"
-                  style={{ width: "auto" }}
-                />
-                <button
-                  aria-label="Close menu"
-                  className="-mr-2.5 p-2.5 text-2xl text-navy"
-                  onClick={() => setOpen(false)}
-                >
-                  <HiX />
-                </button>
-              </div>
-
               <nav className="flex w-full flex-1 flex-col overflow-y-auto px-6 py-6 md:px-12">
                 {(isHome ? HOME_NAV_LINKS : NAV_LINKS).map((link, i) => {
                   const isAnchor = "id" in link;

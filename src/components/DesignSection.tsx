@@ -135,9 +135,12 @@ export default function DesignSection() {
           <p className="mt-2 text-sm text-navy/60">
             Purpose-built features that shape the tenant experience
           </p>
+          <p className="mt-2 text-xs text-navy/40 md:hidden">
+            ← Swipe to explore →
+          </p>
         </div>
 
-        <div className="mt-10 grid items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="scrollbar-hide -mx-6 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:snap-none md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3">
           {DESIGN_FEATURES.map((feature, i) => {
             const Icon = ICONS[feature.icon];
             return (
@@ -147,7 +150,7 @@ export default function DesignSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: (i % 3) * 0.08 }}
-                className="overflow-hidden rounded-xl shadow-md transition-shadow hover:shadow-xl"
+                className="w-[85%] shrink-0 snap-center overflow-hidden rounded-xl shadow-md transition-shadow hover:shadow-xl md:w-auto md:shrink"
               >
                 <div className="relative aspect-[4/3]">
                   <DesignImage src={feature.image} alt={feature.title} icon={Icon} />

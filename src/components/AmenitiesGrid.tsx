@@ -48,41 +48,44 @@ function CategoryTabs({
   }
 
   return (
-    <div
-      role="tablist"
-      aria-label="Amenity categories"
-      className="flex gap-2 overflow-x-auto pb-2 md:flex-col md:gap-0 md:overflow-visible md:pb-0"
-    >
-      {AMENITY_CATEGORIES.map((cat, i) => {
-        const items = AMENITIES.filter((a) => a.category === cat.id);
-        const isActive = cat.id === activeId;
-        return (
-          <button
-            key={cat.id}
-            ref={(el) => {
-              buttonRefs.current[i] = el;
-            }}
-            role="tab"
-            aria-selected={isActive}
-            tabIndex={isActive ? 0 : -1}
-            onClick={() => onSelect(cat.id)}
-            onKeyDown={(e) => handleKeyDown(e, i)}
-            className={`relative shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors md:flex md:w-full md:shrink md:items-baseline md:gap-3 md:whitespace-normal md:rounded-none md:px-6 md:py-4 ${
-              isActive
-                ? "bg-purple text-white md:bg-transparent md:text-navy"
-                : "bg-navy/5 text-navy/60 md:bg-transparent md:text-navy/30 md:hover:text-navy/50"
-            }`}
-          >
-            {isActive && (
-              <span className="absolute left-0 top-0 hidden h-full w-1 bg-purple md:block" />
-            )}
-            <span className="md:font-display md:text-xl lg:text-2xl">{cat.label}</span>
-            <span className="ml-2 hidden whitespace-nowrap text-sm font-body font-medium text-emerald-600 md:ml-0 md:inline">
-              {items.length} {items.length === 1 ? "item" : "items"}
-            </span>
-          </button>
-        );
-      })}
+    <div className="relative">
+      <div
+        role="tablist"
+        aria-label="Amenity categories"
+        className="scrollbar-hide -mx-6 flex snap-x snap-mandatory gap-2 overflow-x-auto px-6 pb-2 md:mx-0 md:flex-col md:gap-0 md:overflow-visible md:px-0 md:pb-0"
+      >
+        {AMENITY_CATEGORIES.map((cat, i) => {
+          const items = AMENITIES.filter((a) => a.category === cat.id);
+          const isActive = cat.id === activeId;
+          return (
+            <button
+              key={cat.id}
+              ref={(el) => {
+                buttonRefs.current[i] = el;
+              }}
+              role="tab"
+              aria-selected={isActive}
+              tabIndex={isActive ? 0 : -1}
+              onClick={() => onSelect(cat.id)}
+              onKeyDown={(e) => handleKeyDown(e, i)}
+              className={`relative shrink-0 snap-start whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors md:flex md:w-full md:shrink md:items-baseline md:gap-3 md:whitespace-normal md:rounded-none md:px-6 md:py-4 ${
+                isActive
+                  ? "bg-purple text-white md:bg-transparent md:text-navy"
+                  : "bg-navy/5 text-navy/60 md:bg-transparent md:text-navy/30 md:hover:text-navy/50"
+              }`}
+            >
+              {isActive && (
+                <span className="absolute left-0 top-0 hidden h-full w-1 bg-purple md:block" />
+              )}
+              <span className="md:font-display md:text-xl lg:text-2xl">{cat.label}</span>
+              <span className="ml-2 hidden whitespace-nowrap text-sm font-body font-medium text-emerald-600 md:ml-0 md:inline">
+                {items.length} {items.length === 1 ? "item" : "items"}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+      <div className="pointer-events-none absolute right-0 top-0 h-[calc(100%-0.5rem)] w-8 bg-gradient-to-l from-white via-white/50 to-transparent md:hidden" />
     </div>
   );
 }
@@ -110,7 +113,7 @@ export default function AmenitiesGrid() {
           </div>
 
           <div className="mt-16 grid gap-10 md:grid-cols-[30%_70%] md:gap-12">
-            <div className="md:sticky md:top-32 md:min-w-[280px] md:self-start">
+            <div className="min-w-0 md:sticky md:top-32 md:min-w-[280px] md:self-start">
               <CategoryTabs activeId={activeCategory} onSelect={setActiveCategory} />
               <p className="mt-4 hidden text-xs text-navy/40 md:block">
                 Click a category to explore

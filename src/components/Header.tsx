@@ -162,7 +162,7 @@ export default function Header() {
                 </button>
               </div>
 
-              <nav className="container-wide flex flex-1 flex-col overflow-y-auto py-6">
+              <nav className="flex w-full flex-1 flex-col overflow-y-auto px-6 py-6 md:px-12">
                 {(isHome ? HOME_NAV_LINKS : NAV_LINKS).map((link, i) => {
                   const isAnchor = "id" in link;
                   const href = isAnchor ? `#${(link as { id: string }).id}` : (link as { href: string }).href;

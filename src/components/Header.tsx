@@ -56,6 +56,14 @@ export default function Header() {
 
   const solid = scrolled || !isHome || open;
 
+  // News is a standalone page, not a homepage anchor — HOME_NAV_LINKS
+  // intentionally excludes it, so it's rendered as one explicit link at
+  // the end of the nav on every route. NAV_LINKS already includes News
+  // (for Footer's Quick Links and other non-homepage consumers), so it's
+  // filtered out here to avoid rendering it twice on non-homepage routes.
+  const pageNavLinks = NAV_LINKS.filter((link) => link.href !== "/news");
+  const newsIsActive = pathname.startsWith("/news");
+
   const linkClass = (isActive: boolean) => {
     if (solid) {
       return `text-sm font-medium tracking-wide transition-colors ${isActive ? "text-purple" : "text-navy hover:text-purple"
@@ -102,11 +110,14 @@ export default function Header() {
                 {link.label}
               </a>
             ))
-            : NAV_LINKS.map((link) => (
+            : pageNavLinks.map((link) => (
               <Link key={link.href} href={link.href} className={linkClass(pathname === link.href)}>
                 {link.label}
               </Link>
             ))}
+          <Link href="/news" className={linkClass(newsIsActive)}>
+            News
+          </Link>
           <Link
             href={isHome ? "#contact" : "/contact"}
             className={`whitespace-nowrap rounded-sm px-4 py-2.5 text-sm font-medium tracking-wide transition-all duration-200 xl:px-5 ${solid
@@ -145,7 +156,7 @@ export default function Header() {
             style={{ top: MOBILE_HEADER_HEIGHT, height: `calc(100dvh - ${MOBILE_HEADER_HEIGHT}px)` }}
           >
               <nav className="flex w-full flex-1 flex-col overflow-y-auto px-6 py-6 md:px-12">
-                {(isHome ? HOME_NAV_LINKS : NAV_LINKS).map((link, i) => {
+                {(isHome ? HOME_NAV_LINKS : pageNavLinks).map((link, i) => {
                   const isAnchor = "id" in link;
                   const href = isAnchor ? `#${(link as { id: string }).id}` : (link as { href: string }).href;
                   const isActive = isAnchor
@@ -169,6 +180,20 @@ export default function Header() {
                     </motion.div>
                   );
                 })}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: (isHome ? HOME_NAV_LINKS : pageNavLinks).length * 0.04 }}
+                >
+                  <Link
+                    href="/news"
+                    onClick={() => setOpen(false)}
+                    className={`block border-b border-navy/10 py-3 text-xl font-display font-medium ${newsIsActive ? "text-purple" : "text-navy"
+                      }`}
+                  >
+                    News
+                  </Link>
+                </motion.div>
               </nav>
 
               <div className="border-t border-navy/10 p-6">

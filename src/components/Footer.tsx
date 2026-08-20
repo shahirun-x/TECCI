@@ -16,6 +16,11 @@ const SOCIAL_ICONS: Record<string, IconType> = {
 export default function Footer() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  // News is a standalone page, not a homepage anchor, so it's appended
+  // explicitly below rather than living in HOME_NAV_LINKS. NAV_LINKS
+  // already includes News, so it's filtered out of that list here to
+  // avoid rendering it twice on non-homepage routes.
+  const pageNavLinks = NAV_LINKS.filter((link) => link.href !== "/news");
 
   return (
     <footer className="relative bg-navy text-white/80">
@@ -76,13 +81,18 @@ export default function Footer() {
                     </a>
                   </li>
                 ))
-              : NAV_LINKS.map((link) => (
+              : pageNavLinks.map((link) => (
                   <li key={link.href}>
                     <Link href={link.href} className="text-sm hover:text-teal-light transition-colors">
                       {link.label}
                     </Link>
                   </li>
                 ))}
+            <li>
+              <Link href="/news" className="text-sm hover:text-teal-light transition-colors">
+                News
+              </Link>
+            </li>
           </ul>
         </div>
 

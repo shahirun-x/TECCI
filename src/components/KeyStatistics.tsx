@@ -17,7 +17,7 @@ export default function KeyStatistics() {
             className="relative order-first aspect-video w-full overflow-hidden rounded-xl shadow-xl md:order-last md:aspect-auto md:h-full md:rounded-2xl"
           >
             <Image
-              src="/images/exterior day.png"
+              src="/images/gallery/exterior day.png"
               alt="TECCI Park building"
               fill
               className="object-cover"

@@ -31,7 +31,7 @@ const SLIDES: Slide[] = [
   },
   {
     id: "exterior-day",
-    src: "/images/exterior day.png",
+    src: "/images/gallery/exterior day.png",
     alt: "TECCI Park daytime front facade",
     kenBurnsClass: "animate-ken-burns-3",
     mobileObjectPositionClass: "object-[55%_center]",

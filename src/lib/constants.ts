@@ -192,19 +192,19 @@ export const DESIGN_FEATURES = [
     description: "Two connected blocks (Eastern & Western) maximize natural light exposure and give tenants flexible expansion options as they grow.",
   },
   {
-    image: "/images/lobby.png",
+    image: "/images/gallery/lobby.png",
     icon: "Sparkles",
     title: "Premium Common Areas",
     description: "Marble and granite lobbies, Kota stone staircases, and high-ceiling drop-off zones set the tone from the moment tenants arrive.",
   },
   {
-    image: "/images/hero building.png",
+    image: "/images/gallery/hero-building.png",
     icon: "Sun",
     title: "3,750mm Clear Ceilings",
     description: "Generous floor-to-ceiling heights create airy, well-lit workspaces — an increasingly rare feature in Chennai's Grade A market.",
   },
   {
-    image: "/images/campus shot.png",
+    image: "/images/gallery/campus-shot.png",
     icon: "Trees",
     title: "Landscaped Campus",
     description: "5 acres of thoughtfully planned grounds with palm-lined driveways, ornamental gardens, and generous setbacks from OMR — an urban campus, not just a building.",
@@ -434,7 +434,7 @@ export const GALLERY_CATEGORIES = [
 
 export const GALLERY = [
   { id: "hero-building", src: "/images/gallery/hero-building.png", alt: "TECCI Park exterior at twilight with warm interior lighting", category: "exterior", caption: "Twilight Exterior" },
-  { id: "exterior-day", src: "/images/gallery/exterior day.png", alt: "TECCI Park front facade in daytime showing the twin-block architecture", category: "exterior", caption: "Daytime Facade" },
+  { id: "exterior-day", src: "/images/gallery/exterior-day.png", alt: "TECCI Park front facade in daytime showing the twin-block architecture", category: "exterior", caption: "Daytime Facade" },
   { id: "entrance", src: "/images/gallery/entrance.png", alt: "TECCI Park entrance drop-off area at dusk", category: "exterior", caption: "Entrance & Drop-off" },
   { id: "facade-detail", src: "/images/gallery/facade-detail.png", alt: "Close-up of the double-glazed curtain wall facade with aluminium mullions", category: "exterior", caption: "Curtain Wall Detail" },
   { id: "twin-blocks", src: "/images/gallery/twin-blocks.png", alt: "The connected twin blocks of TECCI Park", category: "exterior", caption: "Twin Blocks" },

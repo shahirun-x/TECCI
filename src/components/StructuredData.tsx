@@ -46,7 +46,7 @@ const realEstateAgent = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   name: "TECCI Park",
-  image: "https://www.teccipark.com/images/hero building.png",
+  image: "https://www.teccipark.com/images/gallery/hero-building.png",
   priceRange: "$$$$",
   telephone: CONTACT.phone,
   email: CONTACT.email,

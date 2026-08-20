@@ -294,6 +294,8 @@ export const SUSTAINABILITY_AMENITIES = [
   { name: "Flood-Resilient Design", icon: "Shield", note: "Ground raised 1.5m+ — no basement flooding in Chennai's historic floods" },
 ];
 
+// TODO: Shameem Anantha Raman is TWO different people (Mr. Shameem AND Mr. Anantha Raman — client's father, board member).
+// When we get their full details separately, add them back as two distinct profile entries.
 export const LEADERSHIP = [
   {
     id: "abdul-qadir",
@@ -325,22 +327,6 @@ export const LEADERSHIP = [
     designation: "Principal Advisor (Finance)",
     bio: "IIM and IISc alumnus. Former CEO of Ascendas, Mahindra Realty, and Sree City.",
     photo: "/images/team/ms-jagan.jpg",
-    linkedin: "",
-  },
-  {
-    id: "rafi-hajiar",
-    name: "Mr. Rafi Hajiar",
-    designation: "President, TECCI Park Owners Welfare Association (TPOA)",
-    bio: "Bio to be added.",
-    photo: "/images/team/rafi-hajiar.jpg",
-    linkedin: "",
-  },
-  {
-    id: "shameem-anantha-raman",
-    name: "Mr. Shameem Anantha Raman",
-    designation: "Designation to be confirmed",
-    bio: "Bio to be added.",
-    photo: "/images/team/shameem-anantha-raman.jpg",
     linkedin: "",
   },
 ];

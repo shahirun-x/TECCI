@@ -140,7 +140,7 @@ export default function DesignSection() {
           </p>
         </div>
 
-        <div className="scrollbar-hide -mx-6 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:snap-none md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3">
+        <div className="scrollbar-hide -mx-6 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:snap-none md:auto-rows-fr md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3">
           {DESIGN_FEATURES.map((feature, i) => {
             const Icon = ICONS[feature.icon];
             return (
@@ -150,12 +150,12 @@ export default function DesignSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: (i % 3) * 0.08 }}
-                className="w-[85%] shrink-0 snap-center overflow-hidden rounded-xl shadow-md transition-shadow hover:shadow-xl md:w-auto md:shrink"
+                className="flex w-[85%] shrink-0 snap-center flex-col overflow-hidden rounded-xl shadow-md transition-shadow hover:shadow-xl md:h-full md:w-auto md:shrink"
               >
                 <div className="relative aspect-[4/3]">
                   <DesignImage src={feature.image} alt={feature.title} icon={Icon} />
                 </div>
-                <div className="rounded-b-xl bg-white p-6">
+                <div className="flex flex-1 flex-col rounded-b-xl bg-white p-6">
                   {Icon && <Icon className="mb-3 h-8 w-8 text-purple" strokeWidth={1.5} />}
                   <h4 className="text-lg font-semibold text-navy">{feature.title}</h4>
                   <p className="mt-2 text-sm leading-relaxed text-navy/60">

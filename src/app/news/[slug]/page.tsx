@@ -121,7 +121,7 @@ export default async function NewsPostPage({
 
         {post.cover && (
           <div className="relative mt-8 aspect-video w-full overflow-hidden rounded-2xl">
-            <NewsCoverImage src={post.cover} alt={post.title} />
+            <NewsCoverImage src={post.cover} alt={post.title} priority />
           </div>
         )}
 

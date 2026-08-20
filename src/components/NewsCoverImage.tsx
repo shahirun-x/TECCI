@@ -8,7 +8,15 @@ import { Newspaper } from "lucide-react";
 // a matching file yet in public/images/news/. Falls back to a gradient +
 // icon placeholder if missing, same pattern used for design/team/tenant
 // images elsewhere in this codebase.
-export default function NewsCoverImage({ src, alt }: { src?: string; alt: string }) {
+export default function NewsCoverImage({
+  src,
+  alt,
+  priority,
+}: {
+  src?: string;
+  alt: string;
+  priority?: boolean;
+}) {
   const [failed, setFailed] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -34,6 +42,7 @@ export default function NewsCoverImage({ src, alt }: { src?: string; alt: string
       src={src}
       alt={alt}
       fill
+      priority={priority}
       className="object-cover transition-transform duration-300 group-hover:scale-105"
       onError={() => setFailed(true)}
     />

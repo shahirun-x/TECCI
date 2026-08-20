@@ -63,6 +63,7 @@ export const NAV_LINKS = [
 export const HOME_NAV_LINKS = [
   { label: "Overview", id: "overview" },
   { label: "Location", id: "location" },
+  { label: "Available", id: "available-spaces" },
   { label: "Tenants", id: "tenants" },
   { label: "Design", id: "design" },
   { label: "Specs", id: "specs" },

@@ -1,4 +1,5 @@
 import { CONTACT, LEADERSHIP, SOCIAL_LINKS } from "@/lib/constants";
+import { getActiveListings } from "@/lib/data/available-spaces";
 
 const ADDRESS = {
   "@type": "PostalAddress",
@@ -101,7 +102,27 @@ const people = LEADERSHIP.filter(
   },
 }));
 
-const SCHEMAS = [organization, realEstateAgent, place, webSite, ...people];
+const listings = getActiveListings().map((space) => ({
+  "@context": "https://schema.org",
+  "@type": "RealEstateListing",
+  name: `${space.block} — ${space.floor}`,
+  description: space.description || `${space.size} ${space.condition} office space at TECCI Park`,
+  url: "https://www.teccipark.com/#available-spaces",
+  floorSize: {
+    "@type": "QuantitativeValue",
+    value: Number(space.size.replace(/[^0-9]/g, "")),
+    unitCode: "FTK",
+  },
+  availabilityStarts:
+    space.availability === "Immediate" ? new Date().toISOString() : space.availabilityDate,
+  provider: {
+    "@type": "Person",
+    name: space.ownerName,
+    telephone: space.ownerPhone,
+  },
+}));
+
+const SCHEMAS = [organization, realEstateAgent, place, webSite, ...people, ...listings];
 
 export default function StructuredData() {
   return (

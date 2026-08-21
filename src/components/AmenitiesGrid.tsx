@@ -68,7 +68,7 @@ function CategoryTabs({
               tabIndex={isActive ? 0 : -1}
               onClick={() => onSelect(cat.id)}
               onKeyDown={(e) => handleKeyDown(e, i)}
-              className={`relative shrink-0 snap-start whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors md:flex md:w-full md:shrink md:items-baseline md:gap-3 md:whitespace-normal md:rounded-none md:px-6 md:py-4 ${
+              className={`relative shrink-0 snap-start whitespace-nowrap rounded-full px-4 py-3 text-sm font-medium transition-colors md:flex md:w-full md:shrink md:items-baseline md:gap-3 md:whitespace-normal md:rounded-none md:px-6 md:py-4 ${
                 isActive
                   ? "bg-purple text-white md:bg-transparent md:text-navy"
                   : "bg-navy/5 text-navy/60 md:bg-transparent md:text-navy/30 md:hover:text-navy/50"

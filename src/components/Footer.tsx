@@ -59,7 +59,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="hover:text-teal-light transition-colors"
+                  className="-m-2 p-2 hover:text-teal-light transition-colors"
                 >
                   <Icon className="h-5 w-5" />
                 </a>

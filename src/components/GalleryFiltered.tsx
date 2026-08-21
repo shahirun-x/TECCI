@@ -20,7 +20,7 @@ export default function GalleryFiltered() {
           <button
             key={cat.id}
             onClick={() => setActive(cat.id)}
-            className={`rounded-full border px-6 py-2 text-sm font-medium transition-all ${
+            className={`rounded-full border px-6 py-3 text-sm font-medium transition-all ${
               active === cat.id
                 ? "border-purple bg-purple text-white"
                 : "border-navy/10 bg-white text-navy hover:border-purple hover:text-purple"

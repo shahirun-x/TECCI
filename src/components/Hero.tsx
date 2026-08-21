@@ -190,7 +190,7 @@ export default function Hero() {
               aria-label={`Go to slide ${i + 1}: ${slide.alt}`}
               aria-current={isActive}
               onClick={() => setActiveIndex(i)}
-              className="relative flex items-center justify-center before:absolute before:-inset-2 before:content-['']"
+              className="relative flex items-center justify-center before:absolute before:-inset-3 before:content-['']"
             >
               <span
                 className={`block rounded-full border transition-all duration-300 ${

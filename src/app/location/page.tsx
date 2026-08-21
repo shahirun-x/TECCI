@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { MapPin } from "lucide-react";
 import { CONTACT, DIRECTIONS, NEARBY_LANDMARKS, PROXIMITY, PUBLIC_TRANSPORT } from "@/lib/constants";
+import MapEmbed from "@/components/MapEmbed";
 
 export const metadata: Metadata = {
   title: "Location & Connectivity — Sholinganallur, OMR",
@@ -25,15 +26,10 @@ export default function LocationPage() {
 
       <section className="section-pad bg-white">
         <div className="container-wide">
-          <div className="aspect-video w-full overflow-hidden rounded-2xl shadow-lg">
-            <iframe
+          <div className="relative aspect-video w-full overflow-hidden rounded-2xl shadow-lg">
+            <MapEmbed
               title="TECCI Park Location Map"
               src={`https://www.google.com/maps?q=${CONTACT.coordinates.lat},${CONTACT.coordinates.lng}&z=16&output=embed`}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
 

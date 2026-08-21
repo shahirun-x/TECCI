@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import ContactForm from "@/components/ContactForm";
+import MapEmbed from "@/components/MapEmbed";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -64,15 +65,10 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="h-[420px] w-full">
-        <iframe
+      <section className="relative h-[420px] w-full">
+        <MapEmbed
           title="TECCI Park Location Map"
           src={`https://www.google.com/maps?q=${CONTACT.coordinates.lat},${CONTACT.coordinates.lng}&z=16&output=embed`}
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
         />
       </section>
     </>

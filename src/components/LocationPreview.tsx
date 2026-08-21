@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { MapPin, Phone, Mail, Plane, Train, Bus } from "lucide-react";
 import { CONTACT, PROXIMITY, NEARBY_LANDMARKS, PUBLIC_TRANSPORT } from "@/lib/constants";
+import MapEmbed from "@/components/MapEmbed";
 
 export default function LocationPreview() {
   return (
@@ -23,16 +24,11 @@ export default function LocationPreview() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-12 aspect-video w-full overflow-hidden rounded-2xl shadow-lg"
+          className="relative mt-12 aspect-video w-full overflow-hidden rounded-2xl shadow-lg"
         >
-          <iframe
+          <MapEmbed
             title="TECCI Park Location"
             src={`https://www.google.com/maps?q=${CONTACT.coordinates.lat},${CONTACT.coordinates.lng}&z=15&output=embed`}
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
           />
         </motion.div>
 

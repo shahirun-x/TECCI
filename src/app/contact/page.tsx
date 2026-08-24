@@ -40,7 +40,7 @@ export default function ContactPage() {
               <div className="flex gap-4">
                 <FaMapMarkerAlt className="mt-1 shrink-0 text-purple" />
                 <div>
-                  <p className="text-sm font-semibold text-navy">Address</p>
+                  <p className="text-xs uppercase tracking-widest text-navy/50">Site Address</p>
                   <p className="mt-1 text-sm text-gray">
                     {CONTACT.siteAddress.line1}, {CONTACT.siteAddress.line2}
                     <br />
@@ -49,8 +49,22 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="flex gap-4">
+                <FaMapMarkerAlt className="mt-1 shrink-0 text-purple" />
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-navy/50">Corporate Office</p>
+                  <p className="mt-1 text-sm text-gray">
+                    {CONTACT.corporateAddress.line1}, {CONTACT.corporateAddress.line2}
+                    <br />
+                    {CONTACT.corporateAddress.city}
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-4">
                 <FaPhone className="mt-1 shrink-0 text-purple" />
-                <a href={`tel:${CONTACT.phone}`} className="text-sm text-gray hover:text-purple">
+                <a
+                  href={`tel:${CONTACT.phone.replace(/\s+/g, "")}`}
+                  className="text-sm text-gray hover:text-purple"
+                >
                   {CONTACT.phone}
                 </a>
               </div>

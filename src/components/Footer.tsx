@@ -103,7 +103,11 @@ export default function Footer() {
           <ul className="mt-4 space-y-2 text-sm">
             <li>{CONTACT.siteAddress.line1}, {CONTACT.siteAddress.line2}</li>
             <li>{CONTACT.siteAddress.city}</li>
-            <li>{CONTACT.phone}</li>
+            <li>
+              <a href={`tel:${CONTACT.phone.replace(/\s+/g, "")}`} className="hover:text-teal-light transition-colors">
+                {CONTACT.phone}
+              </a>
+            </li>
             <li>{CONTACT.email}</li>
           </ul>
         </div>

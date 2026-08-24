@@ -44,7 +44,12 @@ export const CONTACT = {
     line2: "Sholinganallur",
     city: "Chennai — 600 119",
   },
-  phone: "+91 44 4226 1112",
+  corporateAddress: {
+    line1: "Second Floor, Buhari Buildings",
+    line2: "4-Moores Road",
+    city: "Chennai — 600 006",
+  },
+  phone: "+91 93602 26955",
   email: "info@teccipark.com",
   coordinates: { lat: 12.91018, lng: 80.228475 },
 };
@@ -162,6 +167,10 @@ export const OTHER_TENANTS = [
   { name: "Infrasoft Technologies", floor: "Block B — 1st Floor", logo: "/images/tenants/infrasoft.png" },
   { name: "AdminDroid (Adminware Software)", floor: "Block B — 5th Floor", logo: "/images/tenants/admin droid.png" },
   { name: "Yakkay Technologies", floor: "Block B — 7th Floor", logo: "/images/tenants/yakkay.png" },
+];
+
+export const PREVIOUS_TENANTS = [
+  { name: "Accenture", logo: "/images/tenants/accenture.png" },
 ];
 
 export const CACTUS_SUBTENANTS = [
@@ -486,6 +495,6 @@ export const FAQ_ITEMS = [
   },
   {
     question: "How do I lease office space at TECCI Park?",
-    answer: "For leasing enquiries, contact TECCI Park at info@teccipark.com or call +91 44 4226 1112. Spaces are owner-coordinated with direct engagement between prospective tenants and space owners. Minimum lease terms typically start at 3 years.",
+    answer: "For leasing enquiries, contact TECCI Park at info@teccipark.com or call +91 93602 26955. Spaces are owner-coordinated with direct engagement between prospective tenants and space owners. Minimum lease terms typically start at 3 years.",
   },
 ];

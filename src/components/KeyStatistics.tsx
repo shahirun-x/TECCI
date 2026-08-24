@@ -1,8 +1,58 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView, useReducedMotion, animate } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { KEY_STATISTICS } from "@/lib/constants";
+
+// Extracts a leading numeric portion from a stat string (e.g. "10,00,000"
+// out of "10,00,000") so it can be counted up from 0. Only treated as
+// countable if re-formatting the target with Indian digit grouping
+// reproduces the original digits exactly — this is what correctly skips
+// "2006–2009" (2006 would gain a comma: "2,006") while still animating
+// every sq.ft/acres/MNC figure, whose grouping already matches.
+function parseCountable(raw: string) {
+  const match = raw.match(/^(\D*)([\d,]+)(.*)$/);
+  if (!match) return null;
+  const [, prefix, digits, suffix] = match;
+  const target = Number(digits.replace(/,/g, ""));
+  if (!Number.isFinite(target)) return null;
+  if (target.toLocaleString("en-IN") !== digits) return null;
+  return { prefix, target, suffix };
+}
+
+function StatNumber({ raw }: { raw: string }) {
+  const parsed = parseCountable(raw);
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const prefersReducedMotion = useReducedMotion();
+  const [display, setDisplay] = useState(parsed ? "0" : raw);
+
+  useEffect(() => {
+    if (!parsed || !isInView) return;
+
+    if (prefersReducedMotion) {
+      setDisplay(parsed.target.toLocaleString("en-IN"));
+      return;
+    }
+
+    const controls = animate(0, parsed.target, {
+      duration: 1.6,
+      ease: "easeOut",
+      onUpdate: (v) => setDisplay(Math.round(v).toLocaleString("en-IN")),
+    });
+    return () => controls.stop();
+  }, [isInView, parsed, prefersReducedMotion]);
+
+  return (
+    <div
+      ref={ref}
+      className="whitespace-nowrap font-display text-xl font-bold leading-tight text-navy md:text-2xl"
+    >
+      {parsed ? `${parsed.prefix}${display}${parsed.suffix}` : raw}
+    </div>
+  );
+}
 
 export default function KeyStatistics() {
   return (
@@ -42,9 +92,7 @@ export default function KeyStatistics() {
                   transition={{ duration: 0.45, delay: i * 0.06 }}
                   className="rounded-lg bg-white p-4 shadow-sm md:p-6"
                 >
-                  <div className="whitespace-nowrap font-display text-xl font-bold leading-tight text-navy md:text-2xl">
-                    {stat.number}
-                  </div>
+                  <StatNumber raw={stat.number} />
                   {stat.unit && (
                     <div className="mt-1 text-sm text-emerald-600">
                       {stat.unit}

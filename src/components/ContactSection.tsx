@@ -9,8 +9,9 @@ import { CONTACT } from "@/lib/constants";
 const HEADING_LINES = ["Space that scales.", "Terms that flex.", "Buildings that last."];
 
 const CONTACT_CARDS = [
-  { icon: FaMapMarkerAlt, label: "Address", value: `${CONTACT.siteAddress.line1}, ${CONTACT.siteAddress.line2}, ${CONTACT.siteAddress.city}`, href: undefined },
-  { icon: FaPhone, label: "Phone", value: CONTACT.phone, href: `tel:${CONTACT.phone}` },
+  { icon: FaMapMarkerAlt, label: "Site Address", value: `${CONTACT.siteAddress.line1}, ${CONTACT.siteAddress.line2}, ${CONTACT.siteAddress.city}`, href: undefined },
+  { icon: FaMapMarkerAlt, label: "Corporate Office", value: `${CONTACT.corporateAddress.line1}, ${CONTACT.corporateAddress.line2}, ${CONTACT.corporateAddress.city}`, href: undefined },
+  { icon: FaPhone, label: "Phone", value: CONTACT.phone, href: `tel:${CONTACT.phone.replace(/\s+/g, "")}` },
   { icon: FaEnvelope, label: "Email", value: CONTACT.email, href: `mailto:${CONTACT.email}` },
 ];
 

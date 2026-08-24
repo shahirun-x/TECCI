@@ -43,11 +43,26 @@ export default function LocationPage() {
                 major conduit connecting ECR and the Velachery-Tambaram road
                 parallel to OMR.
               </p>
-              <p className="mt-4 flex items-start gap-3 text-sm text-navy">
+              <div className="mt-4 flex items-start gap-3">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-purple" strokeWidth={1.75} />
-                {CONTACT.siteAddress.line1}, {CONTACT.siteAddress.line2},{" "}
-                {CONTACT.siteAddress.city}
-              </p>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-navy/50">Site Address</p>
+                  <p className="mt-1 text-sm text-navy">
+                    {CONTACT.siteAddress.line1}, {CONTACT.siteAddress.line2},{" "}
+                    {CONTACT.siteAddress.city}
+                  </p>
+                </div>
+              </div>
+              <div className="mt-4 flex items-start gap-3">
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-purple" strokeWidth={1.75} />
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-navy/50">Corporate Office</p>
+                  <p className="mt-1 text-sm text-navy">
+                    {CONTACT.corporateAddress.line1}, {CONTACT.corporateAddress.line2},{" "}
+                    {CONTACT.corporateAddress.city}
+                  </p>
+                </div>
+              </div>
 
               <h3 className="mt-10 text-lg font-semibold text-navy">Nearby Landmarks</h3>
               <div className="mt-4 flex flex-wrap gap-2">

@@ -1,12 +1,22 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ANCHOR_TENANTS, OTHER_TENANTS, CACTUS_SUBTENANTS } from "@/lib/constants";
+import { ANCHOR_TENANTS, OTHER_TENANTS, CACTUS_SUBTENANTS, PREVIOUS_TENANTS } from "@/lib/constants";
 
 type TenantWithLogo = { name: string; logo: string };
 
 // Logo images to be added to public/images/tenants/. Currently showing initial-letter fallback badges.
-function TenantLogo({ name, logo, size = "h-16" }: { name: string; logo: string; size?: string }) {
+function TenantLogo({
+  name,
+  logo,
+  size = "h-16",
+  className = "",
+}: {
+  name: string;
+  logo: string;
+  size?: string;
+  className?: string;
+}) {
   const [failed, setFailed] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -20,7 +30,7 @@ function TenantLogo({ name, logo, size = "h-16" }: { name: string; logo: string;
 
   if (failed) {
     return (
-      <div className={`${size} aspect-square rounded-full bg-purple flex items-center justify-center`}>
+      <div className={`${size} aspect-square rounded-full bg-purple flex items-center justify-center ${className}`}>
         <span className="text-2xl font-bold text-white">{name.charAt(0)}</span>
       </div>
     );
@@ -32,7 +42,7 @@ function TenantLogo({ name, logo, size = "h-16" }: { name: string; logo: string;
       ref={imgRef}
       src={logo}
       alt={`${name} logo`}
-      className={`${size} w-auto object-contain`}
+      className={`${size} w-auto object-contain ${className}`}
       onError={() => setFailed(true)}
     />
   );
@@ -156,6 +166,27 @@ export default function TenantStrip() {
             />
           </div>
         </div>
+
+        {PREVIOUS_TENANTS.length > 0 && (
+          <div className="mt-16 text-center">
+            <p className="text-xs uppercase tracking-widest text-navy/40">
+              Previously at TECCI Park
+            </p>
+            {PREVIOUS_TENANTS.map((tenant) => (
+              <div
+                key={tenant.name}
+                className="group mx-auto mt-4 flex max-w-[200px] items-center justify-center rounded-xl bg-white p-6 shadow-sm"
+              >
+                <TenantLogo
+                  name={tenant.name}
+                  logo={tenant.logo}
+                  size="h-12"
+                  className="grayscale opacity-60 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

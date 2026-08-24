@@ -10,6 +10,15 @@ const ADDRESS = {
   addressCountry: "IN",
 };
 
+const CORPORATE_ADDRESS = {
+  "@type": "PostalAddress",
+  streetAddress: `${CONTACT.corporateAddress.line1}, ${CONTACT.corporateAddress.line2}`,
+  addressLocality: "Chennai",
+  addressRegion: "Tamil Nadu",
+  postalCode: "600006",
+  addressCountry: "IN",
+};
+
 const GEO = {
   "@type": "GeoCoordinates",
   latitude: CONTACT.coordinates.lat,
@@ -30,7 +39,7 @@ const organization = {
     "@type": "Organization",
     name: "Buhari Group",
   },
-  address: ADDRESS,
+  address: [ADDRESS, CORPORATE_ADDRESS],
   contactPoint: {
     "@type": "ContactPoint",
     telephone: CONTACT.phone,

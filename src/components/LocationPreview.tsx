@@ -44,14 +44,30 @@ export default function LocationPreview() {
             <div className="mt-5 space-y-4">
               <div className="flex gap-3">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-purple" strokeWidth={1.75} />
-                <p className="text-sm text-gray">
-                  {CONTACT.siteAddress.line1}, {CONTACT.siteAddress.line2},{" "}
-                  {CONTACT.siteAddress.city}
-                </p>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-navy/50">Site Address</p>
+                  <p className="mt-1 text-sm text-gray">
+                    {CONTACT.siteAddress.line1}, {CONTACT.siteAddress.line2},{" "}
+                    {CONTACT.siteAddress.city}
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-purple" strokeWidth={1.75} />
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-navy/50">Corporate Office</p>
+                  <p className="mt-1 text-sm text-gray">
+                    {CONTACT.corporateAddress.line1}, {CONTACT.corporateAddress.line2},{" "}
+                    {CONTACT.corporateAddress.city}
+                  </p>
+                </div>
               </div>
               <div className="flex gap-3">
                 <Phone className="mt-0.5 h-5 w-5 shrink-0 text-purple" strokeWidth={1.75} />
-                <a href={`tel:${CONTACT.phone}`} className="text-sm text-gray hover:text-navy">
+                <a
+                  href={`tel:${CONTACT.phone.replace(/\s+/g, "")}`}
+                  className="text-sm text-gray hover:text-navy"
+                >
                   {CONTACT.phone}
                 </a>
               </div>

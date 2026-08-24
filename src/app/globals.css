@@ -187,6 +187,35 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Reduced-motion variants: hold scale at each slide's "slack" value (the
+   larger of its two original endpoints) so the pan never reveals an edge
+   gap, and animate translateX only — the zoom is the more disorienting
+   motion for vestibular-sensitive users, the pan is gentle enough to keep. */
+@keyframes ken-burns-1-reduced {
+  from { transform: scale(1.08) translateX(0%); }
+  to { transform: scale(1.08) translateX(2%); }
+}
+
+@keyframes ken-burns-2-reduced {
+  from { transform: scale(1.1) translateX(-3%); }
+  to { transform: scale(1.1) translateX(0%); }
+}
+
+@keyframes ken-burns-3-reduced {
+  from { transform: scale(1.05) translateX(0%); }
+  to { transform: scale(1.05) translateX(-2%); }
+}
+
+@keyframes ken-burns-5-reduced {
+  from { transform: scale(1.06) translateX(0%); }
+  to { transform: scale(1.06) translateX(2%); }
+}
+
+@keyframes ken-burns-6-reduced {
+  from { transform: scale(1.08) translateX(0%); }
+  to { transform: scale(1.08) translateX(-3%); }
+}
+
 .animate-ken-burns-1 {
   animation: ken-burns-1 6s ease-out forwards;
 }
@@ -343,13 +372,44 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   /* Marquees are functional, not decorative — they're the only way to see
-     every tenant logo. Slow them down instead of freezing them so a
-     reduced-motion visitor still sees the full set cycle through. */
-  .marquee-track,
-  .marquee-track-medium,
-  .marquee-track-slow {
-    animation-duration: 90s !important;
+     every tenant logo. Slow them down (3x each track's own speed) instead
+     of freezing them so a reduced-motion visitor still sees the full set
+     cycle through. */
+  .marquee-track {
+    animation-duration: 120s !important;
     animation-iteration-count: infinite !important;
+  }
+  .marquee-track-medium {
+    animation-duration: 150s !important;
+    animation-iteration-count: infinite !important;
+  }
+  .marquee-track-slow {
+    animation-duration: 180s !important;
+    animation-iteration-count: infinite !important;
+  }
+
+  /* Hero Ken Burns is functional — it's what signals the slideshow is
+     alive between dot-driven transitions. Slow the pan to half speed and
+     drop the zoom (see the *-reduced keyframes above) instead of freezing
+     it outright. */
+  .animate-ken-burns-1 {
+    animation: ken-burns-1-reduced 12s ease-out forwards !important;
+  }
+  .animate-ken-burns-2 {
+    animation: ken-burns-2-reduced 12s ease-out forwards !important;
+  }
+  .animate-ken-burns-3 {
+    animation: ken-burns-3-reduced 12s ease-out forwards !important;
+  }
+  .animate-ken-burns-4 {
+    animation: none !important;
+    transform: scale(1.05) !important;
+  }
+  .animate-ken-burns-5 {
+    animation: ken-burns-5-reduced 12s ease-out forwards !important;
+  }
+  .animate-ken-burns-6 {
+    animation: ken-burns-6-reduced 12s ease-out forwards !important;
   }
 }
 

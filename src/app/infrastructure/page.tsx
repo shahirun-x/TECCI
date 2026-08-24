@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { HiOutlineDocumentArrowDown } from "react-icons/hi2";
 import InfraTab from "@/components/InfraTab";
 import { PROJECT_SUMMARY } from "@/lib/constants";
-
-const SPEC_SHEET_PDF = "/documents/tecci-park-floor-plan.pdf";
 
 export const metadata: Metadata = {
   title: "Infrastructure & Specifications",
@@ -38,19 +35,9 @@ export default function InfrastructurePage() {
 
       <section className="section-pad bg-cream">
         <div className="container-wide">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <h2 className="text-2xl font-semibold text-navy sm:text-3xl">
-              Project Summary
-            </h2>
-            <a
-              href={SPEC_SHEET_PDF}
-              download
-              className="inline-flex items-center gap-2 rounded-sm bg-purple px-6 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-purple-dark"
-            >
-              <HiOutlineDocumentArrowDown className="text-lg" />
-              Download Spec Sheet
-            </a>
-          </div>
+          <h2 className="text-2xl font-semibold text-navy sm:text-3xl">
+            Project Summary
+          </h2>
           <div className="mt-8 overflow-x-auto rounded-lg border border-border bg-white">
             <table className="w-full text-left text-sm">
               <tbody>

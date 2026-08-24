@@ -143,7 +143,7 @@ export async function POST(request: Request) {
 
     <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid #eee; font-size: 12px; color: #999;">
       <p style="margin: 0;">Submitted: ${submittedAt}</p>
-      <p style="margin: 4px 0 0 0;">Source: tecci.vercel.app contact form</p>
+      <p style="margin: 4px 0 0 0;">Source: www.teccipark.com contact form</p>
     </div>
   </div>
 </body>
@@ -179,17 +179,17 @@ Submitted: ${submittedAt}
     <p style="font-size: 16px; line-height: 1.6;">In the meantime, feel free to explore more about our Grade A LEED Silver certified IT park:</p>
 
     <div style="background: #f8f7f4; border-radius: 8px; padding: 20px; margin: 24px 0;">
-      <p style="margin: 0 0 8px 0;"><a href="https://tecci.vercel.app/#available-spaces" style="color: #4A2D8B; text-decoration: none;">→ View available spaces</a></p>
-      <p style="margin: 0 0 8px 0;"><a href="https://tecci.vercel.app/gallery" style="color: #4A2D8B; text-decoration: none;">→ Gallery</a></p>
-      <p style="margin: 0 0 8px 0;"><a href="https://tecci.vercel.app/#location" style="color: #4A2D8B; text-decoration: none;">→ Location & connectivity</a></p>
-      <p style="margin: 0;"><a href="https://tecci.vercel.app/about" style="color: #4A2D8B; text-decoration: none;">→ About us</a></p>
+      <p style="margin: 0 0 8px 0;"><a href="https://www.teccipark.com/#available-spaces" style="color: #4A2D8B; text-decoration: none;">→ View available spaces</a></p>
+      <p style="margin: 0 0 8px 0;"><a href="https://www.teccipark.com/gallery" style="color: #4A2D8B; text-decoration: none;">→ Gallery</a></p>
+      <p style="margin: 0 0 8px 0;"><a href="https://www.teccipark.com/#location" style="color: #4A2D8B; text-decoration: none;">→ Location & connectivity</a></p>
+      <p style="margin: 0;"><a href="https://www.teccipark.com/about" style="color: #4A2D8B; text-decoration: none;">→ About us</a></p>
     </div>
 
     <p style="font-size: 16px; line-height: 1.6;">Warm regards,<br><strong>The TECCI Park Team</strong></p>
 
     <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid #eee; font-size: 12px; color: #999; text-align: center;">
       <p style="margin: 0;">TECCI Park · New No. 173, Rajiv Gandhi Salai · Sholinganallur · Chennai 600 119</p>
-      <p style="margin: 4px 0 0 0;"><a href="https://tecci.vercel.app" style="color: #999;">tecci.vercel.app</a> · info@teccipark.com</p>
+      <p style="margin: 4px 0 0 0;"><a href="https://www.teccipark.com" style="color: #999;">www.teccipark.com</a> · info@teccipark.com</p>
     </div>
   </div>
 </body>
@@ -201,9 +201,9 @@ Submitted: ${submittedAt}
 Thank you for your enquiry about TECCI Park. We've received your message and our team will get back to you within 24 hours.
 
 In the meantime, feel free to explore:
-- Available spaces: https://tecci.vercel.app/#available-spaces
-- Gallery: https://tecci.vercel.app/gallery
-- Location: https://tecci.vercel.app/#location
+- Available spaces: https://www.teccipark.com/#available-spaces
+- Gallery: https://www.teccipark.com/gallery
+- Location: https://www.teccipark.com/#location
 
 Warm regards,
 The TECCI Park Team
@@ -211,7 +211,7 @@ The TECCI Park Team
 ---
 TECCI Park
 New No. 173, Rajiv Gandhi Salai, Sholinganallur, Chennai 600 119
-tecci.vercel.app · info@teccipark.com
+www.teccipark.com · info@teccipark.com
     `.trim();
 
     // Send both emails in parallel

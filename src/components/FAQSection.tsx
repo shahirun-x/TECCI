@@ -34,7 +34,7 @@ export default function FAQSection() {
   const related = relatedIndexes(activeId);
 
   return (
-    <section id="faq" className="scroll-mt-header bg-cream py-24">
+    <section id="faq" className="scroll-mt-header bg-cream py-12 md:py-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

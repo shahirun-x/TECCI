@@ -29,7 +29,7 @@ export default function ContactSection() {
       ref={sectionRef}
       className="grid min-h-screen scroll-mt-header lg:grid-cols-[45fr_55fr]"
     >
-      <div className="relative flex flex-col justify-center overflow-hidden bg-navy px-6 py-20 text-white md:px-12 lg:py-24">
+      <div className="relative flex flex-col justify-center overflow-hidden bg-navy px-6 py-12 text-white md:px-12 lg:py-24">
         <motion.div
           aria-hidden="true"
           style={{ y: orbY }}
@@ -107,7 +107,7 @@ export default function ContactSection() {
         </div>
       </div>
 
-      <div className="flex items-center bg-cream px-6 py-20 md:px-12 lg:py-24">
+      <div className="flex items-center bg-cream px-6 py-12 md:px-12 lg:py-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

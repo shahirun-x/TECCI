@@ -66,7 +66,7 @@ function DesignImage({
 
 export default function DesignSection() {
   return (
-    <section id="design" className="scroll-mt-header bg-cream py-20 md:py-28">
+    <section id="design" className="scroll-mt-header bg-cream py-12 md:py-20">
       <div className="container-wide">
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
           <motion.div
@@ -128,7 +128,7 @@ export default function DesignSection() {
           </motion.div>
         </div>
 
-        <div className="mt-20 text-center">
+        <div className="mt-16 text-center">
           <h3 className="font-display text-2xl font-semibold text-navy">
             Design Highlights
           </h3>

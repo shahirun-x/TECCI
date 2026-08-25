@@ -74,11 +74,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-pad {
-  padding-block: 64px;
+  padding-block: 48px;
 }
 
 @media (min-width: 768px) {
   .section-pad {
+    padding-block: 80px;
+  }
+}
+
+.section-pad-accent {
+  padding-block: 48px;
+}
+
+@media (min-width: 768px) {
+  .section-pad-accent {
     padding-block: 96px;
   }
 }
@@ -332,7 +342,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .marquee-track {
-  animation: marquee-scroll 25s linear infinite;
+  animation: marquee-scroll 15s linear infinite;
 }
 
 .marquee-track:hover {
@@ -340,7 +350,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .marquee-track-medium {
-  animation: marquee-scroll 30s linear infinite;
+  animation: marquee-scroll 18s linear infinite;
 }
 
 .marquee-track-medium:hover {
@@ -348,7 +358,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .marquee-track-slow {
-  animation: marquee-scroll 35s linear infinite;
+  animation: marquee-scroll 20s linear infinite;
 }
 
 .marquee-track-slow:hover {
@@ -376,15 +386,15 @@ h1, h2, h3, h4, h5, h6 {
      of freezing them so a reduced-motion visitor still sees the full set
      cycle through. */
   .marquee-track {
-    animation-duration: 75s !important;
+    animation-duration: 45s !important;
     animation-iteration-count: infinite !important;
   }
   .marquee-track-medium {
-    animation-duration: 90s !important;
+    animation-duration: 54s !important;
     animation-iteration-count: infinite !important;
   }
   .marquee-track-slow {
-    animation-duration: 105s !important;
+    animation-duration: 60s !important;
     animation-iteration-count: infinite !important;
   }
 

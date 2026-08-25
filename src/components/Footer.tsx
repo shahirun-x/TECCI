@@ -24,7 +24,7 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-navy text-white/80">
-      <div className="container-wide pt-16">
+      <div className="container-wide pt-12 md:pt-16">
         <p className="font-display text-4xl font-bold text-white md:text-6xl">
           TECCI Park.
         </p>
@@ -34,7 +34,7 @@ export default function Footer() {
         <div className="my-12 h-px w-full bg-white/10" />
       </div>
 
-      <div className="container-wide grid gap-10 pb-16 md:grid-cols-3">
+      <div className="container-wide grid gap-10 pb-12 md:grid-cols-3 md:pb-16">
         <div>
           <Image
             src="/images/tecci logo white.svg"

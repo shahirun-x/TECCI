@@ -6,7 +6,7 @@ import { SPEC_CATEGORIES } from "@/lib/constants";
 
 export default function SpecsSection() {
   return (
-    <section id="specs" className="section-pad bg-navy text-white scroll-mt-header">
+    <section id="specs" className="section-pad-accent bg-navy text-white scroll-mt-header">
       <div className="container-wide">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-medium uppercase tracking-widest text-teal-light">
@@ -17,7 +17,7 @@ export default function SpecsSection() {
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {SPEC_CATEGORIES.map((cat, i) => (
             <motion.div
               key={cat.title}
@@ -38,7 +38,7 @@ export default function SpecsSection() {
           ))}
         </div>
 
-        <div className="mt-14 text-center">
+        <div className="mt-10 text-center">
           <Link
             href="/infrastructure"
             className="inline-block border-b-2 border-teal-light pb-1 text-sm font-medium text-teal-light transition-colors hover:border-white hover:text-white"

@@ -99,7 +99,7 @@ export default function AvailableSpaces() {
 
   if (listings.length === 0) {
     return (
-      <section id="available-spaces" className="scroll-mt-header bg-white py-20 text-center md:py-28">
+      <section id="available-spaces" className="scroll-mt-header bg-white py-12 text-center md:py-20">
         <div className="container-wide">
           <p className="text-sm font-medium uppercase tracking-widest text-teal">
             Available Now
@@ -115,7 +115,7 @@ export default function AvailableSpaces() {
   const lastUpdated = listings[0].postedDate;
 
   return (
-    <section id="available-spaces" className="scroll-mt-header bg-white py-20 md:py-28">
+    <section id="available-spaces" className="scroll-mt-header bg-white py-12 md:py-20">
       <div className="container-wide">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -135,7 +135,7 @@ export default function AvailableSpaces() {
           <p className="mt-2 text-xs text-navy/40">Last updated: {lastUpdated}</p>
         </motion.div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
           {listings.map((space, i) => (
             <SpaceCard key={space.id} space={space} index={i} />
           ))}

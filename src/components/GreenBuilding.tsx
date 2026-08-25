@@ -24,7 +24,7 @@ export default function GreenBuilding() {
   return (
     <section
       id="approvals"
-      className="approvals-mesh relative min-h-screen overflow-hidden bg-gradient-to-br from-navy via-navy to-emerald-950 py-24 scroll-mt-header"
+      className="approvals-mesh relative min-h-screen overflow-hidden bg-gradient-to-br from-navy via-navy to-emerald-950 py-12 scroll-mt-header md:py-24"
     >
       <div className="container-wide relative z-10">
         <div className="grid gap-16 lg:grid-cols-[3fr_2fr] lg:items-start">

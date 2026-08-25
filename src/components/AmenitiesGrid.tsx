@@ -96,7 +96,7 @@ export default function AmenitiesGrid() {
   const items = AMENITIES.filter((a) => a.category === activeCategory);
 
   return (
-    <section id="amenities" className="scroll-mt-header bg-white py-24 md:py-32">
+    <section id="amenities" className="scroll-mt-header bg-white py-12 md:py-20">
         <div className="container-wide">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-medium uppercase tracking-widest text-teal">
@@ -112,7 +112,7 @@ export default function AmenitiesGrid() {
             </p>
           </div>
 
-          <div className="mt-16 grid gap-10 md:grid-cols-[30%_70%] md:gap-12">
+          <div className="mt-8 grid gap-10 md:grid-cols-[30%_70%] md:gap-12">
             <div className="min-w-0 md:sticky md:top-32 md:min-w-[280px] md:self-start">
               <CategoryTabs activeId={activeCategory} onSelect={setActiveCategory} />
               <p className="mt-4 hidden text-xs text-navy/40 md:block">

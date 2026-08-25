@@ -21,7 +21,7 @@ export default function GalleryPreview() {
           </h2>
         </div>
 
-        <div className="mt-12">
+        <div className="mt-8">
           <GalleryGrid items={PREVIEW_ITEMS} />
         </div>
 

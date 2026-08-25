@@ -82,7 +82,7 @@ export default function KeyStatistics() {
               The Numbers Behind TECCI Park
             </h2>
 
-            <div className="mt-10 grid grid-cols-2 gap-4">
+            <div className="mt-8 grid grid-cols-2 gap-4">
               {KEY_STATISTICS.map((stat, i) => (
                 <motion.div
                   key={stat.label}

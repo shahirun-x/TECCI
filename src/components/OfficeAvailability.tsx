@@ -23,7 +23,7 @@ const INFO_CARDS = [
 
 export default function OfficeAvailability() {
   return (
-    <section id="leasing" className="scroll-mt-header bg-gradient-to-br from-navy via-purple to-navy py-20 text-white md:py-28">
+    <section id="leasing" className="scroll-mt-header bg-gradient-to-br from-navy via-purple to-navy py-12 text-white md:py-24">
       <div className="container-wide text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -45,7 +45,7 @@ export default function OfficeAvailability() {
           </p>
         </motion.div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
           {INFO_CARDS.map((card, i) => (
             <motion.div
               key={card.title}
@@ -67,7 +67,7 @@ export default function OfficeAvailability() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-14"
+          className="mt-10"
         >
           <a
             href="#contact"

@@ -5,6 +5,94 @@ import { ANCHOR_TENANTS, OTHER_TENANTS, CACTUS_SUBTENANTS, PREVIOUS_TENANTS } fr
 
 type TenantWithLogo = { name: string; logo: string };
 
+const RESUME_DELAY_MS = 2000;
+
+// Drag-to-scroll for a marquee track. Pausing alone isn't enough to let an
+// inline transform take over — a running CSS animation always wins the
+// cascade for the same property, so the animation is fully removed
+// (style.animation = "none") for the drag's duration and restored after.
+// On restore, a negative animation-delay is computed from the drop
+// position (using whichever duration — base or reduced-motion — was
+// actually active when the drag started) so playback continues from
+// where the user left it instead of snapping back to the start.
+function useMarqueeDrag() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  // The drag-in-progress gate lives in a ref, not state: onMouseMove can
+  // fire before React has re-rendered with the post-mousedown state, and
+  // a handler closed over stale state would silently drop that first
+  // movement. isDragging (state) still drives the cursor className — a
+  // one-frame lag there is imperceptible.
+  const isDraggingRef = useRef(false);
+  const dragState = useRef({ startX: 0, startOffset: 0, durationSeconds: 0 });
+  const resumeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function getOffsetPx(track: HTMLDivElement) {
+    const matrix = getComputedStyle(track).transform;
+    if (matrix === "none") return 0;
+    const values = matrix.match(/matrix\(([^)]+)\)/)?.[1].split(",").map(Number);
+    return values?.[4] ?? 0;
+  }
+
+  function startDrag(clientX: number) {
+    const track = trackRef.current;
+    if (!track) return;
+    if (resumeTimeout.current) {
+      clearTimeout(resumeTimeout.current);
+      resumeTimeout.current = null;
+    }
+    const durationSeconds = parseFloat(getComputedStyle(track).animationDuration) || 0;
+    const startOffset = getOffsetPx(track);
+    track.style.animation = "none";
+    track.style.transform = `translateX(${startOffset}px)`;
+    dragState.current = { startX: clientX, startOffset, durationSeconds };
+    isDraggingRef.current = true;
+    setIsDragging(true);
+  }
+
+  function moveDrag(clientX: number) {
+    const track = trackRef.current;
+    if (!track || !isDraggingRef.current) return;
+    const delta = clientX - dragState.current.startX;
+    track.style.transform = `translateX(${dragState.current.startOffset + delta}px)`;
+  }
+
+  function endDrag() {
+    if (!isDraggingRef.current) return;
+    isDraggingRef.current = false;
+    setIsDragging(false);
+    resumeTimeout.current = setTimeout(() => {
+      const track = trackRef.current;
+      if (!track) return;
+      const { durationSeconds } = dragState.current;
+      const offset = getOffsetPx(track);
+      const cycleWidth = track.scrollWidth / 2;
+      const progress = cycleWidth > 0 ? (((-offset / cycleWidth) % 1) + 1) % 1 : 0;
+      track.style.animation = "";
+      track.style.transform = "";
+      track.style.animationDelay = durationSeconds > 0 ? `${-(progress * durationSeconds)}s` : "";
+    }, RESUME_DELAY_MS);
+  }
+
+  useEffect(() => {
+    return () => {
+      if (resumeTimeout.current) clearTimeout(resumeTimeout.current);
+    };
+  }, []);
+
+  const dragHandlers = {
+    onMouseDown: (e: React.MouseEvent) => startDrag(e.clientX),
+    onMouseMove: (e: React.MouseEvent) => moveDrag(e.clientX),
+    onMouseUp: endDrag,
+    onMouseLeave: endDrag,
+    onTouchStart: (e: React.TouchEvent) => startDrag(e.touches[0].clientX),
+    onTouchMove: (e: React.TouchEvent) => moveDrag(e.touches[0].clientX),
+    onTouchEnd: endDrag,
+  };
+
+  return { trackRef, isDragging, dragHandlers };
+}
+
 // Logo images to be added to public/images/tenants/. Currently showing initial-letter fallback badges.
 function TenantLogo({
   name,
@@ -44,6 +132,7 @@ function TenantLogo({
       alt={`${name} logo`}
       className={`${size} w-auto object-contain ${className}`}
       onError={() => setFailed(true)}
+      draggable={false}
     />
   );
 }
@@ -62,12 +151,16 @@ function TenantMarquee({
   trackClass: "marquee-track" | "marquee-track-medium" | "marquee-track-slow";
 }) {
   const doubled = [...tenants, ...tenants];
+  const { trackRef, isDragging, dragHandlers } = useMarqueeDrag();
 
   return (
-    <div className="relative overflow-hidden py-8">
+    <div
+      className={`relative overflow-hidden py-8 select-none ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+      {...dragHandlers}
+    >
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-cream to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-cream to-transparent" />
-      <div className={`flex w-max ${gap} ${trackClass}`}>
+      <div ref={trackRef} className={`flex w-max touch-pan-y ${gap} ${trackClass}`}>
         {doubled.map((tenant, i) => (
           <div
             key={`${tenant.name}-${i}`}
@@ -89,12 +182,16 @@ const CACTUS_MARQUEE_ITEMS = [
 
 function CactusMarquee() {
   const doubled = [...CACTUS_MARQUEE_ITEMS, ...CACTUS_MARQUEE_ITEMS];
+  const { trackRef, isDragging, dragHandlers } = useMarqueeDrag();
 
   return (
-    <div className="relative overflow-hidden py-8">
+    <div
+      className={`relative overflow-hidden py-8 select-none ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+      {...dragHandlers}
+    >
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-cream to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-cream to-transparent" />
-      <div className="marquee-track-medium flex w-max gap-8">
+      <div ref={trackRef} className="marquee-track-medium flex w-max touch-pan-y gap-8">
         {doubled.map((tenant, i) => (
           <div
             key={`${tenant.name}-${i}`}
@@ -114,7 +211,7 @@ function CactusMarquee() {
 
 export default function TenantStrip() {
   return (
-    <section id="tenants" className="scroll-mt-header bg-cream py-24 md:py-32">
+    <section id="tenants" className="scroll-mt-header bg-cream py-12 md:py-20">
       <div className="container-wide">
         <div className="text-center">
           <p className="text-sm font-medium uppercase tracking-widest text-teal">
@@ -129,7 +226,7 @@ export default function TenantStrip() {
           </p>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-8">
           <TenantMarquee
             tenants={ANCHOR_TENANTS}
             cardSize="w-52 h-32"
@@ -142,7 +239,7 @@ export default function TenantStrip() {
           </p>
         </div>
 
-        <div className="mt-24">
+        <div className="mt-16">
           <p className="mb-2 text-center text-sm uppercase tracking-widest text-emerald-600">
             Powered by Cactus Corporate Coworking
           </p>
@@ -152,7 +249,7 @@ export default function TenantStrip() {
           <CactusMarquee />
         </div>
 
-        <div className="mt-24">
+        <div className="mt-16">
           <p className="text-center text-sm uppercase tracking-widest text-navy/50">
             Also at TECCI Park
           </p>
@@ -168,7 +265,7 @@ export default function TenantStrip() {
         </div>
 
         {PREVIOUS_TENANTS.length > 0 && (
-          <div className="mt-16 text-center">
+          <div className="mt-12 text-center">
             <p className="text-xs uppercase tracking-widest text-navy/40">
               Previously at TECCI Park
             </p>

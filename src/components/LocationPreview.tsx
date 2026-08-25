@@ -24,7 +24,7 @@ export default function LocationPreview() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative mt-12 aspect-video w-full overflow-hidden rounded-2xl shadow-lg"
+          className="relative mt-8 aspect-video w-full overflow-hidden rounded-2xl shadow-lg"
         >
           <MapEmbed
             title="TECCI Park Location"
@@ -32,7 +32,7 @@ export default function LocationPreview() {
           />
         </motion.div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2">
+        <div className="mt-8 grid gap-8 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

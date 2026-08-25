@@ -42,7 +42,9 @@ export default function NewsCoverImage({
       src={src}
       alt={alt}
       fill
+      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
       priority={priority}
+      loading={priority ? undefined : "lazy"}
       className="object-cover transition-transform duration-300 group-hover:scale-105"
       onError={() => setFailed(true)}
     />

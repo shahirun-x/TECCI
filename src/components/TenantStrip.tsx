@@ -130,6 +130,7 @@ function TenantLogo({
       ref={imgRef}
       src={logo}
       alt={`${name} logo`}
+      loading="lazy"
       className={`${size} w-auto object-contain ${className}`}
       onError={() => setFailed(true)}
       draggable={false}

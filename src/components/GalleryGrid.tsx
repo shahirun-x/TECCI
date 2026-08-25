@@ -35,6 +35,7 @@ function GalleryImage({ src, alt, category }: { src: string; alt: string; catego
       ref={imgRef}
       src={src}
       alt={alt}
+      loading="lazy"
       className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
       onError={() => setFailed(true)}
     />

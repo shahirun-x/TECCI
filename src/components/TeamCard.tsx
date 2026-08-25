@@ -37,6 +37,7 @@ function TeamPhoto({ name, photo }: { name: string; photo: string }) {
       ref={imgRef}
       src={photo}
       alt={`${name} portrait`}
+      loading="lazy"
       className="h-14 w-14 rounded-full object-cover"
       onError={() => setFailed(true)}
     />

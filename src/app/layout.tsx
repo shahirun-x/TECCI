@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -92,6 +92,12 @@ export const metadata: Metadata = {
     "geo.position": "12.91018;80.228475",
     ICBM: "12.91018, 80.228475",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#1A1A2E",
 };
 
 export default function RootLayout({

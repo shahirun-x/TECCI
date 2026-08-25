@@ -31,7 +31,10 @@ function StatNumber({ raw }: { raw: string }) {
   useEffect(() => {
     if (!parsed || !isInView) return;
 
-    if (prefersReducedMotion) {
+    // Counting up 8 cards at once is a meaningful main-thread cost on
+    // low-end mobile GPUs/CPUs — not worth it for a numeric flourish, so
+    // mobile (and reduced-motion) visitors get the final value directly.
+    if (prefersReducedMotion || window.innerWidth < 768) {
       setDisplay(parsed.target.toLocaleString("en-IN"));
       return;
     }
@@ -68,8 +71,10 @@ export default function KeyStatistics() {
           >
             <Image
               src="/images/gallery/exterior-day.png"
-              alt="TECCI Park building"
+              alt="TECCI Park building exterior on Chennai's OMR corridor"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              loading="lazy"
               className="object-cover"
             />
           </motion.div>

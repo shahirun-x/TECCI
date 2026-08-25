@@ -423,6 +423,19 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Hero Ken Burns forces GPU compositing of a large full-bleed image layer.
+   Low-end mobile GPUs handle this poorly, so below the md breakpoint the
+   slideshow keeps its crossfade but drops the pan/zoom entirely — this is
+   a viewport-size check, independent of the prefers-reduced-motion rules
+   above (a mobile visitor without reduced-motion enabled still gets this;
+   a desktop visitor with it enabled still gets the slow-pan variant). */
+@media (max-width: 767px) {
+  .hero-ken-burns {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
 /* Gallery captions: guarantees readability against bright image backgrounds. */
 .gallery-text-shadow {
   text-shadow:

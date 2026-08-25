@@ -58,6 +58,7 @@ function DesignImage({
       ref={imgRef}
       src={src}
       alt={alt}
+      loading="lazy"
       className="absolute inset-0 h-full w-full object-cover"
       onError={() => setFailed(true)}
     />

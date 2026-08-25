@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -60,11 +60,17 @@ const SLIDES: Slide[] = [
 ];
 
 const SLIDE_DURATION_MS = 6000;
+const FADE_MS = 1000;
 
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
+  // The slide that just lost "active" status stays mounted only long
+  // enough to fade out, so the DOM never holds more than the outgoing +
+  // incoming pair (2 slides) instead of all 6 at once.
+  const [outgoingIndex, setOutgoingIndex] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
   const [paused, setPaused] = useState(false);
+  const outgoingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Initial fade-in from black on first paint.
   useEffect(() => {
@@ -84,23 +90,49 @@ export default function Hero() {
   useEffect(() => {
     if (paused) return;
     const timer = setTimeout(() => {
-      setActiveIndex((i) => (i + 1) % SLIDES.length);
+      goToSlide((activeIndex + 1) % SLIDES.length);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, SLIDE_DURATION_MS);
     return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIndex, paused]);
+
+  function goToSlide(index: number) {
+    if (index === activeIndex) return;
+    if (outgoingTimer.current) clearTimeout(outgoingTimer.current);
+    setOutgoingIndex(activeIndex);
+    setActiveIndex(index);
+    outgoingTimer.current = setTimeout(() => setOutgoingIndex(null), FADE_MS);
+  }
+
+  useEffect(() => {
+    return () => {
+      if (outgoingTimer.current) clearTimeout(outgoingTimer.current);
+    };
+  }, []);
+
+  const nextIndex = (activeIndex + 1) % SLIDES.length;
+  // At rest: [active, preloading-next]. Mid-transition: [incoming-active,
+  // outgoing] so the outgoing slide can fade out instead of popping out —
+  // never more than 2 <Image>s mounted either way.
+  const renderedIndices = Array.from(
+    new Set([activeIndex, outgoingIndex ?? nextIndex])
+  );
 
   return (
     <section
       id="overview"
-      className="relative h-[100svh] min-h-[560px] overflow-hidden scroll-mt-header md:h-screen"
+      className="relative h-[100svh] min-h-[560px] overflow-hidden bg-navy scroll-mt-header md:h-screen"
     >
       <div
         className={`absolute inset-0 transition-opacity duration-[800ms] ease-out ${
           mounted ? "opacity-100" : "opacity-0"
         }`}
       >
-        {SLIDES.map((slide, i) => {
-          const isActive = i === activeIndex;
+        {renderedIndices.map((index) => {
+          const slide = SLIDES[index];
+          const isActive = index === activeIndex;
+          const isFirstSlide = index === 0;
           return (
             <div
               key={slide.id}
@@ -114,12 +146,12 @@ export default function Hero() {
                 alt={slide.alt}
                 fill
                 sizes="100vw"
-                quality={85}
-                preload={i === 0}
-                loading={i === 0 ? "eager" : "lazy"}
-                fetchPriority={i === 0 ? "high" : undefined}
+                quality={75}
+                priority={isFirstSlide}
+                loading={isFirstSlide ? "eager" : "lazy"}
+                fetchPriority={isFirstSlide ? "high" : undefined}
                 className={`object-cover will-change-transform ${slide.mobileObjectPositionClass} md:object-center ${
-                  isActive ? slide.kenBurnsClass : ""
+                  isActive ? `hero-ken-burns ${slide.kenBurnsClass}` : ""
                 }`}
               />
             </div>
@@ -189,7 +221,7 @@ export default function Hero() {
               type="button"
               aria-label={`Go to slide ${i + 1}: ${slide.alt}`}
               aria-current={isActive}
-              onClick={() => setActiveIndex(i)}
+              onClick={() => goToSlide(i)}
               className="relative flex items-center justify-center before:absolute before:-inset-3 before:content-['']"
             >
               <span

@@ -37,6 +37,8 @@ function SpaceCard({ space, index }: { space: AvailableSpace; index: number }) {
             src={space.photos![0]}
             alt={`${space.block} ${space.floor}`}
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            loading="lazy"
             className="object-cover"
           />
         ) : (
